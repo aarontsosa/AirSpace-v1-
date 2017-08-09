@@ -7,18 +7,20 @@ const rl = readline.createInterface({
 
 const sessions = []
 
-rl.question('Host or Player? ', (answer) => {
-    if (answer === "Host") {
-        let uniqeID = giveUniqeId()
-        sessions.push(uniqeID)
-        console.log(uniqeID)
-        console.log(sessions)
-    } else if (answer === "Player") {
-        rl.question('Type in UniqeID: ', (ID) => {
-            validateID(ID)
-        })
-    } 
-})
+function StartUp() {
+    rl.question('Host or Player? ', (answer) => {
+        if (answer === "Host") {
+            let uniqeID = giveUniqeId()
+            sessions.push(uniqeID)
+            console.log(uniqeID)
+            console.log(sessions)
+        } else if (answer === "Player") {
+            rl.question('Type in UniqeID: ', (ID) => {
+                validateID(ID)
+            })
+        } 
+    })
+}
 
 function giveUniqeId(){
     let code = ('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')
@@ -44,4 +46,8 @@ function validateID(ID){
     } else {
         console.log("no key found.")
     }
+}
+
+module.export = {
+    startup: StartUp
 }
