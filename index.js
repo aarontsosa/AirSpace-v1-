@@ -7,7 +7,7 @@ const rl = readline.createInterface({
 
 const sessions = []
 
-function StartUp() {
+function startUp() {
     rl.question('Host or Player? ', (answer) => {
         if (answer === "Host") {
             let uniqeID = giveUniqeId()
@@ -48,6 +48,6 @@ function validateID(ID){
     }
 }
 
-module.export = {
-    startup: StartUp
+module.exports = {
+    startUp: startUp
 }

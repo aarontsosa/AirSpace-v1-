@@ -1,7 +1,9 @@
-const intro = require('./index')
-const socket = require('./socket')
+const HorP = require('./index.js')
+const socket = require('./socket.js')
 
 function main(){
-    socket.init()
-    intro.startup()
+    socket.init(HorP.startUp())
+    
 }
+
+main()

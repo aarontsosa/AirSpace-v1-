@@ -1,18 +1,14 @@
 const ws = require('ws')
-const server = new ws.Server({port:8888})
+const server = new ws.Server({ port:8888 });
 
-function broadcast (message) {
-    server.clients.forEach( (client) => {
-      client.send(message);
-  })
-}
 
 function init(callback) {
   server.on('connection', (socket) => {
+    socket.send("hello")
+    socket.send(callback)
   })
 }
 
 module.exports = {
-  broadcast: broadcast,
   init: init
 };
