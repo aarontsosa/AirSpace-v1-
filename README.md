@@ -24,6 +24,7 @@ Users can access the session via phone, tablet, or computer by going to a web ad
 ### 2. Initial Planning
 
 8-11-17
+
 We brainstormed what we wanted a barebones version of the application to look like, and ended up creating a list of first steps to implement:
 
 * Begin with simple method of sending information back and forth between two servers
