@@ -17,7 +17,7 @@
 
 [maybe a "how you came up with it" can go here]
 
-A service that allows users to connect to a main host and interact with the host and other users on their phones, tablets, or computers. The main host will be able to gather information, answer questions, or poll users in real time.
+A service that allows users to connect to a main host and interact with the host and other users. The main host will be able to gather information, answer questions, or poll users in real time.
 
 Users can access the session via phone, tablet, or computer by going to a web address and entering a password to join a session with other users.
 
