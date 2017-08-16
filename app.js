@@ -28,6 +28,8 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/host', host);
 app.use('/client', client);
+app.use('/session', client);
+app.use('/survey-create', host);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
