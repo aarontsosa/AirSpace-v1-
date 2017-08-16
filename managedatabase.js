@@ -1,12 +1,13 @@
 const db = require('./db');
 
 function addHostToDatabase(uniqueID){
-  return db.query(`
+  return db.one(`
     insert 
     into hosts(host_unique_id) 
       values ('${uniqueID}')
+      returning host_id;
   `).then((result) =>{
-    console.log("look a result! " + result);
+    console.log("look a result! " + result.host_id);
   });
 }
 

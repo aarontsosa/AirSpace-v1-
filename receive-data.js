@@ -1,5 +1,5 @@
 const ws = require('ws');
-var manageDatabase = require("./managedatabase");
+var manageDB = require("./managedatabase");
 
 
 // const server = require("./server")
@@ -24,7 +24,7 @@ function init(callback) {
     socket.on('message', (event)=>{
       console.log('we got a message');
       console.log(JSON.parse(event));
-      manageDatabase.createTable();
+      manageDB.createTable();
       
     })
   })

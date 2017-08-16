@@ -5,7 +5,6 @@ var manageDB = require("../managedatabase");
 router.get('/:uniqueid', function(req, res, next) {
 
     manageDB.addHostToDatabase(req.params.uniqueid);
-    manageDB.grabHostID(req.params.uniqueid);
     res.render('host', { 
         title: 'Host Page',
         key: req.params.uniqueid
