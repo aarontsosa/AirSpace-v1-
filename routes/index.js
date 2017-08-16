@@ -10,7 +10,7 @@ var uniqueID = Id.giveUniqueId();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express', uniqueID: uniqueID});
+  res.render('index', { title: 'AirTV', uniqueID: uniqueID});
 
 });
 

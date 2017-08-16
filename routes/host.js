@@ -20,7 +20,8 @@ router.post('/:uniqueid', function(req, res, next){
 
     // res.redirect(uniqueID + '/survey-create/');
     res.render('survey-create', {
-        title: 'Create a Survey'
+        title: 'Create a Survey',
+        key: req.params.uniqueid
     });
 
 });
