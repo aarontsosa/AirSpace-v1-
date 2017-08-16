@@ -1,4 +1,7 @@
 const ws = require('ws');
+var manageDatabase = require("./managedatabase");
+
+
 // const server = require("./server")
 
 const PORT = 3002; // Put in a real port number
@@ -10,9 +13,8 @@ function broadcast (message) {
   });
 }
 
-
-
 function init(callback) {
+  
   console.log('init ran')
   wsServer =  new ws.Server({ port: PORT });
   // Whatever callback gets passed in
@@ -21,7 +23,9 @@ function init(callback) {
     console.log("socket connection made");
     socket.on('message', (event)=>{
       console.log('we got a message');
-      console.log(event.data);
+      console.log(JSON.parse(event));
+      manageDatabase.createTable();
+      
     })
   })
   // wsServer.on('message', (socket)=>{
@@ -31,7 +35,7 @@ function init(callback) {
   
 
 }
-
+debugger;
 
 
 
