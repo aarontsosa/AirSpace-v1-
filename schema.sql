@@ -15,14 +15,14 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: -
 --
 
 CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 
 
 --
--- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: -
 --
 
 COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
@@ -35,7 +35,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: answers; Type: TABLE; Schema: public; Owner: timbrady
+-- Name: answers; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE answers (
@@ -44,10 +44,8 @@ CREATE TABLE answers (
 );
 
 
-ALTER TABLE answers OWNER TO timbrady;
-
 --
--- Name: answers_answer_id_seq; Type: SEQUENCE; Schema: public; Owner: timbrady
+-- Name: answers_answer_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE answers_answer_id_seq
@@ -58,29 +56,25 @@ CREATE SEQUENCE answers_answer_id_seq
     CACHE 1;
 
 
-ALTER TABLE answers_answer_id_seq OWNER TO timbrady;
-
 --
--- Name: answers_answer_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: timbrady
+-- Name: answers_answer_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE answers_answer_id_seq OWNED BY answers.answer_id;
 
 
 --
--- Name: host_survey; Type: TABLE; Schema: public; Owner: timbrady
+-- Name: host_survey; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE host_survey (
-    host_id integer not null,
-    survey_id integer not null
+    host_unique_id character varying(10),
+    survey_id character varying(20000)
 );
 
 
-ALTER TABLE host_survey OWNER TO timbrady;
-
 --
--- Name: hosts; Type: TABLE; Schema: public; Owner: timbrady
+-- Name: hosts; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE hosts (
@@ -89,10 +83,8 @@ CREATE TABLE hosts (
 );
 
 
-ALTER TABLE hosts OWNER TO timbrady;
-
 --
--- Name: hosts_host_id_seq; Type: SEQUENCE; Schema: public; Owner: timbrady
+-- Name: hosts_host_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE hosts_host_id_seq
@@ -103,17 +95,15 @@ CREATE SEQUENCE hosts_host_id_seq
     CACHE 1;
 
 
-ALTER TABLE hosts_host_id_seq OWNER TO timbrady;
-
 --
--- Name: hosts_host_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: timbrady
+-- Name: hosts_host_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE hosts_host_id_seq OWNED BY hosts.host_id;
 
 
 --
--- Name: questions; Type: TABLE; Schema: public; Owner: timbrady
+-- Name: questions; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE questions (
@@ -122,22 +112,18 @@ CREATE TABLE questions (
 );
 
 
-ALTER TABLE questions OWNER TO timbrady;
-
 --
--- Name: questions_answers; Type: TABLE; Schema: public; Owner: timbrady
+-- Name: questions_answers; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE questions_answers (
-    question_id integer not null,
-    answer_id integer not null
+    question_id character varying(20000),
+    answer_id character varying(20000)
 );
 
 
-ALTER TABLE questions_answers OWNER TO timbrady;
-
 --
--- Name: questions_question_id_seq; Type: SEQUENCE; Schema: public; Owner: timbrady
+-- Name: questions_question_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE questions_question_id_seq
@@ -148,29 +134,35 @@ CREATE SEQUENCE questions_question_id_seq
     CACHE 1;
 
 
-ALTER TABLE questions_question_id_seq OWNER TO timbrady;
-
 --
--- Name: questions_question_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: timbrady
+-- Name: questions_question_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE questions_question_id_seq OWNED BY questions.question_id;
 
 
 --
--- Name: survey_questions; Type: TABLE; Schema: public; Owner: timbrady
+-- Name: scores; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE survey_questions (
-    question_id integer not null,
-    survey_id integer not null
+CREATE TABLE scores (
+    name character varying(30) NOT NULL,
+    score integer NOT NULL
 );
 
 
-ALTER TABLE survey_questions OWNER TO timbrady;
+--
+-- Name: survey_questions; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE survey_questions (
+    question_id character varying(20000),
+    survey_id character varying(20000)
+);
+
 
 --
--- Name: surveys; Type: TABLE; Schema: public; Owner: timbrady
+-- Name: surveys; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE surveys (
@@ -179,10 +171,8 @@ CREATE TABLE surveys (
 );
 
 
-ALTER TABLE surveys OWNER TO timbrady;
-
 --
--- Name: surveys_survey_id_seq; Type: SEQUENCE; Schema: public; Owner: timbrady
+-- Name: surveys_survey_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE surveys_survey_id_seq
@@ -193,45 +183,43 @@ CREATE SEQUENCE surveys_survey_id_seq
     CACHE 1;
 
 
-ALTER TABLE surveys_survey_id_seq OWNER TO timbrady;
-
 --
--- Name: surveys_survey_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: timbrady
+-- Name: surveys_survey_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE surveys_survey_id_seq OWNED BY surveys.survey_id;
 
 
 --
--- Name: answers answer_id; Type: DEFAULT; Schema: public; Owner: timbrady
+-- Name: answers answer_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY answers ALTER COLUMN answer_id SET DEFAULT nextval('answers_answer_id_seq'::regclass);
 
 
 --
--- Name: hosts host_id; Type: DEFAULT; Schema: public; Owner: timbrady
+-- Name: hosts host_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY hosts ALTER COLUMN host_id SET DEFAULT nextval('hosts_host_id_seq'::regclass);
 
 
 --
--- Name: questions question_id; Type: DEFAULT; Schema: public; Owner: timbrady
+-- Name: questions question_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY questions ALTER COLUMN question_id SET DEFAULT nextval('questions_question_id_seq'::regclass);
 
 
 --
--- Name: surveys survey_id; Type: DEFAULT; Schema: public; Owner: timbrady
+-- Name: surveys survey_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY surveys ALTER COLUMN survey_id SET DEFAULT nextval('surveys_survey_id_seq'::regclass);
 
 
 --
--- Data for Name: answers; Type: TABLE DATA; Schema: public; Owner: timbrady
+-- Data for Name: answers; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY answers (answer_id, answer) FROM stdin;
@@ -239,14 +227,14 @@ COPY answers (answer_id, answer) FROM stdin;
 
 
 --
--- Name: answers_answer_id_seq; Type: SEQUENCE SET; Schema: public; Owner: timbrady
+-- Name: answers_answer_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('answers_answer_id_seq', 1, false);
 
 
 --
--- Data for Name: host_survey; Type: TABLE DATA; Schema: public; Owner: timbrady
+-- Data for Name: host_survey; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY host_survey (host_unique_id, survey_id) FROM stdin;
@@ -254,7 +242,7 @@ COPY host_survey (host_unique_id, survey_id) FROM stdin;
 
 
 --
--- Data for Name: hosts; Type: TABLE DATA; Schema: public; Owner: timbrady
+-- Data for Name: hosts; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY hosts (host_id, host_unique_id) FROM stdin;
@@ -262,14 +250,14 @@ COPY hosts (host_id, host_unique_id) FROM stdin;
 
 
 --
--- Name: hosts_host_id_seq; Type: SEQUENCE SET; Schema: public; Owner: timbrady
+-- Name: hosts_host_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('hosts_host_id_seq', 1, false);
 
 
 --
--- Data for Name: questions; Type: TABLE DATA; Schema: public; Owner: timbrady
+-- Data for Name: questions; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY questions (question_id, question) FROM stdin;
@@ -277,7 +265,7 @@ COPY questions (question_id, question) FROM stdin;
 
 
 --
--- Data for Name: questions_answers; Type: TABLE DATA; Schema: public; Owner: timbrady
+-- Data for Name: questions_answers; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY questions_answers (question_id, answer_id) FROM stdin;
@@ -285,14 +273,22 @@ COPY questions_answers (question_id, answer_id) FROM stdin;
 
 
 --
--- Name: questions_question_id_seq; Type: SEQUENCE SET; Schema: public; Owner: timbrady
+-- Name: questions_question_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('questions_question_id_seq', 1, false);
 
 
 --
--- Data for Name: survey_questions; Type: TABLE DATA; Schema: public; Owner: timbrady
+-- Data for Name: scores; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+COPY scores (name, score) FROM stdin;
+\.
+
+
+--
+-- Data for Name: survey_questions; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY survey_questions (question_id, survey_id) FROM stdin;
@@ -300,7 +296,7 @@ COPY survey_questions (question_id, survey_id) FROM stdin;
 
 
 --
--- Data for Name: surveys; Type: TABLE DATA; Schema: public; Owner: timbrady
+-- Data for Name: surveys; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY surveys (survey_id, survey_unique_id) FROM stdin;
@@ -308,14 +304,14 @@ COPY surveys (survey_id, survey_unique_id) FROM stdin;
 
 
 --
--- Name: surveys_survey_id_seq; Type: SEQUENCE SET; Schema: public; Owner: timbrady
+-- Name: surveys_survey_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('surveys_survey_id_seq', 1, false);
 
 
 --
--- Name: answers answers_pkey; Type: CONSTRAINT; Schema: public; Owner: timbrady
+-- Name: answers answers_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY answers
@@ -323,7 +319,7 @@ ALTER TABLE ONLY answers
 
 
 --
--- Name: hosts hosts_pkey; Type: CONSTRAINT; Schema: public; Owner: timbrady
+-- Name: hosts hosts_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY hosts
@@ -331,7 +327,7 @@ ALTER TABLE ONLY hosts
 
 
 --
--- Name: questions questions_pkey; Type: CONSTRAINT; Schema: public; Owner: timbrady
+-- Name: questions questions_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY questions
@@ -339,7 +335,7 @@ ALTER TABLE ONLY questions
 
 
 --
--- Name: surveys surveys_pkey; Type: CONSTRAINT; Schema: public; Owner: timbrady
+-- Name: surveys surveys_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY surveys
