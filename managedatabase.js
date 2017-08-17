@@ -21,7 +21,7 @@ function addSurveyToDatabase(survey_name){
     return result.survey_id;
   });
 }
- 
+
 
 function addClientName(object){
   return client_id = db.one(`
@@ -63,7 +63,38 @@ function addClientHost(client_id, host_id){
   `)
 }
 
+function questionEqualsQuestion(thing1, thing2){
+  return thing1 === thing2
+}
+
+function addQuestionArrayToDB(array){
+  array.forEach((element)=>{
+    db.one(`
+    insert into questions(question)
+      values ('${element}')
+      returning question_id
+    `)
+  });
+}
+function addAnswerstoDB(array){
+  array.forEach((element)=>{
+    db.one(`
+    insert into answers(answer)
+      values ('${element}')
+      returning answer_id
+    `)
+  });
+}
+
+function sendSurveyToDB(dataFromForm){
+  
+}
+
+
+
+
 module.exports = {
+    sendSurveyToDB: sendSurveyToDB,
     addHostToDatabase: addHostToDatabase, 
     addClientName: addClientName,
     addSurveyToDatabase: addSurveyToDatabase,
