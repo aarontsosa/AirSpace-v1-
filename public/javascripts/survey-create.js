@@ -13,15 +13,15 @@ function createTextBox(){
     });
     var questionInput = $("<input>", {
         'type': 'text',
-        'name':  counter + 'question'
+        'name':  'question ' + counter
     }) 
     var answer = $("<div>", {
-        'class': 'question',
-        'data-target': 'answer1' + counter,
+        'class': 'answer',
+        'data-target': 'answer' + counter
     });
     var answerInput = $("<input>", {
         'type': 'text',
-        'name':  counter + 'answer'
+        'name':  'answer' + counter
     }) 
     $(p).append(questionText);
     $(p).append(questionInput);

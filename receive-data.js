@@ -23,15 +23,15 @@ function init(callback) {
     socket.on('message', (event)=>{
       console.log('we got a message');
     var receivedData = JSON.parse(event);
-    if(receivedData.type='submit-survey'){
+    if(receivedData.type === 'submit-survey'){
       console.log('it sent');
       manageDB.addSurveyToDatabase(receivedData['Survey-Name'])
+      manageDB.addQuestionsToDatabase(receivedData);
+      manageDB.addAnswersToDatabase(receivedData);
     };
-      console.log();
-      if (receivedData.type === "client join"){
-        manageDB.addClientName(receivedData.client_name)
-      }
-      
+    if (receivedData.type === "client join"){
+      manageDB.addClientName(receivedData.client_name)
+    } 
     })
   })
   // wsServer.on('message', (socket)=>{
