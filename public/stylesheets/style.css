@@ -53,7 +53,7 @@ a {
       /* margin-top: 30%; */
       padding: 10%;
       border: 1px solid black;
-      font: 40px "Lucida Grande", Helvetica, Arial, sans-serif;      
+      font: 50px "Lucida Grande", Helvetica, Arial, sans-serif;      
       box-shadow: 20px 24px 60px 1px rgba(0,0,0,0.15);
     }
 
@@ -72,6 +72,21 @@ a {
       padding-top: 20px;
       padding-bottom: 20px;
       width: 175px;
+    }
+
+    .client-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .client-form div {
+      margin: 5%;
+    }
+    
+
+    input {
+      width: 80%;
     }
 
     .user-selection {
@@ -111,7 +126,7 @@ a {
 
   .welcome-container {
     /* margin-top: 15%; */
-    font: 30px "Lucida Grande", Helvetica, Arial, sans-serif;
+    /* font: 30px "Lucida Grande", Helvetica, Arial, sans-serif; */
   }
 }
 
