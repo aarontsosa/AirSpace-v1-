@@ -26,12 +26,12 @@ function init(callback) {
     if(receivedData.type === 'submit-survey'){
       console.log('it sent');
       manageDB.addSurveyToDatabase(receivedData['Survey-Name'])
+      manageDB.addQuestionsToDatabase(receivedData);
+      manageDB.addAnswersToDatabase(receivedData);
     };
-      console.log(receivedData);
-      if (receivedData.type === "client join"){
-        manageDB.addClientName(receivedData)
-      }
-      
+    if (receivedData.type === "client join"){
+      manageDB.addClientName(receivedData.client_name)
+    } 
     })
   })
   // wsServer.on('message', (socket)=>{
