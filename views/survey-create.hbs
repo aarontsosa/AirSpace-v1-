@@ -1,15 +1,23 @@
 <div class="main-container">
-    <h1>{{title}}</h1>
+    <h1 class="create-title">{{title}}</h1>
     <div class="survey-welcome-container">
+<<<<<<< HEAD
         <div class="survey-key" data-target="uniqueid">{{key}}</div>
         <form method="post" data-target="form" action="/host/{{key}}/{{id}}/new">
+=======
+        <div class="survey-identifier">
+            <p>Unique ID</p>
+            <div class="survey-key" data-target="uniqueid">{{key}}</div>
+        </div>
+        <form class="survey-form" method="post" data-target="form">
+>>>>>>> tweaks mobile media query-- looks pretty good right now-- going to work on other media queries now
             <div class="question-list" data-target='question-list'>
                 <div>
-                <p> Survey Name: <input type="text" name="Survey-Name"> </p>
+                <p> Survey Name <input class="survey-name" type="text" name="Survey-Name"> </p>
                 </div>
             </div>
-    <button type="button" data-target="add-question">Add another question</button>
-    <div><input type="submit" data-target="submit"></div>
+    <button class="add-question" type="button" data-target="add-question">Add Question</button>
+    <div class="survey-submit-div"><input class="survey-submit" type="submit" data-target="submit"></div>
     </form>
     <script src="../../javascripts/survey-create.js" type='text/javascript'></script>
 </div>

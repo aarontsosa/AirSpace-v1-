@@ -25,7 +25,6 @@ a {
       align-items: center;
       justify-content: space-around;
       width: 100%;
-
     }
 
     .key, .survey-key {
@@ -44,8 +43,43 @@ a {
       letter-spacing: 1px;
     }
 
+    .survey-name {
+      width: 100%;
+    }
+
+    .survey-form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .survey-submit,
+    .client-submit{
+      color: white;
+      margin-top: 10%;
+      width: 300px;
+    }
+
+    h1.create-title {
+      font-size: 72px;
+    }
+
+    .survey-submit-div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+
+    button.add-question {
+      background-color: rgba(0,0,0,0.15);
+      border-radius: 25px;
+      padding: 30px;
+      margin: 10%;
+    }
+
     .welcome-container,
-    .survey-welcome-container {
+    .survey-welcome-container,
+    .client-welcome-container {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -55,6 +89,21 @@ a {
       border: 1px solid black;
       font: 50px "Lucida Grande", Helvetica, Arial, sans-serif;      
       box-shadow: 20px 24px 60px 1px rgba(0,0,0,0.15);
+    }
+
+    .survey-welcome-container {
+      justify-content: space-around;
+    }
+
+    .client-welcome-container form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .client-welcome-container form
+    input {
+      margin: 10%;
     }
 
     p.host-welcome {
@@ -99,11 +148,12 @@ a {
     .client-form div {
       margin: 5%;
     }
-    
 
-    input {
-      width: 80%;
-      /* background-color: rgba(0,0,0,.05); */
+    input.create-survey {
+      width: 400px;
+      padding: 10%;
+      border-radius: 40px;
+      color: white;
     }
 
     .user-selection {
