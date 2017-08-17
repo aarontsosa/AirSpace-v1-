@@ -64,6 +64,7 @@ ALTER SEQUENCE answers_answer_id_seq OWNED BY answers.answer_id;
 
 
 --
+<<<<<<< HEAD
 -- Name: client_host; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -113,6 +114,18 @@ CREATE TABLE host_survey (
 
 
 --
+=======
+-- Name: host_survey; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE host_survey (
+    host_unique_id character varying(10),
+    survey_id character varying(20000)
+);
+
+
+--
+>>>>>>> styles welcome page, host page, and begin styling survey page-- only problem is everything is kind of huge right now
 -- Name: hosts; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -156,8 +169,13 @@ CREATE TABLE questions (
 --
 
 CREATE TABLE questions_answers (
+<<<<<<< HEAD
     question_id integer NOT NULL,
     answer_id integer NOT NULL
+=======
+    question_id character varying(20000),
+    answer_id character varying(20000)
+>>>>>>> styles welcome page, host page, and begin styling survey page-- only problem is everything is kind of huge right now
 );
 
 
@@ -195,8 +213,13 @@ CREATE TABLE scores (
 --
 
 CREATE TABLE survey_questions (
+<<<<<<< HEAD
     question_id integer NOT NULL,
     survey_id integer NOT NULL
+=======
+    question_id character varying(20000),
+    survey_id character varying(20000)
+>>>>>>> styles welcome page, host page, and begin styling survey page-- only problem is everything is kind of huge right now
 );
 
 
@@ -237,6 +260,7 @@ ALTER TABLE ONLY answers ALTER COLUMN answer_id SET DEFAULT nextval('answers_ans
 
 
 --
+<<<<<<< HEAD
 -- Name: clients client_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -244,6 +268,8 @@ ALTER TABLE ONLY clients ALTER COLUMN client_id SET DEFAULT nextval('clients_cli
 
 
 --
+=======
+>>>>>>> styles welcome page, host page, and begin styling survey page-- only problem is everything is kind of huge right now
 -- Name: hosts host_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -280,6 +306,7 @@ SELECT pg_catalog.setval('answers_answer_id_seq', 1, false);
 
 
 --
+<<<<<<< HEAD
 -- Data for Name: client_host; Type: TABLE DATA; Schema: public; Owner: -
 --
 
@@ -303,6 +330,8 @@ SELECT pg_catalog.setval('clients_client_id_seq', 1, false);
 
 
 --
+=======
+>>>>>>> styles welcome page, host page, and begin styling survey page-- only problem is everything is kind of huge right now
 -- Data for Name: host_survey; Type: TABLE DATA; Schema: public; Owner: -
 --
 
@@ -388,6 +417,7 @@ ALTER TABLE ONLY answers
 
 
 --
+<<<<<<< HEAD
 -- Name: client_host client_host_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -404,6 +434,8 @@ ALTER TABLE ONLY clients
 
 
 --
+=======
+>>>>>>> styles welcome page, host page, and begin styling survey page-- only problem is everything is kind of huge right now
 -- Name: hosts hosts_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
