@@ -23,13 +23,13 @@ function init(callback) {
     socket.on('message', (event)=>{
       console.log('we got a message');
     var receivedData = JSON.parse(event);
-    if(receivedData.type='submit-survey'){
+    if(receivedData.type === 'submit-survey'){
       console.log('it sent');
       manageDB.addSurveyToDatabase(receivedData['Survey-Name'])
     };
-      console.log();
+      console.log(receivedData);
       if (receivedData.type === "client join"){
-        manageDB.addClientName(receivedData.client_name)
+        manageDB.addClientName(receivedData)
       }
       
     })
