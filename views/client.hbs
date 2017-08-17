@@ -4,9 +4,10 @@
 
 <form method="POST">
     <div>Please enter Host ID</div>
-    <input type='text' name="host-id">
+    <input type='text' name="host-id" data-target="host_id">
     <div>Please enter your name</div>
-    <input type='text' name="client-name">
+    <input type='text' name="client-name" data-target="name_id">
     <br>
-    <input type="submit" data-target="connect-to-host" onclick="location.href='/$()'">
+    <input type="button" data-target="connect-to-host" value="Submit">
 </form>
+<script src="../javascripts/clientside.js" type="text/javascript"></script>

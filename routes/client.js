@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../db');
+const ws = require('ws');
 
 router.get('/', function(req, res, next) {
     res.render('client', { title: 'Express' });

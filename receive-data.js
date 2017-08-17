@@ -14,7 +14,6 @@ function broadcast (message) {
 }
 
 function init(callback) {
-  
   console.log('init ran')
   wsServer =  new ws.Server({ port: PORT });
   // Whatever callback gets passed in
@@ -23,8 +22,11 @@ function init(callback) {
     console.log("socket connection made");
     socket.on('message', (event)=>{
       console.log('we got a message');
-      console.log(JSON.parse(event));
-      manageDB.createTable();
+      console.log();
+      object = JSON.parse(event)
+      if (object.type === "client join"){
+        manageDB.addClientName(object.client_name)
+      }
       
     })
   })

@@ -26,6 +26,13 @@ function createTable(uniqueID){
   `).catch(console.log); 
 }   
 
+function addClientName(clientName){
+  return db.one(`
+      INSERT INTO clients(client_name) 
+      VALUES('${object.client_name}') 
+      RETURNING client_id;
+  `).catch(console.log)
+}
 // function addElements(obj){
 //   for k in Object.keys(obj){
 //     console.log(k)
@@ -35,7 +42,8 @@ function createTable(uniqueID){
 module.exports = {
     addHostToDatabase: addHostToDatabase, 
     createTable: createTable,
-    grabHostID: grabHostID  
+    grabHostID: grabHostID,
+    addClientName: addClientName
   };
 
 
