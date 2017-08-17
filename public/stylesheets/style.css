@@ -40,7 +40,7 @@ a {
 
     h1.title {
       font-style: italic;
-      font-size: 100px;
+      font-size: 150px;
       letter-spacing: 1px;
     }
 
@@ -71,7 +71,7 @@ a {
       border-radius: 25px;
       padding-top: 20px;
       padding-bottom: 20px;
-      width: 175px;
+      width: 200px;
     }
 
     .client-form {
@@ -87,6 +87,7 @@ a {
 
     input {
       width: 80%;
+      /* background-color: rgba(0,0,0,.05); */
     }
 
     .user-selection {
@@ -121,7 +122,7 @@ a {
 /*Tablet*/
 @media only screen and (min-width : 750px) {
   h1.title {
-    font-size: 4rem;
+    /* font-size: 4rem; */
   }
 
   .welcome-container {
