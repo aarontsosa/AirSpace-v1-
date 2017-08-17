@@ -21,9 +21,14 @@ a {
 
     }
 
-    h1.key {
+    .key, .survey-key {
       border: 1px solid black;
       padding: 20px;
+    }
+
+    .survey-key {
+      margin-bottom: 30px;
+      align-self: flex-start;
     }
 
     h1.title {
@@ -32,7 +37,8 @@ a {
       letter-spacing: 1px;
     }
 
-    .welcome-container {
+    .welcome-container,
+    .survey-welcome-container {
       display: flex;
       flex-direction: column;
       align-items: center;
