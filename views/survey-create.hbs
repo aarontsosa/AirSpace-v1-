@@ -1,12 +1,18 @@
-{{title}}
-{{key}}
-<form method="post" data-target="form">
-    <div class="question-list" data-target='question-list'>
-        <div>
-        <p> Survey Name: <input type="text" name="Survey Name"> </p>
-        </div>
-    </div>
+<div class="main-container">
+    <h1>{{title}}</h1>
+    <div class="survey-welcome-container">
+        <div class="survey-key" data-target="uniqueid">{{key}}</div>
+        <form method="post" data-target="form">
+            <div class="question-list" data-target='question-list'>
+                <div>
+                <p> Survey Name: <input type="text" name="Survey Name"> </p>
+                </div>
+            </div>
     <button type="button" data-target="add-question">Add another question</button>
     <div><input type="submit" data-target="submit"></div>
-</form>
-<script src="../../javascripts/survey-create.js" type='text/javascript'></script>
+            <button type="button" data-target="add-question">Add another question</button>
+            <div><input type="submit" data-target="submit"></div>
+        </form>
+        <script src="../javascripts/survey-create.js" type='text/javascript'></script>
+    </div>
+<div>
