@@ -23,7 +23,11 @@ function init(callback) {
     console.log("socket connection made");
     socket.on('message', (event)=>{
       console.log('we got a message');
-      console.log(JSON.parse(event));
+    var receivedData = JSON.parse(event);
+    if(receivedData.type='submit-survey'){
+      console.log('it sent');
+      manageDB.addSurveyToDatabase(receivedData['Survey-Name'])
+    };
       
       
     })
@@ -35,7 +39,6 @@ function init(callback) {
   
 
 }
-debugger;
 
 
 
