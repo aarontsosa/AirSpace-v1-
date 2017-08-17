@@ -1,8 +1,108 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  text-decoration: none;
+  /* color: #00B7FF; */
+  color: white;
 }
+
+/*Phone*/ 
+@media only screen and (min-width : 300px) {  
+
+    .main-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      width: 100%;
+
+    }
+
+    h1.key {
+      border: 1px solid black;
+      padding: 20px;
+    }
+
+    h1.title {
+      font-style: italic;
+      font-size: 100px;
+      letter-spacing: 1px;
+    }
+
+    .welcome-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      /* margin-top: 30%; */
+      padding: 10%;
+      border: 1px solid black;
+      font: 40px "Lucida Grande", Helvetica, Arial, sans-serif;      
+      box-shadow: 20px 24px 60px 1px rgba(0,0,0,0.15);
+    }
+
+    p.host-welcome {
+      margin: 10%;
+    }
+
+    .host-button, .client-button,
+    input {
+      /* padding: 5%; */
+      background-color:#00B7FF;
+      border-radius: 25px;
+      padding: 40px;
+    }
+
+    .user-selection {
+      margin-top: 5%;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+    }
+  }
+
+/*Phone*/
+@media only screen and (min-width : 300px) and (orientation: landscape) {
+  .welcome-container {
+    margin-top: 0;
+    padding: 50px;
+  }
+
+  p {
+    margin: 5px;
+  }
+
+  h1.title {
+    font-style: italic;
+    font-size: 50px;
+    letter-spacing: 1px;
+  }
+
+}
+
+/*Tablet*/
+@media only screen and (min-width : 750px) {
+  h1.title {
+    font-size: 5rem;
+  }
+
+  .welcome-container {
+    /* margin-top: 15%; */
+    font: 30px "Lucida Grande", Helvetica, Arial, sans-serif;
+  }
+}
+
+/*Tablet*/
+@media only screen and (min-width : 750px) and (orientation: landscape) {
+  .welcome-container {
+    /* margin-top: 10%; */
+  }
+}
+
+/*Desktop*/
+@media only screen and (min-width : 1200px) {}
