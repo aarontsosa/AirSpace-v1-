@@ -35,7 +35,7 @@ function format(data){
     var urlPathParts = window.location.pathname.split("/");
     var uniqueID = urlPathParts[urlPathParts.length - 1];
     console.log(uniqueID);
-    dataObject['id'] = uniqueID;
+    dataObject['type'] = "submit-survey";
     data.serializeArray().forEach(function(key){
         dataObject[key.name] = key.value;
     })
