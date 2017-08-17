@@ -1,4 +1,8 @@
 .DS_Store
 node_modules
 schema.sql
+<<<<<<< HEAD
 .env
+=======
+.env
+>>>>>>> 4720df7f1405647c6cef56990a1485262eb73b23
