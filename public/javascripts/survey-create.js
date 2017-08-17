@@ -1,21 +1,33 @@
 let socket = new WebSocket('ws://localhost:3002');
 
-var counter = 1
+var counter = 0
 function createTextBox(){
     var location = $("[data-target='question-list']")
     counter ++;
-    var text = $("<p>" + "Question " + (counter)+ ": </p>");
+    var p = $("<p></p>");
+    var questionText= "Question " + (counter)+ ": "
+    var answerText = " Answer " + (counter)+ ": "
     var question = $("<div>", {
         'class': 'question',
         'data-target': 'question' + counter,
     });
-    var input = $("<input>", {
+    var questionInput = $("<input>", {
         'type': 'text',
         'name':  counter + 'question'
     }) 
-    $(text).append(input);
-    $(question).append(text)
-    $(location).append(question);
+    var answer = $("<div>", {
+        'class': 'question',
+        'data-target': 'answer1' + counter,
+    });
+    var answerInput = $("<input>", {
+        'type': 'text',
+        'name':  counter + 'answer'
+    }) 
+    $(p).append(questionText);
+    $(p).append(questionInput);
+    $(p).append(answerText);
+    $(p).append(answerInput);
+    $(location).append(p);
     
 }
 function format(data){
@@ -39,28 +51,10 @@ $("[data-target='submit']").on('click', function(event){
     console.log("hello")
     // event.preventDefault();
     var finishedQuestions = format($("[data-target='form']"))
-    
-    // console.log(uniqueID);
     console.log(finishedQuestions);
     sendToWebSocket(finishedQuestions);
 })
 
-
-function test(){
-    db.query(`
-    select * from jz6d;
-    `).then(console.log)
-}
-// function submitQuestions(finishedQuestions){
-//     db.query(`
-        
-//     `)
-// }
-
-// var msg = {
-//     type: "message",
-//     text: "hey guys",
-//   };
 
 function sendToWebSocket(message){
     

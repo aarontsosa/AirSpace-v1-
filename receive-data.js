@@ -24,7 +24,7 @@ function init(callback) {
     socket.on('message', (event)=>{
       console.log('we got a message');
       console.log(JSON.parse(event));
-      manageDB.createTable();
+      
       
     })
   })

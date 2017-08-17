@@ -7,35 +7,24 @@ function addHostToDatabase(uniqueID){
       values ('${uniqueID}')
       returning host_id;
   `).then((result) =>{
-    console.log("look a result! " + result.host_id);
+      
+      return result.host_id;
   });
-}
 
-function grabHostID(uniqueID){
-  return db.query(`
-    select host_id from hosts where host_unique_id = '${uniqueID}'
-  `).then(console.log)
-}
-
-function createTable(uniqueID){
+function addSurveyToDatabase(){
   return db.one(`
-    CREATE TABLE ${uniqueID}1(
-        questionID serial primary key,
-        question varchar(100) not null
-      );
-  `).catch(console.log); 
-}   
+  insert into surveys(survey_name)
+    values ('tims survey')
+    returning survey_id;
+  `).then(result =>{
+    return result.survey_id;
+  })
+}
 
-// function addElements(obj){
-//   for k in Object.keys(obj){
-//     console.log(k)
-//   }
-// }
+}
 
 module.exports = {
     addHostToDatabase: addHostToDatabase, 
-    createTable: createTable,
-    grabHostID: grabHostID  
   };
 
 
