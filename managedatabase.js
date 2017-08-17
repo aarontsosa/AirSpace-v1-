@@ -21,24 +21,18 @@ function addSurveyToDatabase(survey_name){
     return result.survey_id;
   });
 }
+ 
+
+function addClientName(clientName){
+  return db.one(`
+      INSERT INTO clients(client_name) 
+      VALUES('${object.client_name}') 
+      RETURNING client_id;
+  `).catch(console.log)
+}
 
 module.exports = {
     addHostToDatabase: addHostToDatabase, 
+    addClientName: addClientName,
     addSurveyToDatabase: addSurveyToDatabase
   };
-
-
-  // create table ${uniqueID}(
-  //   client_id serial primary key
-
-
-
-  // CREATE TABLE host1(
-  //   client_id integer primary key,
-  //   name varchar(100) not null
-  // );
-  
-
-  // .then((results)=>{
-  //   // console.log(results)
-  // })

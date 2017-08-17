@@ -14,7 +14,6 @@ function broadcast (message) {
 }
 
 function init(callback) {
-  
   console.log('init ran')
   wsServer =  new ws.Server({ port: PORT });
   // Whatever callback gets passed in
@@ -28,7 +27,10 @@ function init(callback) {
       console.log('it sent');
       manageDB.addSurveyToDatabase(receivedData['Survey-Name'])
     };
-      
+      console.log();
+      if (receivedData.type === "client join"){
+        manageDB.addClientName(receivedData.client_name)
+      }
       
     })
   })
