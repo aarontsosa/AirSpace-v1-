@@ -72,8 +72,24 @@ a {
       padding-top: 20px;
       padding-bottom: 20px;
       width: 200px;
+   /* }
+
+    .client-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
+    .client-form div {
+      margin: 5%;
+    }
+    
+
+    input {
+      width: 80%;
+      background-color: rgba(0,0,0,.05); */
+    }
+    
     .client-form {
       display: flex;
       flex-direction: column;
@@ -88,21 +104,6 @@ a {
     input {
       width: 80%;
       /* background-color: rgba(0,0,0,.05); */
-    }
-
-    .client-form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .client-form div {
-      margin: 5%;
-    }
-    
-
-    input {
-      width: 80%;
     }
 
     .user-selection {
