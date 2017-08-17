@@ -1,12 +1,14 @@
-<h1>{{title}}</h1>
-<h1>{{key}}</h1>
-<p>Welcome to the client page</p>
-
-<form method="POST">
-    <div>Please enter Host ID</div>
-    <input type='text' name="host-id">
-    <div>Please enter your name</div>
-    <input type='text' name="client-name">
-    <br>
-    <input type="submit" data-target="connect-to-host" onclick="location.href='/$()'">
-</form>
+<div class="main-container">
+    <div class="welcome-container">
+        {{!-- <h1>{{key}}</h1> --}}
+        <h1>Client Page</h1>
+        <form method="POST">
+            <div>Please enter your host key</div>
+            <input type='text' name="host-id">
+            <div>Please enter your name</div>
+            <input type='text' name="client-name">
+            <br>
+            <input type="submit" data-target="connect-to-host" onclick="location.href='/$()'">
+        </form>
+    </div>
+</div>
