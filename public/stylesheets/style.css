@@ -16,6 +16,13 @@ a {
   color: white;
 }
 
+
+#video-background {
+  position: fixed;
+  border: 10px solid red;
+  z-index: -1;
+}
+
 .nav {
   position: fixed;
   left: 0;
@@ -287,15 +294,76 @@ a {
 
 /*Tablet*/
 @media only screen and (min-width : 750px) and (orientation: landscape) {
-  .welcome-container {
-    /* margin-top: 10%; */
+
+  h1.title {
+    font-size: 4rem;
   }
+
+  .host-button, .client-button {
+    width: 300px;
+  }
+
+  .nav__container {
+      display: flex;
+      justify-content: flex-end;
+      margin: 0 auto;
+      height: 100%;
+      max-width: 800px;
+    }
+
+    .nav__title {
+      flex: 1;
+      align-self: flex-start;
+      float: none;
+      height: 100%;
+    }
+
+    .nav__list {
+      display: flex;
+      position: static;
+      width: auto;
+      height: auto;
+      background-color: transparent;
+      opacity: 1;
+    }
+
+    .nav__item {
+      display: flex;
+      align-items: center;
+       /* this may be the incorrect size*/
+    }
+
+    .nav__link {
+      padding: 0 30px;
+      transition: color 150ms ease-out;
+    
+    }
+
+    .nav:hover {
+        color: blue;
+    }
+
+    .nav__burger {
+      display: none;
+    }
+  
+
+    .welcome-container {
+      border: none;
+      box-shadow: none;
+      /* font-size: 2rem; */
+    }
 }
 
 /*Desktop*/
 @media only screen and (min-width : 1200px) {
+  
   h1.title {
     font-size: 5rem;
+  }
+
+  .main-container {
+    position: relative;
   }
 
   .welcome-container {
@@ -303,18 +371,29 @@ a {
     box-shadow: none;
     font-size: 2rem;
   }
-  
+
+
+  div.user-selection {
+    justify-content: space-between;
+  }
+
+  .host-button, .client-button {
+    width: 250px;
+    margin: 0 50px;
+  }
+/* 
   footer {
     margin: 0;
     padding: 0;
-  /*  Background fallback in case of IE8 & down, or in case video doens't load, such as with slower connections  */
+   Background fallback in case of IE8 & down, or in case video doens't load, such as with slower connections 
     background: #333;
     background-attachment: fixed;
     background-size: cover;
   }
-  /* The only rule that matters */
+  
+  The only rule that matters
   #video-background {
-  /*  making the video fullscreen  */
+   making the video fullscreen 
     position: fixed;
     right: 0; 
     bottom: 0;
@@ -322,6 +401,8 @@ a {
     min-height: 100%;
     width: auto; 
     height: auto;
-    z-index: -100;
-  }
+    z-index: 0;
+  
+} */
+
 }
