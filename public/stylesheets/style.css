@@ -16,6 +16,94 @@ a {
   color: white;
 }
 
+.nav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #191919;
+}
+.nav__container {
+  padding: 0 15px;
+}
+.nav__title {
+  float: left;
+  margin: 0;
+  height: 60px;
+}
+.nav__title-link {
+  display: flex;
+  align-items: center;
+  padding-left: 0;
+  height: 100%;
+  color: #eee;
+  font-size: 22px;
+  font-weight: 700;
+  text-align: left;
+  letter-spacing: 2px;
+}
+.nav__title-link:hover {
+  color: #eee;
+}
+.nav__list {
+  position: absolute;
+  left: 0;
+  top: 60px;
+  width: 100%;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  background-color: #191919;
+  list-style: none;
+  opacity: 0;
+  overflow: hidden;
+  transition: opacity 300ms ease-out, height 0ms linear 300ms;
+}
+.nav__link {
+  display: block;
+  padding: 15px 0;
+  color: #eee;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+.nav__burger {
+  float: right;
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+.nav__burger:before, .nav__burger:after {
+  content: '';
+  position: absolute;
+  left: 10px;
+  width: 40px;
+  height: 4px;
+  background-color: #eee;
+  transform-origin: 50% 50%;
+  transition: transform 275ms ease;
+}
+.nav__burger:before {
+  top: 22px;
+}
+.nav__burger:after {
+  top: 34px;
+}
+
+.nav--opened .nav__list {
+  height: 100vh;
+  opacity: 1;
+  transition: opacity 300ms ease-out;
+}
+.nav--opened .nav__burger:before {
+  transform: translate3d(0, 6px, 0) rotate(-45deg);
+}
+.nav--opened .nav__burger:after {
+  transform: translate3d(0, -6px, 0) rotate(45deg);
+}
+
+
 /*Phone*/ 
 @media only screen and (min-width : 300px) {  
 
@@ -205,4 +293,35 @@ a {
 }
 
 /*Desktop*/
-@media only screen and (min-width : 1200px) {}
+@media only screen and (min-width : 1200px) {
+  h1.title {
+    font-size: 5rem;
+  }
+
+  .welcome-container {
+    border: none;
+    box-shadow: none;
+    font-size: 2rem;
+  }
+  
+  footer {
+    margin: 0;
+    padding: 0;
+  /*  Background fallback in case of IE8 & down, or in case video doens't load, such as with slower connections  */
+    background: #333;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  /* The only rule that matters */
+  #video-background {
+  /*  making the video fullscreen  */
+    position: fixed;
+    right: 0; 
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    width: auto; 
+    height: auto;
+    z-index: -100;
+  }
+}
