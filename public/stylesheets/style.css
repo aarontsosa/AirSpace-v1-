@@ -5,9 +5,19 @@ html {
   box-sizing: inherit;
 }
 
+@font-face {
+  font-family: Sarala;
+  src: url(fonts/Sarala/Sarala-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Baloo;
+  src: url(fonts/Baloo/Baloo-Regular.ttf) format("truetype");
+}
+
 body {
   padding: 50px;
-  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
@@ -17,9 +27,9 @@ a {
 }
 
 
+
 #video-background {
   position: fixed;
-  border: 10px solid red;
   z-index: -1;
 }
 
@@ -28,8 +38,8 @@ a {
   left: 0;
   top: 0;
   width: 100%;
-  height: 60px;
-  background-color: #191919;
+  /* height: 60px; */
+  background-color: white;
 }
 .nav__container {
   padding: 0 15px;
@@ -70,7 +80,8 @@ a {
 .nav__link {
   display: block;
   padding: 15px 0;
-  color: #eee;
+  font-weight: bold;
+  color: white;
   text-align: center;
   text-decoration: none;
   letter-spacing: 1px;
@@ -134,6 +145,7 @@ a {
 
     h1.title {
       font-style: italic;
+      font-family: Baloo, "Lucida Grande", Helvetica, Arial, sans-serif;
       font-size: 150px;
       letter-spacing: 1px;
     }
@@ -182,7 +194,7 @@ a {
       /* margin-top: 30%; */
       padding: 10%;
       border: 1px solid black;
-      font: 50px "Lucida Grande", Helvetica, Arial, sans-serif;      
+      font-size: 50px;    
       box-shadow: 20px 24px 60px 1px rgba(0,0,0,0.15);
     }
 
@@ -295,18 +307,48 @@ a {
 /*Tablet*/
 @media only screen and (min-width : 750px) and (orientation: landscape) {
 
+  .nav {
+    background-color: #5271FF;
+  }
+
+  .welcome-container p {
+    text-shadow: 1px 1px 1px #1B3050;
+  }
+
   h1.title {
-    font-size: 4rem;
+    /* margin-top: 10%; */
+    /* margin-bottom: 0; */
+    font-size: 3.5rem;
+    margin-left: 5%;
+    color: white;
+  }
+
+  .host-button,
+  .client-button {
+    background-color: #5271FF;
+  }
+
+  .welcome-container {
+    font-size: 40px;
+    color: white;
+    margin-top: 20%;
+  }
+
+  .user-selection {
+    margin-top: 7.5%;
   }
 
   .host-button, .client-button {
-    width: 300px;
+    font-size: 30px;
+    width: 200px;
   }
 
   .nav__container {
       display: flex;
-      justify-content: flex-end;
-      margin: 0 auto;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      /* margin: 0 auto; */
       height: 100%;
       max-width: 800px;
     }
@@ -316,15 +358,20 @@ a {
       align-self: flex-start;
       float: none;
       height: 100%;
+      color: blue;
+      padding: 10%;
     }
 
     .nav__list {
       display: flex;
-      position: static;
-      width: auto;
+      /* width: auto; */
+      width: 100%;
       height: auto;
       background-color: transparent;
       opacity: 1;
+      font-size: 25px;
+      flex-direction: row;
+      justify-content: flex-end;
     }
 
     .nav__item {
