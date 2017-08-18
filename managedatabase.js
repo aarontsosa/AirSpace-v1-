@@ -28,6 +28,14 @@ function addSurveyAndHostToDatabase(surveyID, hostID){
       values (${hostID}, ${surveyID})
       returning survey_id
   `).then(result=>{return result.survey_id}).catch(console.log);
+}
+
+function addSurveyAndHostToDatabase(surveyID, hostID){
+  return derp = db.one(`
+    insert into host_survey(host_id, survey_id)
+      values (${hostID}, ${surveyID})
+      returning survey_id
+  `).then(result=>{return result.survey_id}).catch(console.log);
 } 
 
 function addClientName(object){
@@ -68,6 +76,49 @@ function addClientHost(client_id, host_id){
       VALUES(${client_id}, ${host_id}) 
       RETURNING client_id, host_id
   `)
+}
+
+function addQuestionsAnswersSurveyToDB(data, surveyID){
+  if (Object.keys(data).length < 2){
+    return;
+  }
+  Object.keys(data.question).forEach((qAndA)=>{
+    
+    questionID = db.one(`
+      insert into questions(question)
+        values ('${data.question[qAndA]['text']}')
+        returning question_id
+      `).then(result =>{
+        db.one(`insert into survey_questions(question_id, survey_id)
+        values (${result.question_id}, ${surveyID})
+        returning question_id
+        `).then(result=>{
+          var theQuestionId = result.question_id
+          db.one(`
+            insert into answers(answer)
+              values('${data.question[qAndA]['answer']}')
+              returning answer_id
+          `).then(result=>{
+            db.one(`
+            insert into questions_answers(question_id, answer_id)
+              values(${theQuestionId}, ${result.answer_id})
+              returning answer_id
+            `).catch(console.log);
+          })
+        }).catch(console.log)
+      }).catch(console.log)
+      //console.log(questionID);
+  });
+}
+
+function addAnswerstoDB(array){
+  array.forEach((element)=>{
+    db.one(`
+    insert into answers(answer)
+      values ('${element}')
+      returning answer_id
+    `)
+  });
 }
 
 function addQuestionsAnswersSurveyToDB(data, surveyID){
