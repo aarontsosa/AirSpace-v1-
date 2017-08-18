@@ -4,6 +4,13 @@
         <h1>{{title}}</h1>
         <p>Host DashBoard</p>
         <p></p>
-        <h1 class="key">{{key}}</h1>
+        <h1 class="key">{{uniqueid}}</h1>
+        <p>derp</p>
     </div>
 </div>
+<button type="button" data-target="activate-survey" data-survey-id='{{surveyid}}'>Click to activate your survey</button>
+
+<script src="../../../javascripts/host-dashboard.js" type='text/javascript'></script>
+
+{{!-- click activate and send of the host and survey id 
+on the web socket out to on the receiving message part and make sure the id and url  --}}

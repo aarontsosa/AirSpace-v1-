@@ -27,6 +27,9 @@ router.get('/:hostid/:name', function(req, res, next){
     });
 })
 
+//set up a websocket above where it checks if the hostid is the same as the one that is being sent and if
+//it is then it will redirect them to the link below and render now
+
 router.get('/:hostid/:name/:survey', function(req, res, next){
     manageDB.getQuestions(req.params.survey, req.params.hostid).then(result => {
         res.render('survey', {
