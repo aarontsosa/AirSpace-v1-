@@ -4,11 +4,13 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+// var multer = require('multer');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
 var host = require('./routes/host');
 var client = require('./routes/client');
+var hostDashboard = require('./routes/host-dashboard');
 
 
 var app = express();
@@ -29,8 +31,9 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/host', host);
 app.use('/client', client);
-app.use('/session', client);
-app.use('/survey-create', host);
+// app.use('/session', client);
+// app.use('/survey-create', host);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
