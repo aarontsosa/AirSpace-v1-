@@ -13,8 +13,6 @@ function createTextBox(){
     });
     var questionInput = $("<input>", {
         'type': 'text',
-<<<<<<< HEAD
-<<<<<<< HEAD
         'name':  'question'+ "[" + counter + "]" + "["+ 'text'+ "]"
     }) 
     var answer = $("<div>", {
@@ -25,11 +23,6 @@ function createTextBox(){
     var answerInput = $("<input>", {
         'type': 'text',
         'name':  'question' + "[" + counter + "]" + "["+ 'answer' + "]"
-=======
-        'name':  'question ' + counter
-=======
-        'name':  'question'+ "[" + counter + "]" + "["+ 'text'+ "]"
->>>>>>> adds questions to the database, adds survey_questions to the db
     }) 
     var answer = $("<div>", {
         'class': 'answer',
@@ -38,12 +31,7 @@ function createTextBox(){
     });
     var answerInput = $("<input>", {
         'type': 'text',
-<<<<<<< HEAD
-        'name':  'answer' + counter
->>>>>>> adds stuff to the database but it needs to be redone with promises
-=======
         'name':  'question' + "[" + counter + "]" + "["+ 'answer' + "]"
->>>>>>> adds questions to the database, adds survey_questions to the db
     }) 
     $(p).append(questionText);
     $(p).append(questionInput);
