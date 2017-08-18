@@ -2,8 +2,8 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 9.6.3
--- Dumped by pg_dump version 9.6.3
+-- Dumped from database version 9.6.4
+-- Dumped by pg_dump version 9.6.4
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -35,6 +35,35 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
+-- Name: clients; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE clients (
+    client_id integer NOT NULL,
+    client_name character varying(50) NOT NULL
+);
+
+
+--
+-- Name: Clients_client_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE "Clients_client_id_seq"
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: Clients_client_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE "Clients_client_id_seq" OWNED BY clients.client_id;
+
+
+--
 -- Name: answers; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -64,111 +93,13 @@ ALTER SEQUENCE answers_answer_id_seq OWNED BY answers.answer_id;
 
 
 --
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 -- Name: client_host; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE client_host (
     client_id integer NOT NULL,
-    host_id integer NOT NULL
+    host_id integer
 );
-
-
---
--- Name: clients; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE clients (
-    client_id integer NOT NULL,
-    client_name character varying(50) NOT NULL
-);
-
-
---
--- Name: clients_client_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE clients_client_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: clients_client_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE clients_client_id_seq OWNED BY clients.client_id;
-
-
---
-=======
->>>>>>> 4720df7f1405647c6cef56990a1485262eb73b23
--- Name: host_survey; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE host_survey (
-    host_unique_id character varying(10),
-<<<<<<< HEAD
-    survey_id integer NOT NULL
-=======
--- Name: client_host; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE client_host (
-    client_id integer NOT NULL,
-    host_id integer NOT NULL
->>>>>>> aaron-ThursdayWorkday
-);
-
-
---
-<<<<<<< HEAD
-=======
--- Name: host_survey; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE host_survey (
-    host_unique_id character varying(10),
-    survey_id character varying(20000)
-);
-
-
---
->>>>>>> styles welcome page, host page, and begin styling survey page-- only problem is everything is kind of huge right now
-=======
-    survey_id character varying(20000)
-=======
--- Name: clients; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE clients (
-    client_id integer NOT NULL,
-    client_name character varying(50) NOT NULL
-);
-
-
---
--- Name: clients_client_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE clients_client_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: clients_client_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE clients_client_id_seq OWNED BY clients.client_id;
 
 
 --
@@ -176,17 +107,12 @@ ALTER SEQUENCE clients_client_id_seq OWNED BY clients.client_id;
 --
 
 CREATE TABLE host_survey (
-    host_unique_id character varying(10),
-    survey_id integer NOT NULL
->>>>>>> aaron-ThursdayWorkday
+    host_id integer not null,
+    survey_id integer not null
 );
 
 
 --
-<<<<<<< HEAD
->>>>>>> 4720df7f1405647c6cef56990a1485262eb73b23
-=======
->>>>>>> aaron-ThursdayWorkday
 -- Name: hosts; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -230,23 +156,8 @@ CREATE TABLE questions (
 --
 
 CREATE TABLE questions_answers (
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    question_id integer NOT NULL,
-    answer_id integer NOT NULL
-=======
     question_id character varying(20000),
     answer_id character varying(20000)
->>>>>>> styles welcome page, host page, and begin styling survey page-- only problem is everything is kind of huge right now
-=======
-    question_id character varying(20000),
-    answer_id character varying(20000)
->>>>>>> 4720df7f1405647c6cef56990a1485262eb73b23
-=======
-    question_id integer NOT NULL,
-    answer_id integer NOT NULL
->>>>>>> aaron-ThursdayWorkday
 );
 
 
@@ -284,23 +195,8 @@ CREATE TABLE scores (
 --
 
 CREATE TABLE survey_questions (
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    question_id integer NOT NULL,
-    survey_id integer NOT NULL
-=======
     question_id character varying(20000),
     survey_id character varying(20000)
->>>>>>> styles welcome page, host page, and begin styling survey page-- only problem is everything is kind of huge right now
-=======
-    question_id character varying(20000),
-    survey_id character varying(20000)
->>>>>>> 4720df7f1405647c6cef56990a1485262eb73b23
-=======
-    question_id integer NOT NULL,
-    survey_id integer NOT NULL
->>>>>>> aaron-ThursdayWorkday
 );
 
 
@@ -341,25 +237,13 @@ ALTER TABLE ONLY answers ALTER COLUMN answer_id SET DEFAULT nextval('answers_ans
 
 
 --
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> aaron-ThursdayWorkday
 -- Name: clients client_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY clients ALTER COLUMN client_id SET DEFAULT nextval('clients_client_id_seq'::regclass);
+ALTER TABLE ONLY clients ALTER COLUMN client_id SET DEFAULT nextval('"Clients_client_id_seq"'::regclass);
 
 
 --
-<<<<<<< HEAD
-=======
->>>>>>> styles welcome page, host page, and begin styling survey page-- only problem is everything is kind of huge right now
-=======
->>>>>>> 4720df7f1405647c6cef56990a1485262eb73b23
-=======
->>>>>>> aaron-ThursdayWorkday
 -- Name: hosts host_id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -381,6 +265,13 @@ ALTER TABLE ONLY surveys ALTER COLUMN survey_id SET DEFAULT nextval('surveys_sur
 
 
 --
+-- Name: Clients_client_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+--
+
+SELECT pg_catalog.setval('"Clients_client_id_seq"', 39, true);
+
+
+--
 -- Data for Name: answers; Type: TABLE DATA; Schema: public; Owner: -
 --
 
@@ -396,15 +287,15 @@ SELECT pg_catalog.setval('answers_answer_id_seq', 1, false);
 
 
 --
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> aaron-ThursdayWorkday
 -- Data for Name: client_host; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY client_host (client_id, host_id) FROM stdin;
+5	1
+36	3
+37	8
+38	8
+39	8
 \.
 
 
@@ -413,28 +304,54 @@ COPY client_host (client_id, host_id) FROM stdin;
 --
 
 COPY clients (client_id, client_name) FROM stdin;
+1	Aaron
+2	Aaron
+3	undefined
+4	undefined
+5	undefined
+6	Tim
+7	James
+8	James
+9	Bob
+10	DOda
+11	jdk;
+12	fdafev
+13	JUMBO
+14	JIMMY JOHN
+15	BOBO
+16	YOGA
+17	DIE
+18	Bobo
+19	Jimmy
+20	BOBOJK
+21	Aaron
+22	ARONAO
+23	Blie
+24	fdadsf
+25	fjdkn
+26	GEORGI
+27	BOBOE
+28	Ajdni
+29	Aaron
+30	Aard
+31	JDik
+32	Aaron
+33	BOBjd
+34	BJIMDn
+35	THimdn
+36	BLUDNIKND
+37	Monkey
+38	JDKNk
+39	JDKNk
 \.
 
 
 --
--- Name: clients_client_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
---
-
-SELECT pg_catalog.setval('clients_client_id_seq', 1, false);
-
-
---
-<<<<<<< HEAD
-=======
->>>>>>> styles welcome page, host page, and begin styling survey page-- only problem is everything is kind of huge right now
-=======
->>>>>>> 4720df7f1405647c6cef56990a1485262eb73b23
-=======
->>>>>>> aaron-ThursdayWorkday
 -- Data for Name: host_survey; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY host_survey (host_unique_id, survey_id) FROM stdin;
+8	2
 \.
 
 
@@ -443,6 +360,14 @@ COPY host_survey (host_unique_id, survey_id) FROM stdin;
 --
 
 COPY hosts (host_id, host_unique_id) FROM stdin;
+1	18wy066
+2	18wy066
+3	wykvo4b
+4	wykvo4b
+5	dyil383
+6	dyil383
+7	dyil383
+8	3wzxtu5
 \.
 
 
@@ -450,7 +375,7 @@ COPY hosts (host_id, host_unique_id) FROM stdin;
 -- Name: hosts_host_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('hosts_host_id_seq', 1, false);
+SELECT pg_catalog.setval('hosts_host_id_seq', 8, true);
 
 
 --
@@ -458,6 +383,7 @@ SELECT pg_catalog.setval('hosts_host_id_seq', 1, false);
 --
 
 COPY questions (question_id, question) FROM stdin;
+1	Cats or Dogs?
 \.
 
 
@@ -473,7 +399,7 @@ COPY questions_answers (question_id, answer_id) FROM stdin;
 -- Name: questions_question_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('questions_question_id_seq', 1, false);
+SELECT pg_catalog.setval('questions_question_id_seq', 1, true);
 
 
 --
@@ -489,6 +415,7 @@ COPY scores (name, score) FROM stdin;
 --
 
 COPY survey_questions (question_id, survey_id) FROM stdin;
+1	2
 \.
 
 
@@ -497,6 +424,7 @@ COPY survey_questions (question_id, survey_id) FROM stdin;
 --
 
 COPY surveys (survey_id, survey_name) FROM stdin;
+2	Quiz 1
 \.
 
 
@@ -504,7 +432,15 @@ COPY surveys (survey_id, survey_name) FROM stdin;
 -- Name: surveys_survey_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('surveys_survey_id_seq', 1, false);
+SELECT pg_catalog.setval('surveys_survey_id_seq', 2, true);
+
+
+--
+-- Name: clients Clients_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY clients
+    ADD CONSTRAINT "Clients_pkey" PRIMARY KEY (client_id);
 
 
 --
@@ -516,11 +452,6 @@ ALTER TABLE ONLY answers
 
 
 --
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> aaron-ThursdayWorkday
 -- Name: client_host client_host_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -529,21 +460,6 @@ ALTER TABLE ONLY client_host
 
 
 --
--- Name: clients clients_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY clients
-    ADD CONSTRAINT clients_pkey PRIMARY KEY (client_id);
-
-
---
-<<<<<<< HEAD
-=======
->>>>>>> styles welcome page, host page, and begin styling survey page-- only problem is everything is kind of huge right now
-=======
->>>>>>> 4720df7f1405647c6cef56990a1485262eb73b23
-=======
->>>>>>> aaron-ThursdayWorkday
 -- Name: hosts hosts_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
