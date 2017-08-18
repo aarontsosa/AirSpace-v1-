@@ -313,7 +313,23 @@ a {
   #video-background {
     position: fixed;
     z-index: -1;
-    /* display: unset; */
+    display: unset;
+  }
+
+  .welcome-container {
+    background-color: unset;
+    border: hidden;
+    box-shadow: unset;
+    /* padding-top: 0; */
+    /* padding-bottom: 20%; */
+  }
+
+  .host-button, .client-button {
+    background-color: #5271FF;
+  }
+
+  h1.title {
+    color: #5271FF;
   }
   
   h1.title {
@@ -346,9 +362,11 @@ a {
   h1.title {
     /* margin-top: 10%; */
     /* margin-bottom: 0; */
-    font-size: 3.5rem;
-    margin-left: 5%;
+    font-size: 5rem;
+    /* margin-left: 5%; */
     color: white;
+    margin-top: 0;
+    padding: 1rem;
   }
 
   .host-button,
@@ -375,10 +393,11 @@ a {
       display: flex;
       flex-direction: row;
       align-items: center;
-      justify-content: flex-start;
+      justify-content: space-around;
       /* margin: 0 auto; */
-      height: 100%;
-      max-width: 800px;
+      width: 100%;
+      /* max-width: 800px; */
+      padding: 1rem;
     }
 
     .nav__title {
@@ -397,7 +416,8 @@ a {
       height: auto;
       background-color: transparent;
       opacity: 1;
-      font-size: 40px;
+      /* font-size: 40px; */
+      font-size: 30px;
       flex-direction: row;
       justify-content: flex-end;
     }
