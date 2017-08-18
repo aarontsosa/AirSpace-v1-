@@ -40,12 +40,8 @@ router.get('/:hostid/:name/:survey', function(req, res, next){
 })
 
 router.post('/:hostid/:name/:survey', function (req, res, next){
-    manageDB.addResults(req.body['result'], req.params.name, req.params.survey).then(result => {
-        res.render('session', {
-            host: req.params.hostid,
-            name: req.params.name
-        })
-    })
+    manageDB.addResults(req.body['result'], req.params.name, req.params.survey)
+    res.redirect('/client/' + req.params.hostid + "/" + req.params.name)
 })
 
 

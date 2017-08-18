@@ -35,9 +35,10 @@ socket.onmessage = function (event) {
     var theData = JSON.parse(event.data);
     var firstElement = theData[Object.keys(theData)[0]];
     var surveyID = theData[parseInt(Object.keys(theData)[0])]['survey_id']
+    console.log(surveyID)
     if(Object.keys(theData)[0] === uniqueID){
         console.log('were in it')
-        window.location.replace("https://localhost:3001/client/" + uniqueID + "/" + nameID + "/" + surveyID);
+        window.location.replace("http://localhost:3001/client/" + uniqueID + "/" + nameID + "/" + surveyID);
     }
   }
 
