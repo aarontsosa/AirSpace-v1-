@@ -71,29 +71,12 @@ function addClientHost(client_id, host_id){
   `)
 }
 
-function questionEqualsQuestion(thing1, thing2){
-  return thing1 === thing2
-}
-
-function addQuestionArrayToDB(array){
-  array.forEach((element)=>{
-    db.one(`
-    insert into questions(question)
-      values ('${element}')
-      returning question_id
-    `)
-  });
-}
-
-
 function addQuestionsAnswersSurveyToDB(data, surveyID){
   if (Object.keys(data).length < 2){
     return;
   }
-  // console.log(Object.values(surveyID) + 'values');
-  // console.log(Object.keys(surveyID) + 'keys');
   Object.keys(data.question).forEach((qAndA)=>{
-    // console.log(data.question[qAndA]['text'] + "HERE");
+    
     questionID = db.one(`
       insert into questions(question)
         values ('${data.question[qAndA]['text']}')
@@ -139,7 +122,6 @@ function sendFormDataToDB(dataFromForm, uniqueid){
       .then(survey_id =>{addSurveyAndHostToDatabase(survey_id, uniqueid)
         .then(survey_id =>{addQuestionsAnswersSurveyToDB(dataFromForm, survey_id)})
       })
-      
       .catch(console.log);   
 }
 
@@ -152,27 +134,3 @@ module.exports = {
     findHostId: findHostId
   };
 
-
-  function addClientName(object){
-    return client_id = db.one(`
-        INSERT INTO clients(client_name) 
-        VALUES('${object.client_name}') 
-        RETURNING client_id;
-    `).then(client_id => {
-      console.log([client_id][0].client_id)
-      console.log(object)
-      return host_id = db.query(`
-          SELECT host_id 
-          FROM hosts 
-          WHERE host_unique_id = '${object.host_id}';
-  `).then(host_id => {
-        console.log(host_id[0].host_id)     
-        console.log([client_id][0].client_id)
-        return db.one(`
-            INSERT INTO client_host(client_id, host_id) 
-            VALUES(${[client_id][0].client_id}, ${host_id[0].host_id}) 
-            RETURNING client_id, host_id
-    `)
-    })
-    })
-  }
