@@ -28,26 +28,10 @@ router.get('/:hostid/:name', function(req, res, next){
 })
 
 router.get('/:hostid/:name/:survey', function(req, res, next){
-    manageDB.getQuestionAnswer(req.params.survey, req.params.hostid).then(result => {
-        var QA = {}
-        var card =[]
-        result.forEach(function(array) {
-            manageDB.getQuestions(array.question_id).then(result => {
-                console.log(result.question)
-                card.push(result.question)
-                console.log(QA)
-            })
-            manageDB.getAnswers(array.answer_id).then(result => {
-                console.log(result.answer)
-                QA.answer = result.answer
-                console.log(QA)
-            })
-        return card
-        });
-    })
-    card = [ {anonymous:{question: "DOG OR CAT", answer: "CAT"}}, {anonymous:{question: "GA OR FL", answer: "FL"}}]
-    res.render('session', {
-        card: card,
+    manageDB.getQuestions(req.params.survey, req.params.hostid).then(result => {
+        res.render('survey', {
+            question: result
+        })
     })
 })
 

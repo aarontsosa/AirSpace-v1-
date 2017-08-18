@@ -65,15 +65,21 @@ function getQuestionAnswer(survey_id, host_id){
     ON hs.survey_id = sq.survey_id
     INNER JOIN questions_answers qa
     ON sq.question_id = qa.question_id
-    WHERE hs.host_unique_id like '%${host_id}%' and hs.survey_id like '%${survey_id}%';
-  `)
+    WHERE hs.host_id = ${host_id} and hs.survey_id = ${survey_id};
+  `).catch(console.log)
 }
 
-function getQuestions(question_id){
-  return db.one(`
-    SELECT question
-    FROM questions
-    WHERE question_id = ${question_id}
+function getQuestions(survey_id, host_id){
+  return db.query(`
+    SELECT q.question
+    FROM host_survey hs
+    INNER JOIN survey_questions sq
+    ON hs.survey_id = sq.survey_id
+    INNER JOIN questions_answers qa
+    ON sq.question_id = qa.question_id
+    INNER JOIN questions q
+    ON qa.question_id = q.question_id
+    WHERE hs.survey_id = ${survey_id} and hs.host_id = ${host_id};
   `)
 }
 
