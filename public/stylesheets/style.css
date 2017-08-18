@@ -5,9 +5,19 @@ html {
   box-sizing: inherit;
 }
 
+@font-face {
+  font-family: Sarala;
+  src: url(fonts/Sarala/Sarala-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Baloo;
+  src: url(fonts/Baloo/Baloo-Regular.ttf) format("truetype");
+}
+
 body {
   padding: 50px;
-  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
@@ -16,8 +26,115 @@ a {
   color: white;
 }
 
+
 /*Phone*/ 
 @media only screen and (min-width : 300px) {  
+
+  body {
+    /* background-color: #70a2fd; */
+  }
+
+  .nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* height: 60px; */
+    background-color: white;
+  }
+  .nav__container {
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav__title {
+    /* float: left; */
+    /* text-align: center; */
+    margin: 0;
+    height: 60px;
+  }
+  .nav__title-link {
+    display: flex;
+    align-items: center;
+    padding-left: 0;
+    height: 100%;
+    color: #eee;
+    font-size: 22px;
+    font-weight: 700;
+    text-align: left;
+    letter-spacing: 2px;
+  }
+  .nav__title-link:hover {
+    color: #eee;
+  }
+  .nav__list {
+    
+    /* position: absolute; */
+    left: 0;
+    top: 60px;
+    width: 100%;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    background-color: #90ce9b;
+    font-size: 72px;
+    list-style: none;
+    opacity: 0;
+    overflow: hidden;
+    transition: opacity 300ms ease-out, height 0ms linear 300ms;
+  }
+  .nav__link {
+    display: block;
+    padding: 15px 0;
+    margin: 10%;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 1px;
+  }
+  .nav__burger {
+    /* float: right; */
+    margin-top: 5%;
+    right: 10%;
+    position: absolute;
+    width: 60px;
+    height: 60px;
+  }
+  .nav__burger:before, .nav__burger:after {
+    content: '';
+    position: absolute;
+    left: 10px;
+    width: 100px;
+    height: 4px;
+    background-color: gray;
+    transform-origin: 50% 50%;
+    transition: transform 275ms ease;
+  }
+  .nav__burger:before {
+    top: 22px;
+  }
+  .nav__burger:after {
+    top: 34px;
+  }
+  
+  .nav--opened .nav__list {
+    height: 100vh;
+    opacity: 1;
+    transition: opacity 300ms ease-out;
+  }
+  .nav--opened .nav__burger:before {
+    transform: translate3d(0, 6px, 0) rotate(-45deg);
+  }
+  .nav--opened .nav__burger:after {
+    transform: translate3d(0, -6px, 0) rotate(45deg);
+  }
+
+    #video-background {
+      display: none;
+    }
 
     .main-container {
       display: flex;
@@ -25,12 +142,17 @@ a {
       align-items: center;
       justify-content: space-around;
       width: 100%;
+    }
 
+    .host-welcome p {
+      color: black;
+      text-shadow: unset;
     }
 
     .key, .survey-key {
       border: 1px solid black;
       padding: 20px;
+      color: black;
     }
 
     .survey-key {
@@ -39,22 +161,79 @@ a {
     }
 
     h1.title {
+      display: flex;
+      align-self: center;
       font-style: italic;
-      font-size: 100px;
+      font-family: Baloo, "Lucida Grande", Helvetica, Arial, sans-serif;
+      font-size: 150px;
       letter-spacing: 1px;
+      color: #70a2fd;
+      margin-bottom: 5%;
+      margin-top: 15%;
+    }
+
+    .survey-name {
+      width: 100%;
+    }
+
+    .survey-form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .survey-submit,
+    .client-submit{
+      color: white;
+      margin-top: 10%;
+      width: 300px;
+    }
+
+    h1.create-title {
+      font-size: 72px;
+    }
+
+    .survey-submit-div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+
+    button.add-question {
+      background-color: rgba(0,0,0,0.15);
+      border-radius: 25px;
+      padding: 30px;
+      margin: 10%;
     }
 
     .welcome-container,
-    .survey-welcome-container {
+    .survey-welcome-container,
+    .client-welcome-container {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      /* margin-top: 30%; */
+      margin-top: 50%;
       padding: 10%;
+      background-color: white;
       border: 1px solid black;
-      font: 40px "Lucida Grande", Helvetica, Arial, sans-serif;      
+      font-size: 50px;    
       box-shadow: 20px 24px 60px 1px rgba(0,0,0,0.15);
+    }
+
+    .survey-welcome-container {
+      justify-content: space-around;
+    }
+
+    .client-welcome-container form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .client-welcome-container form
+    input {
+      margin: 10%;
     }
 
     p.host-welcome {
@@ -67,11 +246,44 @@ a {
       align-items: center;
       justify-content: center;
       /* padding: 5%; */
-      background-color:#00B7FF;
+      background-color:#70a2fd;
       border-radius: 25px;
       padding-top: 20px;
       padding-bottom: 20px;
-      width: 175px;
+      width: 200px;
+   /* }
+
+    .client-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .client-form div {
+      margin: 5%;
+    }
+    
+
+    input {
+      width: 80%;
+      background-color: rgba(0,0,0,.05); */
+    }
+    
+    .client-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .client-form div {
+      margin: 5%;
+    }
+
+    input.create-survey {
+      width: 400px;
+      padding: 10%;
+      border-radius: 40px;
+      color: white;
     }
 
     .user-selection {
@@ -105,22 +317,194 @@ a {
 
 /*Tablet*/
 @media only screen and (min-width : 750px) {
+  #video-background {
+    position: fixed;
+    z-index: -1;
+    display: unset;
+  }
+
+  .welcome-container {
+    background-color: unset;
+    border: hidden;
+    box-shadow: unset;
+    /* padding-top: 0; */
+    /* padding-bottom: 20%; */
+  }
+
+  .host-button, .client-button {
+    background-color: #5271FF;
+  }
+
   h1.title {
-    font-size: 4rem;
+    color: #5271FF;
+  }
+  
+  h1.title {
+    /* font-size: 4rem; */
   }
 
   .welcome-container {
     /* margin-top: 15%; */
-    font: 30px "Lucida Grande", Helvetica, Arial, sans-serif;
+    /* font: 30px "Lucida Grande", Helvetica, Arial, sans-serif; */
   }
 }
 
 /*Tablet*/
 @media only screen and (min-width : 750px) and (orientation: landscape) {
-  .welcome-container {
-    /* margin-top: 10%; */
+
+  #video-background {
+    position: fixed;
+    z-index: -1;
+    display: unset;
   }
+
+  .nav {
+    background-color: #5271FF;
+  }
+
+  .welcome-container p {
+    text-shadow: 1px 1px 1px #1B3050;
+  }
+
+  h1.title {
+    /* margin-top: 10%; */
+    /* margin-bottom: 0; */
+    font-size: 5rem;
+    /* margin-left: 5%; */
+    color: white;
+    margin-top: 0;
+    padding: 1rem;
+  }
+
+  .host-button,
+  .client-button {
+    background-color: #5271FF;
+  }
+
+  .welcome-container {
+    font-size: 40px;
+    color: white;
+    margin-top: 20%;
+  }
+
+  .user-selection {
+    margin-top: 7.5%;
+  }
+
+  .host-button, .client-button {
+    font-size: 30px;
+    width: 200px;
+  }
+
+  .nav__container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+      /* margin: 0 auto; */
+      width: 100%;
+      /* max-width: 800px; */
+      padding: 1rem;
+    }
+
+    .nav__title {
+      flex: 1;
+      align-self: flex-start;
+      float: none;
+      height: 100%;
+      color: blue;
+      padding: 10%;
+    }
+
+    .nav__list {
+      display: flex;
+      /* width: auto; */
+      width: 100%;
+      height: auto;
+      background-color: transparent;
+      opacity: 1;
+      /* font-size: 40px; */
+      font-size: 30px;
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+
+    .nav__item {
+      display: flex;
+      align-items: center;
+       /* this may be the incorrect size*/
+    }
+
+    .nav__link {
+      padding: 0 30px;
+      transition: color 150ms ease-out;
+    
+    }
+
+    .nav:hover {
+        color: blue;
+    }
+
+    .nav__burger {
+      display: none;
+    }
+  
+
+    .welcome-container {
+      border: none;
+      box-shadow: none;
+      /* font-size: 2rem; */
+    }
 }
 
 /*Desktop*/
-@media only screen and (min-width : 1200px) {}
+@media only screen and (min-width : 1200px) {
+  
+  h1.title {
+    font-size: 5rem;
+  }
+
+  .main-container {
+    position: relative;
+  }
+
+  .welcome-container {
+    border: none;
+    box-shadow: none;
+    font-size: 2rem;
+  }
+
+
+  div.user-selection {
+    justify-content: space-between;
+  }
+
+  .host-button, .client-button {
+    width: 250px;
+    margin: 0 50px;
+  }
+/* 
+  footer {
+    margin: 0;
+    padding: 0;
+   Background fallback in case of IE8 & down, or in case video doens't load, such as with slower connections 
+    background: #333;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  
+  The only rule that matters
+  #video-background {
+   making the video fullscreen 
+    position: fixed;
+    right: 0; 
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    width: auto; 
+    height: auto;
+    z-index: 0;
+  
+} */
+
+}

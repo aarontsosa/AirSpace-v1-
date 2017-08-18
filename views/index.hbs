@@ -1,12 +1,17 @@
 <div class="main-container">
-    <h1 class="title">Airspace</h1>
     <div class="welcome-container">
+        <video autoplay loop id="video-background" muted plays-inline>
+  <source src="/videos/clouds6.mp4" type="video/mp4">
+</video>
         <p>Welcome!</p>
         <p>Please select your user type:</p>
         <div class="user-selection">
-            <div class="host-button"><a href='/host/{{uniqueID}}'>Host</a></div>
-            <div class="client-button"><a href="/client/">Client</a></div>
+            <div class="host-button"><a href='/host/{{uniqueID}}'>Teacher</a></div>
+            <div class="client-button"><a href="/client/">Student</a></div>
         </div>
     </div>
 </div>
-
+{{!-- <footer class="big-video">
+    <video autoplay loop id=“video-background” muted plays-inline>
+    <source src="/videos/Cloud_Fly_By.mp4" type=“video/mp4”>
+</video></footer> --}}
