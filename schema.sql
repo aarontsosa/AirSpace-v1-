@@ -157,12 +157,17 @@ CREATE TABLE questions (
 
 CREATE TABLE questions_answers (
 <<<<<<< HEAD
+<<<<<<< HEAD
     question_id integer not null,
     answer_id integer not null
 =======
     question_id character varying(20000),
     answer_id character varying(20000)
 >>>>>>> adds questions to the database, adds survey_questions to the db
+=======
+    question_id integer not null,
+    answer_id integer not null
+>>>>>>> adds stuff to all the databases
 );
 
 
@@ -201,12 +206,17 @@ CREATE TABLE scores (
 
 CREATE TABLE survey_questions (
 <<<<<<< HEAD
+<<<<<<< HEAD
     question_id integer not null,
     survey_id integer not null
 =======
     question_id character varying(20000),
     survey_id character varying(20000)
 >>>>>>> adds questions to the database, adds survey_questions to the db
+=======
+    question_id integer not null,
+    survey_id integer not null
+>>>>>>> adds stuff to all the databases
 );
 
 
@@ -287,8 +297,6 @@ SELECT pg_catalog.setval('"Clients_client_id_seq"', 39, true);
 -- Data for Name: answers; Type: TABLE DATA; Schema: public; Owner: -
 --
 
-COPY answers (answer_id, answer) FROM stdin;
-\.
 
 
 --
@@ -315,6 +323,7 @@ SELECT pg_catalog.setval('answers_answer_id_seq', 1, false);
 -- Data for Name: client_host; Type: TABLE DATA; Schema: public; Owner: -
 --
 
+<<<<<<< HEAD
 COPY client_host (client_id, host_id) FROM stdin;
 5	1
 36	3
@@ -400,6 +409,8 @@ COPY hosts (host_id, host_unique_id) FROM stdin;
 
 
 >>>>>>> adds questions to the database, adds survey_questions to the db
+=======
+>>>>>>> adds stuff to all the databases
 --
 -- Name: hosts_host_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
@@ -412,11 +423,14 @@ SELECT pg_catalog.setval('hosts_host_id_seq', 8, true);
 --
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 COPY questions (question_id, question) FROM stdin;
 1	Cats or Dogs?
 \.
 >>>>>>> adds questions to the database, adds survey_questions to the db
+=======
+>>>>>>> adds stuff to all the databases
 
 
 --
@@ -445,23 +459,29 @@ SELECT pg_catalog.setval('questions_question_id_seq', 1, true);
 --
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 COPY survey_questions (question_id, survey_id) FROM stdin;
 1	2
 \.
 
 >>>>>>> adds questions to the database, adds survey_questions to the db
+=======
+>>>>>>> adds stuff to all the databases
 
 --
 -- Data for Name: surveys; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 COPY surveys (survey_id, survey_name) FROM stdin;
 2	Quiz 1
 \.
 >>>>>>> adds questions to the database, adds survey_questions to the db
+=======
+>>>>>>> adds stuff to all the databases
 
 
 --
