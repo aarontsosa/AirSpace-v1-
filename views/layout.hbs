@@ -2,42 +2,40 @@
 <html>
   <head>
     <title>{{title}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css">
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <script
       src="https://code.jquery.com/jquery-3.2.1.min.js"
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
       crossorigin="anonymous"></script>
-    <script src="../javascripts/burger.js"></script>
+    <script src="/javascripts/burger.js"></script>
   </head>
   <body>
-        <!-- Main Navigation -->
+    <!-- Main Navigation -->
     <nav id="nav" class="nav" role="navigation">
     <div class="nav__container">
         
-        <!-- Title -->
-        <h1 class="title">AirSpace
-        <a href="#" class="nav__title-link"></a>
-        </h1>
-        
         <!-- Nav List -->
-        <ul class="nav__list" role="menubar">
-        <li class="nav__item">
-            <a href="#" class="nav__link">About</a>
-        </li>
-        <li class="nav__item">
-            <a href="#" class="nav__link">How It Works</a>
-        </li>
-        <li class="nav__item">
-            <a href="#" class="nav__link">Contact</a>
-        </li>
-        </ul>
+        <div class="nav__list" role="menubar">
+            <div class="nav__item">
+                <a href="#" class="nav__link">About</a>
+            </div>
+            <div class="nav__item">
+                <a href="#" class="nav__link">How It Works</a>
+            </div>
+            <div class="nav__item">
+                <a href="#" class="nav__link">Contact</a>
+            </div>
+        </div>
         
         <!-- Burger -->
         <a href="#" class="nav__burger"></a>
 
     </div> <!-- __container -->
     </nav> <!-- .nav -->
+    <h1 class="title">AirSpace</h1>
+
 
     {{{body}}}
   </body>
