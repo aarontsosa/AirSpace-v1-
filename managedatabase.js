@@ -55,19 +55,33 @@ function addClientName(object){
   })
 }
 
-function findHostId(unique_id){
+function getQuestionAnswer(survey_id, host_id){
+  console.log(survey_id)
+  console.log(host_id)
   return db.query(`
-      SELECT host_id 
-      FROM hosts 
-      WHERE host_unique_id = '${unique_id}';
+    SELECT qa.question_id, qa.answer_id
+    FROM host_survey hs
+    INNER JOIN survey_questions sq
+    ON hs.survey_id = sq.survey_id
+    INNER JOIN questions_answers qa
+    ON sq.question_id = qa.question_id
+    WHERE hs.host_unique_id like '%${host_id}%' and hs.survey_id like '%${survey_id}%';
   `)
 }
 
-function addClientHost(client_id, host_id){
+function getQuestions(question_id){
   return db.one(`
-      INSERT INTO client_host(client_id, host_id) 
-      VALUES(${client_id}, ${host_id}) 
-      RETURNING client_id, host_id
+    SELECT question
+    FROM questions
+    WHERE question_id = ${question_id}
+  `)
+}
+
+function getAnswers(answer_id){
+  return db.one(`
+    SELECT answer
+    from answers
+    where answer_id = ${answer_id}
   `)
 }
 
@@ -131,6 +145,8 @@ module.exports = {
     addHostToDatabase: addHostToDatabase, 
     addClientName: addClientName,
     addSurveyToDatabase: addSurveyToDatabase,
-    findHostId: findHostId
+    getQuestionAnswer: getQuestionAnswer,
+    getQuestions: getQuestions,
+    getAnswers: getAnswers
   };
 

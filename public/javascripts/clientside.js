@@ -11,16 +11,16 @@ function format(data){
 }
 
 
-$("[data-target='connect-to-host']").on('click', function(event){
-    host_id = $("[data-target='host_id']")[0].value
-    name_id = $("[data-target='name_id']")[0].value
-    client = {
-        type: "client join",
-        client_name: name_id,
-        host_id: host_id
-    }
-    sendToWebSocket(client)
-})
+// $("[data-target='connect-to-host']").on('click', function(event){
+//     host_id = $("[data-target='host_id']")[0].value
+//     name_id = $("[data-target='name_id']")[0].value
+//     client = {
+//         type: "client join",
+//         client_name: name_id,
+//         host_id: host_id
+//     }
+//     sendToWebSocket(client)
+// })
 
 function sendToWebSocket(message){
     socket.send(JSON.stringify(message));

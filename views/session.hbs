@@ -1,3 +1,12 @@
-<h1>{{title}}</h1>
+<p>You are connected to {{host}}.</p>
+<p> Hello, {{name}}</p>
 
 
+{{#each card}}
+{{#with anonymous}}
+<p> hello</p>
+    {{question}}
+    <br>
+    {{answer}}
+{{/with}}
+{{/each}}
