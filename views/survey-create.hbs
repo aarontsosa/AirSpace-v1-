@@ -3,16 +3,16 @@
     <div class="survey-welcome-container">
         <div class="survey-identifier">
             <p>Unique ID</p>
-            <div class="survey-key" data-target="uniqueid">{{key}}</div>
+            <div class="survey-key" data-target="uniqueid">{{uniqueid}}</div>
         </div>
-        <form class="survey-form" method="post" data-target="form">
+        <form class="survey-form" method="post" data-target="form" action='/host/{{uniqueid}}/{{id}}/new'>
             <div class="question-list" data-target='question-list'>
                 <div>
                 <p> Survey Name <input class="survey-name" type="text" name="Survey-Name"> </p>
                 </div>
             </div>
-    <button class="add-question" type="button" data-target="add-question">Add Question</button>
-    <div class="survey-submit-div"><input class="survey-submit" type="submit" data-target="submit"></div>
-    </form>
-    <script src="../../javascripts/survey-create.js" type='text/javascript'></script>
+            <button class="add-question" type="button" data-target="add-question">Add Question</button>
+            <div class="survey-submit-div"><input class="survey-submit" type="submit" data-target="submit"></div>
+         </form>
+    <script src="../../../javascripts/survey-create.js" type='text/javascript'></script>
 </div>

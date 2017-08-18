@@ -130,8 +130,6 @@ function addAnswerstoDB(array){
 
 function sendFormDataToDB(dataFromForm, uniqueid){
     var survey_id;
-    // console.log(Object.keys(dataFromForm) + 'here is all the data');
-    // console.log(dataFromForm.question.['1']  + 'this is the data');
     return survey_id = addSurveyToDatabase(dataFromForm['Survey-Name'])
       .then(survey_id =>{addSurveyAndHostToDatabase(survey_id, uniqueid)
         .then(survey_id =>{addQuestionsAnswersSurveyToDB(dataFromForm, survey_id)})
