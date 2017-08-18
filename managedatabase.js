@@ -28,34 +28,7 @@ function addSurveyAndHostToDatabase(surveyID, hostID){
       values (${hostID}, ${surveyID})
       returning survey_id
   `).then(result=>{return result.survey_id}).catch(console.log);
-}
-
-
- 
-function addQuestionsToDatabase(receivedSurvey){
-  var counter = 1;
-  var questionsToAdd = [];
-  for (submitted in receivedSurvey){
-    if(questionEqualsQuestion(receivedSurvey[submitted], receivedSurvey['question ' + counter])){
-      questionsToAdd.push(receivedSurvey['question ' + counter]);
-      counter++
-    }
-  }
-  addQuestionArrayToDB(questionsToAdd);
-}
-  
-function addAnswersToDatabase(receivedSurvey){
-  var counter = 1;
-  var answersToAdd = [];
-  for(submitted in receivedSurvey){
-    if(questionEqualsQuestion(receivedSurvey[submitted], receivedSurvey['answer' + counter])){
-      answersToAdd.push(receivedSurvey['answer' + counter]);
-      counter++;
-    }
-  }
-  addAnswerstoDB(answersToAdd);
-}
-
+} 
 
 function addClientName(object){
   return client_id = db.one(`
