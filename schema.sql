@@ -156,8 +156,13 @@ CREATE TABLE questions (
 --
 
 CREATE TABLE questions_answers (
+<<<<<<< HEAD
     question_id integer not null,
     answer_id integer not null
+=======
+    question_id character varying(20000),
+    answer_id character varying(20000)
+>>>>>>> adds questions to the database, adds survey_questions to the db
 );
 
 
@@ -195,8 +200,13 @@ CREATE TABLE scores (
 --
 
 CREATE TABLE survey_questions (
+<<<<<<< HEAD
     question_id integer not null,
     survey_id integer not null
+=======
+    question_id character varying(20000),
+    survey_id character varying(20000)
+>>>>>>> adds questions to the database, adds survey_questions to the db
 );
 
 
@@ -266,12 +276,31 @@ ALTER TABLE ONLY surveys ALTER COLUMN survey_id SET DEFAULT nextval('surveys_sur
 
 --
 -- Name: Clients_client_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+<<<<<<< HEAD
+=======
 --
 
 SELECT pg_catalog.setval('"Clients_client_id_seq"', 39, true);
 
 
 --
+-- Data for Name: answers; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+COPY answers (answer_id, answer) FROM stdin;
+\.
+
+
+--
+-- Name: answers_answer_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+>>>>>>> adds questions to the database, adds survey_questions to the db
+--
+
+SELECT pg_catalog.setval('"Clients_client_id_seq"', 39, true);
+
+
+--
+<<<<<<< HEAD
 -- Data for Name: answers; Type: TABLE DATA; Schema: public; Owner: -
 --
 
@@ -282,12 +311,95 @@ SELECT pg_catalog.setval('"Clients_client_id_seq"', 39, true);
 --
 
 SELECT pg_catalog.setval('answers_answer_id_seq', 1, false);
+=======
+-- Data for Name: client_host; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+COPY client_host (client_id, host_id) FROM stdin;
+5	1
+36	3
+37	8
+38	8
+39	8
+\.
+
+
+--
+-- Data for Name: clients; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+COPY clients (client_id, client_name) FROM stdin;
+1	Aaron
+2	Aaron
+3	undefined
+4	undefined
+5	undefined
+6	Tim
+7	James
+8	James
+9	Bob
+10	DOda
+11	jdk;
+12	fdafev
+13	JUMBO
+14	JIMMY JOHN
+15	BOBO
+16	YOGA
+17	DIE
+18	Bobo
+19	Jimmy
+20	BOBOJK
+21	Aaron
+22	ARONAO
+23	Blie
+24	fdadsf
+25	fjdkn
+26	GEORGI
+27	BOBOE
+28	Ajdni
+29	Aaron
+30	Aard
+31	JDik
+32	Aaron
+33	BOBjd
+34	BJIMDn
+35	THimdn
+36	BLUDNIKND
+37	Monkey
+38	JDKNk
+39	JDKNk
+\.
+
+
+--
+-- Data for Name: host_survey; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+COPY host_survey (host_unique_id, survey_id) FROM stdin;
+8	2
+\.
+>>>>>>> adds questions to the database, adds survey_questions to the db
 
 
 --
 -- Data for Name: client_host; Type: TABLE DATA; Schema: public; Owner: -
 --
 
+<<<<<<< HEAD
+=======
+COPY hosts (host_id, host_unique_id) FROM stdin;
+1	18wy066
+2	18wy066
+3	wykvo4b
+4	wykvo4b
+5	dyil383
+6	dyil383
+7	dyil383
+8	3wzxtu5
+\.
+
+
+>>>>>>> adds questions to the database, adds survey_questions to the db
 --
 -- Name: hosts_host_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
@@ -299,6 +411,12 @@ SELECT pg_catalog.setval('hosts_host_id_seq', 8, true);
 -- Data for Name: questions; Type: TABLE DATA; Schema: public; Owner: -
 --
 
+<<<<<<< HEAD
+=======
+COPY questions (question_id, question) FROM stdin;
+1	Cats or Dogs?
+\.
+>>>>>>> adds questions to the database, adds survey_questions to the db
 
 
 --
@@ -326,11 +444,24 @@ SELECT pg_catalog.setval('questions_question_id_seq', 1, true);
 -- Data for Name: survey_questions; Type: TABLE DATA; Schema: public; Owner: -
 --
 
+<<<<<<< HEAD
+=======
+COPY survey_questions (question_id, survey_id) FROM stdin;
+1	2
+\.
+
+>>>>>>> adds questions to the database, adds survey_questions to the db
 
 --
 -- Data for Name: surveys; Type: TABLE DATA; Schema: public; Owner: -
 --
 
+<<<<<<< HEAD
+=======
+COPY surveys (survey_id, survey_name) FROM stdin;
+2	Quiz 1
+\.
+>>>>>>> adds questions to the database, adds survey_questions to the db
 
 
 --
