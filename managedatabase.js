@@ -83,6 +83,19 @@ function getQuestions(survey_id, host_id){
   `)
 }
 
+function getSurveys(host_id){
+  return db.one(`
+  select s.survey_id
+	from 
+		surveys as s
+		inner join host_survey hs
+			on s.survey_id = hs.survey_id
+  where hs.host_id = ${host_id};
+  `).then((result)=>{
+    return result.survey_id;
+  })
+}
+
 function getAnswers(answer_id){
   return db.one(`
     SELECT answer
@@ -93,6 +106,8 @@ function getAnswers(answer_id){
 
 function addQuestionsAnswersSurveyToDB(data, surveyID){
   if (Object.keys(data).length < 2){
+    // console.log(surveyID);
+    // return surveyID;
     return;
   }
   Object.keys(data.question).forEach((qAndA)=>{
@@ -121,6 +136,7 @@ function addQuestionsAnswersSurveyToDB(data, surveyID){
         }).catch(console.log)
       }).catch(console.log)
       //console.log(questionID);
+      // return surveyID;
   });
 }
 
@@ -151,6 +167,7 @@ module.exports = {
     addSurveyToDatabase: addSurveyToDatabase,
     getQuestionAnswer: getQuestionAnswer,
     getQuestions: getQuestions,
-    getAnswers: getAnswers
+    getAnswers: getAnswers,
+    getSurveys: getSurveys
   };
 
