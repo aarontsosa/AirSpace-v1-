@@ -29,7 +29,7 @@ router.get('/:hostid/:name', function(req, res, next){
 
 router.get('/:hostid/:name/:survey', function(req, res, next){
     manageDB.getQuestions(req.params.survey, req.params.hostid).then(result => {
-        res.render('session', {
+        res.render('survey', {
             question: result
         })
     })
