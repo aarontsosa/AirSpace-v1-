@@ -59,7 +59,7 @@ $("[data-target='submit']").on('click', function(event){
     // event.preventDefault();
     var finishedQuestions = format($("[data-target='form']"))
     console.log(finishedQuestions);
-    sendToWebSocket(finishedQuestions);
+    // sendToWebSocket(finishedQuestions);
 })
 
 

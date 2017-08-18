@@ -113,6 +113,9 @@ function addQuestionArrayToDB(array){
 
 
 function addQuestionsAnswersSurveyToDB(data, surveyID){
+  if (Object.keys(data).length < 2){
+    return;
+  }
   // console.log(Object.values(surveyID) + 'values');
   // console.log(Object.keys(surveyID) + 'keys');
   Object.keys(data.question).forEach((qAndA)=>{
@@ -124,8 +127,21 @@ function addQuestionsAnswersSurveyToDB(data, surveyID){
       `).then(result =>{
         db.one(`insert into survey_questions(question_id, survey_id)
         values (${result.question_id}, ${surveyID})
-        returning survey_id
-        `)
+        returning question_id
+        `).then(result=>{
+          var theQuestionId = result.question_id
+          db.one(`
+            insert into answers(answer)
+              values('${data.question[qAndA]['answer']}')
+              returning answer_id
+          `).then(result=>{
+            db.one(`
+            insert into questions_answers(question_id, answer_id)
+              values(${theQuestionId}, ${result.answer_id})
+              returning answer_id
+            `).catch(console.log);
+          })
+        }).catch(console.log)
       }).catch(console.log)
       //console.log(questionID);
   });
