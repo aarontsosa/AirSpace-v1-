@@ -78,7 +78,7 @@ a {
     height: 0;
     padding: 0;
     margin: 0;
-    background-color: #62bf91;
+    background-color: #90ce9b;
     font-size: 72px;
     list-style: none;
     opacity: 0;
@@ -88,6 +88,7 @@ a {
   .nav__link {
     display: block;
     padding: 15px 0;
+    margin: 10%;
     font-weight: bold;
     color: white;
     text-align: center;
@@ -143,9 +144,15 @@ a {
       width: 100%;
     }
 
+    .host-welcome p {
+      color: black;
+      text-shadow: unset;
+    }
+
     .key, .survey-key {
       border: 1px solid black;
       padding: 20px;
+      color: black;
     }
 
     .survey-key {
@@ -161,8 +168,8 @@ a {
       font-size: 150px;
       letter-spacing: 1px;
       color: #70a2fd;
-      margin-bottom: 0;
-      margin-top: 20%;
+      margin-bottom: 5%;
+      margin-top: 15%;
     }
 
     .survey-name {
