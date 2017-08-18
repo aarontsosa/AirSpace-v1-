@@ -13,15 +13,16 @@ function createTextBox(){
     });
     var questionInput = $("<input>", {
         'type': 'text',
-        'name':  'question ' + counter
+        'name':  'question'+ "[" + counter + "]" + "["+ 'text'+ "]"
     }) 
     var answer = $("<div>", {
         'class': 'answer',
-        'data-target': 'answer' + counter
+        'data-target': 'answer' + counter,
+        'name': 'answer' + counter
     });
     var answerInput = $("<input>", {
         'type': 'text',
-        'name':  'answer' + counter
+        'name':  'question' + "[" + counter + "]" + "["+ 'answer' + "]"
     }) 
     $(p).append(questionText);
     $(p).append(questionInput);
@@ -36,8 +37,14 @@ function format(data){
     var uniqueID = urlPathParts[urlPathParts.length - 1];
     console.log(uniqueID);
     dataObject['type'] = "submit-survey";
+    dataObject['question'] = {}
+    var counter = 1;
+    dataObject['question'][counter] = {}
     data.serializeArray().forEach(function(key){
-        dataObject[key.name] = key.value;
+        console.log(key)
+        // dataObject['question'][counter] = {}
+        // dataObject['question'][counter][text]
+        // // dataObject[questions][counter]['text'] =  
     })
     return dataObject;
 }
@@ -54,6 +61,9 @@ $("[data-target='submit']").on('click', function(event){
     console.log(finishedQuestions);
     sendToWebSocket(finishedQuestions);
 })
+
+
+
 
 
 function sendToWebSocket(message){

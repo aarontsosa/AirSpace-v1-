@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var manageDB = require("../managedatabase");
 
+
 router.get('/:uniqueid', function(req, res, next) {
 
     manageDB.addHostToDatabase(req.params.uniqueid).then((result)=>{
@@ -26,10 +27,27 @@ router.post('/:uniqueid/:id', function(req, res, next){
     // res.redirect(uniqueID + '/survey-create/');
     res.render('survey-create', {
         title: 'Create a Survey',
-        key: req.params.uniqueid
+        key: req.params.uniqueid,
+        id: req.params.id
+
     });
+    
+    
 
 });
+
+router.post('/:uniqueid/:id/new', function(req, res, next){
+    
+    console.log(req.body);
+    manageDB.sendFormDataToDB(req.body, req.params.id);
+    res.render('host',{
+        title: "Host Page",
+        // id: req.params.id
+    })
+    
+    
+
+})
 
 // router.post('/', function(req, res, next){
 //     console.log('did this work');

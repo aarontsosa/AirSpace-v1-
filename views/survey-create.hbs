@@ -2,7 +2,7 @@
     <h1>{{title}}</h1>
     <div class="survey-welcome-container">
         <div class="survey-key" data-target="uniqueid">{{key}}</div>
-        <form method="post" data-target="form">
+        <form method="post" data-target="form" action="/host/{{key}}/{{id}}/new">
             <div class="question-list" data-target='question-list'>
                 <div>
                 <p> Survey Name: <input type="text" name="Survey-Name"> </p>
