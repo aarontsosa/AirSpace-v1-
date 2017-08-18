@@ -71,7 +71,7 @@ function getQuestionAnswer(survey_id, host_id){
 
 function getQuestions(survey_id, host_id){
   return db.query(`
-    SELECT q.question
+    SELECT q.question, q.question_id
     FROM host_survey hs
     INNER JOIN survey_questions sq
     ON hs.survey_id = sq.survey_id
@@ -140,6 +140,36 @@ function addQuestionsAnswersSurveyToDB(data, surveyID){
   });
 }
 
+function addResults(array, name, survey){
+  for(let i=0; i < array.length; i++){
+    db.one(`
+        INSERT INTO results(result)
+        VALUES('${array[i]}')
+        RETURNING result_id;
+    `).then(result_id => {
+        db.query(`
+            SELECT sq.question_id
+            FROM host_survey hs
+            INNER JOIN survey_questions sq
+            ON hs.survey_id = sq.survey_id
+            WHERE hs.survey_id = ${survey};
+          `).then(question_ids => {
+            db.one(`
+                INSERT INTO results_questions(result_id, question_id)
+                VALUES(${result_id.result_id}, ${question_ids[i].question_id})
+                RETURNING question_id;
+            `).then(question_id => {
+              db.one(`
+                    INSERT INTO results_clients(result_id, client_id)
+                    VALUES(${result_id.result_id}, ${name})
+                    RETURNING client_id;
+              `)
+            })
+          })
+    })
+  }
+}
+
 function addAnswerstoDB(array){
   array.forEach((element)=>{
     db.one(`
@@ -168,6 +198,7 @@ module.exports = {
     getQuestionAnswer: getQuestionAnswer,
     getQuestions: getQuestions,
     getAnswers: getAnswers,
-    getSurveys: getSurveys
+    getSurveys: getSurveys,
+    addResults: addResults
   };
 

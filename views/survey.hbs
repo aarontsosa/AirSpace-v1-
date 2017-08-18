@@ -1,6 +1,6 @@
 <form method="POST">
     {{#each question}}
-        {{question}}:
+        <h3>{{question}}: {{question_id}}</h3>
         <br>
         <br>
         <input type="text" name="result">
@@ -8,4 +8,5 @@
         <br>
     {{/each}}
     <input type="submit" value="Submit">
+<p>{{question_id}}</p>
 </form>

@@ -33,7 +33,17 @@ router.get('/:hostid/:name', function(req, res, next){
 router.get('/:hostid/:name/:survey', function(req, res, next){
     manageDB.getQuestions(req.params.survey, req.params.hostid).then(result => {
         res.render('survey', {
-            question: result
+            question: result,
+
+        })
+    })
+})
+
+router.post('/:hostid/:name/:survey', function (req, res, next){
+    manageDB.addResults(req.body['result'], req.params.name, req.params.survey).then(result => {
+        res.render('session', {
+            host: req.params.hostid,
+            name: req.params.name
         })
     })
 })
