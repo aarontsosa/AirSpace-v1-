@@ -379,7 +379,7 @@ input {
 
   /*----FRONT PAGE----*/
   h1.title {
-    padding-top: 10%;
+    margin-top: 2rem;
   }
 
   .welcome-container {
