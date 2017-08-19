@@ -44,7 +44,7 @@ a {
   padding-top: 9rem;
   width: 100%;
   background-color: #90ce9b;
-  font-size: 2rem;
+  font-size: 1.5rem;
   list-style: none;
   opacity: 0;
   overflow: hidden;
@@ -63,12 +63,13 @@ a {
   text-align: center;
   text-decoration: none;
   letter-spacing: 1px;
+  font-size: 2rem;
 }
 
 .nav__burger {
   margin: 5%;
   right: 10%;
-  position: absolute;
+  /* position: absolute; */
   width: 10%;
   height: 10%;
 }
@@ -152,11 +153,11 @@ h1.title {
   justify-content: center;
   text-align: center;
   padding: 1rem;
-  background-color: white;
+  /* background-color: white; */
   border: 1px solid black;
   font-size: 1rem;    
   box-shadow: .5rem .5rem .2rem rgba(0,0,0,0.15);
-  width: 70%;
+  height: 100%;
 }
 
 .welcome-container p {
@@ -181,7 +182,7 @@ h1.title {
   border-radius: 1.5rem;
   padding: 1rem 1rem;
   margin: 0 1rem;
-  width: 12rem;
+  width: 5rem;
 }
 
 /* ----------------------------------------*/
@@ -197,14 +198,24 @@ h1.title {
 }
 
 p.host-welcome {
-  margin: 10%;
+  font-size: 1rem;
 }
 
 input.create-survey {
-  width: 10rem;
+  width: 8rem;
+  margin: .5rem;
   padding: 10%;
   border-radius: 3rem;
   color: white;
+  font-size: 1rem;
+  background-color:#70a2fd;
+}
+
+h1.key {
+  font-size: 1rem;
+  border: 1px solid black;
+  padding: 1rem;
+  color: black;
 }
 
 /* ----------*/
@@ -212,19 +223,48 @@ input.create-survey {
 
 /* ------------ CREATE A SURVEY PAGE --------------- */
 
-.key, .survey-key {
+.survey-welcome-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1.5rem;
+  background-color: white;
   border: 1px solid black;
-  padding: 1rem;
+  font-size: 1rem;    
+  box-shadow: 2rem 2rem 3rem rgba(0,0,0,0.15);
+}
+
+.survey-header {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.survey-key {
+  border: 1px solid black;
+  padding: .2rem;
   color: black;
 }
 
 .survey-key {
-  margin-bottom: 30px;
   align-self: flex-start;
+}
+
+.survey-identifier {
+  display: flex;
+  /* align-self: flex-start; */
+  flex-direction: column;
+}
+
+.survey-identifier p {
+  margin-top: 0;
 }
 
 .survey-name {
   width: 100%;
+  padding: 5%;
 }
 
 .survey-form {
@@ -232,15 +272,17 @@ input.create-survey {
   flex-direction: column;
 }
 
-.survey-submit,
-.client-submit{
+.survey-submit {
   color: white;
-  margin-top: 10%;
-  width: 300px;
+  margin: 10%;
+  width: 5rem;
+  padding: .5rem;
+  background-color:#70a2fd;
 }
 
 h1.create-title {
-  font-size: 72px;
+  font-size: 1.5rem;
+  text-align: center;
 }
 
 .survey-submit-div {
@@ -253,21 +295,12 @@ h1.create-title {
 button.add-question {
   background-color: rgba(0,0,0,0.15);
   border-radius: 25px;
-  padding: 30px;
-  margin: 10%;
+  padding: .5rem;
+  margin: .5rem;
 }
 
-.survey-welcome-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  margin-top: 50%;
-  padding: 10%;
-  background-color: white;
-  border: 1px solid black;
-  font-size: 50px;    
-  box-shadow: 20px 24px 60px 1px rgba(0,0,0,0.15);
+.question-list input {
+  padding: 5%;
 }
 
 /* ------------------------------------------------------*/
@@ -279,11 +312,11 @@ button.add-question {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 50%;
+  /* margin-top: 50%; */
   padding: 10%;
   background-color: white;
   border: 1px solid black;
-  font-size: 50px;    
+  font-size: 1rem;    
   box-shadow: 20px 24px 60px 1px rgba(0,0,0,0.15);
 }
 
@@ -295,7 +328,8 @@ button.add-question {
 
 .client-welcome-container form
 input {
-  margin: 10%;
+  margin: 5%;
+  padding: 5%;
 }
 
 input {
@@ -303,7 +337,7 @@ input {
   align-items: center;
   justify-content: center;
   /* padding: 5%; */
-  background-color:#70a2fd;
+  /* background-color:#70a2fd; */
   border-radius: 25px;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -314,6 +348,13 @@ input {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.client-submit {
+   background-color:#70a2fd;
+   color: white;
+   margin-top: 10%;
+   width: 8rem;
 }
 
 .client-form div {
@@ -328,12 +369,17 @@ input {
 
   /*----FRONT PAGE----*/
   h1.title {
-    padding-top: 15%;
+    padding-top: 10%;
   }
 
   .welcome-container {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     width: 75%;
+  }
+
+  .host-button, .client-button {
+    width: 6rem;
+    margin: 0 .5rem;
   }
 
   p.prompt, .user-selection {
@@ -348,10 +394,16 @@ input {
   .nav__list {
     height: 100%;
     }
+/* ----------------------*/
+
+.survey-identifier {
+  /* margin: 0 1rem; */
 }
 
-/* ===================================================================== */
+  }
 
+
+/* ===================================================================== */
 
 /* Phone
 @media only screen and (min-width : 300px) and (orientation: landscape) {
@@ -373,27 +425,29 @@ input {
 
 /*Tablet*/
 @media only screen and (min-width : 750px) {
-  #video-background {
-    position: fixed;
-    z-index: -1;
-    display: unset;
-  }
 
   .welcome-container {
+    width: 60%;
+    /* font-size: 2rem; */
+  }
+
+  /* .welcome-container {
     background-color: unset;
     border: hidden;
-    box-shadow: unset;
+    box-shadow: unset; */
     /* padding-top: 0; */
     /* padding-bottom: 20%; */
-  }
+  /* } */
 
   .host-button, .client-button {
-    background-color: #5271FF;
+    font-size: 1.8rem;
+    width: 9rem;
+    padding: 1.2rem;
   }
 
-  h1.title {
+  /* h1.title {
     color: #5271FF;
-  }
+  } */
   
   h1.title {
     /* font-size: 4rem; */
@@ -408,8 +462,18 @@ input {
 /*Tablet*/
 @media only screen and (min-width : 750px) and (orientation: landscape) {
 
-  .nav {
-    background-color: #5271FF;
+  .video-holder {
+    position: absolute;
+    overflow: hidden;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+  }
+
+  #video-background {
+    display: unset;
+    /* width: 100%; */
+    height: 100%;
   }
 
   .welcome-container p {
@@ -417,13 +481,16 @@ input {
   }
 
   h1.title {
+    position: absolute;
+    top: 0;
+    width: unset;
     /* margin-top: 10%; */
     /* margin-bottom: 0; */
     font-size: 5rem;
     /* margin-left: 5%; */
     color: white;
     margin-top: 0;
-    padding: 1rem;
+    padding: 2rem;
   }
 
   .host-button,
@@ -434,16 +501,21 @@ input {
   .welcome-container {
     font-size: 40px;
     color: white;
-    margin-top: 20%;
+    margin-top: 8rem;
   }
 
   .user-selection {
-    margin-top: 7.5%;
+    margin-top: 2rem;
   }
 
   .host-button, .client-button {
     font-size: 30px;
     width: 200px;
+    margin: 0 2rem;
+  }
+
+  .nav {
+    background-color: #5271FF;
   }
 
   .nav__container {
@@ -454,7 +526,7 @@ input {
       /* margin: 0 auto; */
       width: 100%;
       /* max-width: 800px; */
-      padding: 1rem;
+      /* padding: 1rem; */
     }
 
     .nav__title {
@@ -475,6 +547,7 @@ input {
       opacity: 1;
       /* font-size: 40px; */
       font-size: 30px;
+      padding-top: 1rem;
       flex-direction: row;
       justify-content: flex-end;
     }
@@ -486,8 +559,10 @@ input {
     }
 
     .nav__link {
-      padding: 0 30px;
+      padding: 0 1rem;
+      margin: 3rem 0;
       transition: color 150ms ease-out;
+      font-size: 1.5rem;
     
     }
 
@@ -508,53 +583,9 @@ input {
 }
 
 /*Desktop*/
-@media only screen and (min-width : 1200px) {
-  
-  /* h1.title {
-    font-size: 5rem;
-  }
-
-  .main-container {
-    position: relative;
-  }
-
-  .welcome-container {
-    border: none;
-    box-shadow: none;
-    font-size: 2rem;
-  }
-
-
-  div.user-selection {
-    justify-content: space-between;
-  }
-
-  .host-button, .client-button {
-    width: 250px;
-    margin: 0 50px;
-  } */
-/* 
-  footer {
-    margin: 0;
-    padding: 0;
-   Background fallback in case of IE8 & down, or in case video doens't load, such as with slower connections 
-    background: #333;
-    background-attachment: fixed;
-    background-size: cover;
-  }
-  
-  The only rule that matters
+@media only screen and (min-width : 1500px) {
   #video-background {
-   making the video fullscreen 
-    position: fixed;
-    right: 0; 
-    bottom: 0;
-    min-width: 100%; 
-    min-height: 100%;
-    width: auto; 
-    height: auto;
-    z-index: 0;
-  
-} */
+    height: unset;
+  }
 
 }
