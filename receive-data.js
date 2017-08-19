@@ -23,9 +23,9 @@ function init(callback) {
     socket.on('message', (event)=>{
       console.log('we got a message');
       var receivedData = JSON.parse(event);
-      console.log(receivedData + 'this is recieved data');
-
+      console.log(Object.keys(receivedData) + 'this is recieved data');
       broadcast(JSON.stringify(receivedData));
+      
     // if(receivedData.type === 'submit-survey'){
     //   console.log('it sent');
     //   manageDB.addSurveyToDatabase(receivedData['Survey-Name'])

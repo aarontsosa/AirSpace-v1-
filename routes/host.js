@@ -24,7 +24,7 @@ router.get(`/:uniqueid/:id`, function(req, res, next){
 router.post('/:uniqueid/:id', function(req, res, next){
     // console.log('it worked')
 
-    res.redirect(`/host/${req.params.uniqueid}/${req.params.id}/new`);
+    res.redirect(`/host/${req.params.uniqueid}/${req.params.id}/newsurvey`);
     // res.render('survey-create', {
     //     title: 'Create a Survey',
     //     key: req.params.uniqueid,
@@ -37,7 +37,7 @@ router.post('/:uniqueid/:id', function(req, res, next){
     
 
 });
-router.get('/:uniqueid/:id/new', function(req, res, next){
+router.get('/:uniqueid/:id/newsurvey', function(req, res, next){
     console.log('we are here');
     res.render('survey-create', {
         title: 'Create a Survey',
@@ -54,18 +54,20 @@ router.get('/:uniqueid/:id/new', function(req, res, next){
 //         // id: req.params.id
 //     })
 // })
-router.post('/:uniqueid/:id/new', function(req, res, next){
+router.post('/:uniqueid/:id/newsurvey', function(req, res, next){
     // res.redirect(`${req.params.id}/new`);
     manageDB.sendFormDataToDB(req.body, req.params.id)
         .then(() => {
-            return manageDB.getSurveys(req.params.id).then((result)=>{
-                res.render('host-dashboard',{
-                    title: "Host Page",
-                    uniqueid: req.params.uniqueid,
-                    id: req.params.id,
-                    surveyid: result
-                    // id: req.params.id
-                })
+            res.redirect(`/host/${req.params.uniqueid}/${req.params.id}/dashboard`)
+            // return manageDB.getSurveys(req.params.id).then((result)=>{
+            //     console.log(result)
+            //     res.render('host-dashboard',{
+            //         title: "Host Page",
+            //         uniqueid: req.params.uniqueid,
+            //         id: req.params.id,
+            //         result: result
+            //         // id: req.params.id
+            //     })
         })
             // console.log(surveyid);
         })
@@ -73,7 +75,22 @@ router.post('/:uniqueid/:id/new', function(req, res, next){
     //     return result;
     // }).catch(console.log);
     // var surveyid = 70;
-    
+
+router.get('/:uniqueid/:id/dashboard', function(req, res, next){
+    return manageDB.getSurveys(req.params.id).then((result)=>{
+        res.render('host-dashboard',{
+            title: "Host Page",
+            uniqueid: req.params.uniqueid,
+            id: req.params.id,
+            result: result
+            // id: req.params.id
+        })
+});
+
+
+router.post('/:uniqueid/:id/dashboard', function(req, res, next){
+    res.redirect(`/host/${req.params.uniqueid}/${req.params.id}/newsurvey`)
+})
     //we went to the database now we want to redirect to host-dashboard
     
     

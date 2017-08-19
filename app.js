@@ -10,7 +10,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var host = require('./routes/host');
 var client = require('./routes/client');
-var hostDashboard = require('./routes/host-dashboard');
+
 
 
 var app = express();
@@ -33,6 +33,7 @@ app.use('/host', host);
 app.use('/client', client);
 app.use('/session', client);
 app.use('/survey-create', host);
+app.use('/host-dashboard', host);
 
 
 // catch 404 and forward to error handler

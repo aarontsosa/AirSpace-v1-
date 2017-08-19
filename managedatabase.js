@@ -84,15 +84,15 @@ function getQuestions(survey_id, host_id){
 }
 
 function getSurveys(host_id){
-  return db.one(`
-  select s.survey_id
+  return db.query(`
+  select s.survey_id, s.survey_name
 	from 
 		surveys as s
 		inner join host_survey hs
 			on s.survey_id = hs.survey_id
   where hs.host_id = ${host_id};
   `).then((result)=>{
-    return result.survey_id;
+    return result;
   })
 }
 
