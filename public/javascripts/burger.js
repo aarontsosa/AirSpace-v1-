@@ -39,10 +39,13 @@ class FlexNav extends Component {
         this.$burger = this.getElement('burger')
         
         // Bind events
-        this.$burger.addEventListener('click', (e) => { this.open(e) })
-        this.$burger.addEventListener('touchend', (e) => { this.open(e) })
+        this.$burger.addEventListener('click', (event) => { this.open(event) })
+        this.$burger.addEventListener('touchend', (event) => { this.open(event) })
       }
-      
+
+// toggling two classes-- one after the transition is over
+// add another class that sets its display to none
+
       open (event) {
         event.preventDefault()
     
