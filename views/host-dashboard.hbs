@@ -6,13 +6,19 @@
         <p></p>
         <h1 class="key">{{uniqueid}}</h1>
         <input type="button" value="Create Another Survey?" onclick="location.replace('http://localhost:3001/host/{{uniqueid}}/{{id}}/newsurvey')">
+        <div class="tablehost">
+            
+        </div>
     </div>
 </div>
 {{#each result}}
     <button type="button" data-target="activate-survey" data-survey-id='{{survey_id}}'>Click to activate survey: {{survey_name}}</button>
+    <button type="button" data-target="results" data-surveyid ='{{survey_id}}'>Click to see results from survey: {{survey_name}}</button>
     <br>
     <br>
 {{/each}}
+
+
 <script src="../../../javascripts/host-dashboard.js" type='text/javascript'></script>
 
 {{!-- click activate and send of the host and survey id 
