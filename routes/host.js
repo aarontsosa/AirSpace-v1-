@@ -24,7 +24,7 @@ router.get(`/:uniqueid/:id`, function(req, res, next){
 router.post('/:uniqueid/:id', function(req, res, next){
     // console.log('it worked')
 
-    res.redirect(`/host/${req.params.uniqueid}/${req.params.id}/new`);
+    res.redirect(`/host/${req.params.uniqueid}/${req.params.id}/newsurvey`);
     // res.render('survey-create', {
     //     title: 'Create a Survey',
     //     key: req.params.uniqueid,
@@ -37,7 +37,7 @@ router.post('/:uniqueid/:id', function(req, res, next){
     
 
 });
-router.get('/:uniqueid/:id/new', function(req, res, next){
+router.get('/:uniqueid/:id/newsurvey', function(req, res, next){
     console.log('we are here');
     res.render('survey-create', {
         title: 'Create a Survey',
@@ -54,7 +54,7 @@ router.get('/:uniqueid/:id/new', function(req, res, next){
 //         // id: req.params.id
 //     })
 // })
-router.post('/:uniqueid/:id/new', function(req, res, next){
+router.post('/:uniqueid/:id/newsurvey', function(req, res, next){
     // res.redirect(`${req.params.id}/new`);
     manageDB.sendFormDataToDB(req.body, req.params.id)
         .then(() => {
@@ -86,7 +86,11 @@ router.get('/:uniqueid/:id/dashboard', function(req, res, next){
             // id: req.params.id
         })
 });
-    
+
+
+router.post('/:uniqueid/:id/dashboard', function(req, res, next){
+    res.redirect(`/host/${req.params.uniqueid}/${req.params.id}/newsurvey`)
+})
     //we went to the database now we want to redirect to host-dashboard
     
     

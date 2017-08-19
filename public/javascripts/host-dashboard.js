@@ -14,10 +14,11 @@ $("[data-target='activate-survey']").on('click', (event) =>{
             'survey_id': surveyID 
         }
     }
-    console.log(sendToServer)
     sendToWebSocket(sendToServer);
 
-
+// $("#createsurvey").on('click', (event) => {
+//     location.replace(http://localhost:3001/host/{{uniqueid}}/{{id}}/surveynew)
+// })
     // message = {
     //     'derp': window.location
     // }
