@@ -184,7 +184,7 @@ h1.title {
 /* ----------------------------------------*/
 
 
-/* HOST PAGE */
+/*-------HOST PAGE -----------*/
 .host-welcome p {
   color: black;
 }
@@ -228,7 +228,7 @@ h1.key {
   color: black;
 }
 
-/* ----------*/
+/* ----------------------------*/
 
 
 /* ------------ CREATE A SURVEY PAGE --------------- */
@@ -313,8 +313,59 @@ button.add-question {
   padding: 5%;
 }
 
-/* ------------------------------------------------------*/
+/* ---------------------------------------------------------*/
+/*----------------HOST DASHBOARD ---------------------------*/
 
+.host-dash {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  border: 1px solid black;
+  font-size: 1rem;    
+  box-shadow: .5rem .5rem .2rem rgba(0,0,0,0.15);
+  height: 100%;
+}
+
+.host-dash h1 {
+  margin: 0;
+}
+
+
+input.create-another-survey {
+  width: 9.5rem;
+  margin: .5rem;
+  padding: 1rem;
+  border-radius: 3rem;
+  color: white;
+  font-size: .8rem;
+  background-color:#70a2fd;
+}
+
+.activate-survey {
+  /* background-color: #33A346; */
+  color: white;
+  font-size: .8rem;
+  border-radius: 1rem;
+  padding: 1rem; 
+}
+
+.activation-box {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  padding: 0 1rem;
+  /* border: 1px solid black; */
+  width: 100%;
+  /* background-color: rgba(0,0,0,.05); */
+  border-radius: 1rem;
+}
+
+
+/* ------------------------------------------------------*/
 /* ------------------ CLIENT PAGE -----------------------*/
 
 .client-welcome-container {
@@ -369,6 +420,47 @@ input {
 
 .client-form div {
   margin: 5%;
+}
+
+/* -------------------------------------------------*/
+
+/* -------- CLIENT IN SURVEY SESSION ---------------*/
+
+.sent-survey {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sent-survey h3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  font-weight: unset;
+}
+
+.sent-survey input {
+  padding: 1rem;
+}
+
+.received-survey-submit {
+  color: white;
+  margin: 1rem;
+  width: 5rem;
+  padding: .5rem;
+  background-color:#70a2fd;
+}
+
+.waiting {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.waiting h1 {
+  margin-top: 4rem;
 }
 
 /* -------------------------------------------------*/
@@ -455,6 +547,20 @@ input {
 }
 
 /* ------------------------------ */
+
+/* ----------HOST DASHBOARD----------------- */
+
+.host-dash {
+  margin-top: 1rem;
+  border: unset;
+  box-shadow: unset;
+}
+
+input.create-another-survey {
+  padding: 1rem;
+}
+
+/* ----------------------------------------- */
 
 
 }
@@ -557,6 +663,20 @@ input {
   display: flex;
   height: 100%;
   flex-flow: column wrap;
+}
+
+/* ----------------------------------------- */
+
+/* ----------CLIENT PAGE----------- */
+
+/* .client-welcome-container {} */
+
+/* --------------------------------- */
+
+/* ----------CLIENT IN SURVEY SESSION----------- */
+
+.sent-survey {
+  margin-top: 4rem;
 }
 
 /* ----------------------------------------- */

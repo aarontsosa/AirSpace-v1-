@@ -1,4 +1,4 @@
-<form method="POST">
+<form class="sent-survey" method="POST">
     {{#each question}}
         <h3>{{question}}: {{question_id}}</h3>
         <br>
@@ -7,6 +7,6 @@
         <br>
         <br>
     {{/each}}
-    <input type="submit" value="Submit">
+    <input class="received-survey-submit" type="submit" value="Submit">
 <p>{{question_id}}</p>
 </form>
