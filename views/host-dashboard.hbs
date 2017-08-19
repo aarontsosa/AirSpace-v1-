@@ -8,8 +8,11 @@
         <p>derp</p>
     </div>
 </div>
-<button type="button" data-target="activate-survey" data-survey-id='{{surveyid}}'>Click to activate your survey</button>
-
+{{#each result}}
+    <button type="button" data-target="activate-survey" data-survey-id='{{survey_id}}'>Click to activate survey: {{survey_name}}</button>
+    <br>
+    <br>
+{{/each}}
 <script src="../../../javascripts/host-dashboard.js" type='text/javascript'></script>
 
 {{!-- click activate and send of the host and survey id 
