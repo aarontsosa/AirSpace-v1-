@@ -193,6 +193,20 @@ h1.title {
   color: black;
 }
 
+.host-welcome {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  border: 1px solid black;
+  font-size: 1rem;    
+  box-shadow: .5rem .5rem .2rem rgba(0,0,0,0.15);
+  height: 100%;
+}
+
 .host-title {
   font-size: 2rem;
 }
@@ -264,7 +278,7 @@ h1.key {
 
 .survey-name {
   width: 100%;
-  padding: 5%;
+  padding: 1rem;
 }
 
 .survey-form {
@@ -395,68 +409,48 @@ input {
     height: 100%;
     }
 /* ----------------------*/
-
-.survey-identifier {
-  /* margin: 0 1rem; */
-}
-
   }
 
+/* =================== TABLET PORTRAIT MEDIA QUERY ============================== */
 
-/* ===================================================================== */
-
-/* Phone
-@media only screen and (min-width : 300px) and (orientation: landscape) {
-  .welcome-container {
-    margin-top: 0;
-    padding: 50px;
-  }
-
-  p {
-    margin: 5px;
-  }
-
-  h1.title {
-    font-style: italic;
-    font-size: 50px;
-    letter-spacing: 1px;
-  }
-} */
-
-/*Tablet*/
 @media only screen and (min-width : 750px) {
+
+/* ---------FRONT PAGE ---------- */
 
   .welcome-container {
     width: 60%;
+    font-size: 1.25rem;
+    width: 75%;
     /* font-size: 2rem; */
   }
-
-  /* .welcome-container {
-    background-color: unset;
-    border: hidden;
-    box-shadow: unset; */
-    /* padding-top: 0; */
-    /* padding-bottom: 20%; */
-  /* } */
 
   .host-button, .client-button {
     font-size: 1.8rem;
     width: 9rem;
     padding: 1.2rem;
   }
+/* ------------------------------ */
 
-  /* h1.title {
-    color: #5271FF;
-  } */
-  
-  h1.title {
-    /* font-size: 4rem; */
-  }
+/* ----------HOST PAGE----------- */
 
-  .welcome-container {
-    /* margin-top: 15%; */
-    /* font: 30px "Lucida Grande", Helvetica, Arial, sans-serif; */
-  }
+.host-welcome {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 10%;
+  /* border: 1px solid black; */
+  font-size: 1rem;    
+  box-shadow: .5rem .5rem .2rem rgba(0,0,0,0.15);
+  height: 100%;
+}
+
+/* ------------------------------ */
+
+
 }
 
 /*Tablet*/
@@ -513,6 +507,36 @@ input {
     width: 200px;
     margin: 0 2rem;
   }
+
+/* ----------CREATE A SURVEY PAGE----------- */
+
+.survey-welcome-container {
+  /* margin-top: 5%; */
+  border: 0;
+  box-shadow: unset;
+  /* align-items: flex-start; */
+  width: 100%;
+  padding-left: 3rem;
+  height: 100%;
+  flex-flow: column wrap;
+
+}
+
+.survey-name {
+  width: unset;
+  width: 9rem;
+  height: unset;
+  height: .5rem;
+}
+
+.question-list {
+  display: flex;
+  height: 100%;
+  flex-flow: column wrap;
+}
+
+/* ----------------------------------------- */
+
 
   .nav {
     background-color: #5271FF;
