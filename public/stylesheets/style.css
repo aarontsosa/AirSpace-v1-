@@ -12,7 +12,7 @@ html {
 }
 
 body {
-  font-family: "Open Sans", "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", "Lucida Grande", Helvetica, Arial, sans-serif; 
 }
 
 a {
@@ -590,7 +590,7 @@ input.create-another-survey {
 /* ----------- FRONT PAGE ---------- */
 
 .welcome-container p {
-    text-shadow: 1px 1px 1px #1B3050;
+    /* text-shadow: 1px 1px 1px #1B3050; */
   }
 
   h1.title {
@@ -608,13 +608,17 @@ input.create-another-survey {
 
   .host-button,
   .client-button {
-    background-color: #5271FF;
+    /* background-color: #60c090; */
+    border: 2px solid white;
+    /* background-color: rgba(96,192,144,0.9); */
+    background-color: unset;
+    border-radius: unset;
   }
 
   .welcome-container {
-    font-size: 40px;
+    font-size: 1.5rem;
     color: white;
-    margin-top: 8rem;
+    margin-top: 13rem;
   }
 
   .user-selection {
@@ -634,6 +638,10 @@ input.create-another-survey {
 .host-welcome {
   border: none;
   box-shadow: unset;
+}
+
+p.prompt {
+  margin: 0;
 }
 
 /* ------------------------------ */
@@ -683,11 +691,16 @@ input.create-another-survey {
 
 /* ----- HAMBURGER MENU --------------------------------------- */
   .nav {
-    background-color: #5271FF;
+    position: absolute;
+    top: 0;
+    height: 0;
   }
 
 .nav__container {
     display: flex;
+    position: absolute;
+    top: 0;
+    height: 0;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
@@ -708,6 +721,7 @@ input.create-another-survey {
 
   .nav__list {
     display: flex;
+    align-self: flex-start;
     /* width: auto; */
     width: 100%;
     height: auto;
