@@ -54,9 +54,6 @@ work, play, and learning.
 
 ### Host Instructions
 
-
-
-
 ### Guest Instructions
 
 ## Development Process
