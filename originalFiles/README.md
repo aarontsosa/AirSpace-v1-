@@ -1,9 +1,13 @@
-# AirTV
+# AirSpace
 
+AirSpace is a group response platform that allows group members to provide feedback and answer questions in real time.
+Group members can initiate or join existing sessions via phone, tablet, or computer by going to the AirSpace website and
+entering their host's unique passport key. The host can then send surveys and view member responses in real time.
 
 ## Built With
 
 * Node.js
+* Express
 * WebSockets
 * JavaScript ES6
 * jQuery 3.2.1
@@ -12,14 +16,15 @@
 ## Development Process
 * [1. Concept]
 * [2. Initial Planning]
+* [3. Database Architecture]
+* [4. Structuring the Platform]
+* [5. Visual Layout and Design]
 
 ### 1. Concept
 
-[maybe a "how you came up with it" can go here]
+We developed AirSpace with the intention of creating a multipurpose space where host users can poll other users and send information
+back and forth instantly.
 
-A service that allows users to connect to a main host and interact with the host and other users. The main host will be able to gather information, answer questions, or poll users in real time.
-
-Users can access the session via phone, tablet, or computer by going to a web address and entering a password to join a session with other users.
 
 ### 2. Initial Planning
 
