@@ -726,6 +726,21 @@ p.prompt {
 
 /* ----------------------------------------- */
 
+/* ----------CREATE A SURVEY PAGE----------- */
+
+.host-dash {
+  margin-top: 12rem;
+  border: 1px solid white;
+  color: white;
+  background-color: rgba(0,0,0,.15);
+}
+
+input.create-another-survey {
+  background-color: rgb(125, 178, 134);
+}
+
+
+/* ----------------------------------------- */
 /* ----------CLIENT PAGE----------- */
 
 .client-welcome-container {
@@ -747,10 +762,31 @@ input.client-submit {
 
 /* --------------------------------- */
 
+/* ----------WAITING ROOM----------- */
+
+.waiting {
+  margin-top: 12rem;
+  color: white;
+}
+
+/* ----------------------------------------- */
+
 /* ----------CLIENT IN SURVEY SESSION----------- */
 
 .sent-survey {
-  margin-top: 4rem;
+  border: 1px solid white;
+  padding: 2rem 2rem 0 2rem;
+  margin-top: 10rem;
+  color: white;
+}
+
+.sent-survey input {
+  border-radius: 0;
+}
+
+input.received-survey-submit {
+  background-color: rgb(125, 178, 134);
+  border-radius: 2rem;
 }
 
 /* ----------------------------------------- */
