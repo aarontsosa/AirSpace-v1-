@@ -185,6 +185,14 @@ h1.title {
   width: 5rem;
 }
 
+#about-box, #how-box,
+#contact-box {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem;
+  
+}
+
 /* ----------------------------------------*/
 
 
@@ -633,6 +641,13 @@ input.create-another-survey {
     margin: 0 2rem;
   }
 
+  #about-box, #how-box,
+  #contact-box {
+    color: white;
+    /* border: 1px solid white; */
+    background-color: rgba(0,0,0,.15);
+  }
+
 /* ----------------------------------------- */
 
 /* ----------HOST PAGE----------- */
@@ -845,7 +860,6 @@ input.received-survey-submit {
   .nav__item {
     display: flex;
     align-items: center;
-      /* this may be the incorrect size*/
   }
 
   .nav__link {
