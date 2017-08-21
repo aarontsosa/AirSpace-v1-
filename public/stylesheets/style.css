@@ -589,10 +589,6 @@ input.create-another-survey {
 
 /* ----------- FRONT PAGE ---------- */
 
-.welcome-container p {
-    /* text-shadow: 1px 1px 1px #1B3050; */
-  }
-
   h1.title {
     position: absolute;
     top: 0;
@@ -636,8 +632,25 @@ input.create-another-survey {
 /* ----------HOST PAGE----------- */
 
 .host-welcome {
-  border: none;
+  border: 1px solid white;
+  color: white;
   box-shadow: unset;
+  margin-top: 12rem;
+  background-color: rgba(0,0,0,0.15);
+  /* border-radius: 2rem; */
+}
+
+h1.key {
+  color: white;
+  border: 1px solid white;
+}
+
+.host-welcome p {
+  color: white;
+}
+
+input.create-survey {
+  background-color: rgb(125, 178, 134);
 }
 
 p.prompt {
@@ -649,15 +662,41 @@ p.prompt {
 /* ----------CREATE A SURVEY PAGE----------- */
 
 .survey-welcome-container {
-  /* margin-top: 5%; */
-  border: 0;
+  margin-top: 11rem;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid white;
+  background-color: rgba(0,0,0,.15);
+  color: white;
   box-shadow: unset;
   /* align-items: flex-start; */
-  width: 100%;
-  padding-left: 3rem;
-  height: 100%;
-  flex-flow: column wrap;
+  /* width: 30%; */
+  /* padding-left: 3rem; */
+}
 
+.survey-header {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.survey-form {
+  /* display: flex;
+  height: 100%;
+  flex-flow: column wrap; */
+}
+
+.survey-key {
+  border: 1px solid white;
+  color: white;
+}
+
+.add-question {
+  color: white;
+  border-radius: 0;
+}
+
+.survey-submit {
+  background-color: rgb(125, 178, 134);
 }
 
 .survey-name {
@@ -673,11 +712,38 @@ p.prompt {
   flex-flow: column wrap;
 }
 
+.question-list input {
+  width: 6rem;
+}
+
+.video-holder {
+  height: 100%;
+}
+
+#video-background {
+  background-repeat: repeat-y;
+}
+
 /* ----------------------------------------- */
 
 /* ----------CLIENT PAGE----------- */
 
-/* .client-welcome-container {} */
+.client-welcome-container {
+  margin-top: 12rem;
+  background-color: rgba(0,0,0,0.15);
+  color: white;
+  /* border-radius: 2rem; */
+  border: 1px solid white;
+}
+
+.client-welcome-container input {
+  border-radius: 0;
+}
+
+input.client-submit {
+  background-color: rgb(125, 178, 134);
+  border-radius: 2rem;
+}
 
 /* --------------------------------- */
 
@@ -769,7 +835,7 @@ p.prompt {
 
 /* =================== BIG DESKTOP ============================== */
 
-@media only screen and (min-width : 1500px) {
+@media only screen and (min-width : 1200px) {
 
 /* --- VIDEO BACKGROUND ---- */
   #video-background {
