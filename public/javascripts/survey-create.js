@@ -63,10 +63,7 @@ $("[data-target='add-question']").on('click', function(event){
 
     // this adjusts the video background so that the video height adjusts to cover the background
     // as the host adds more questions
-    $('.video-holder').height($('body').height() + 400);
-    if ($('body').height() - $('#video-background').height() > 0) {
-        $('.video-holder').height($('body').height() + 100);
-    }
+    $('.video-holder').css( "height", $('body').height() + 300);
     console.log($('body').height());
     createTextBox();
 })
@@ -78,9 +75,6 @@ $("[data-target='submit']").on('click', function(event){
     console.log(finishedQuestions);
     // sendToWebSocket(finishedQuestions);
 })
-
-
-
 
 
 function sendToWebSocket(message){
