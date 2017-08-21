@@ -49,7 +49,7 @@ The rest is up to the Host!
 
 **//Give further explanation of what will happen if it's a quiz, or a party game.**
 
-Our hope is that AirSpace will facilitate communication within groups in all kinds of different contexts--
+Our hope is that AirSpace will facilitate group communication in all kinds of different contexts--
 work, play, and learning.
 
 ### Host Instructions
