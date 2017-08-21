@@ -112,6 +112,10 @@ a {
 #video-background {
   display: none;
 }
+
+.video-holder {
+  display: none;
+}
 /* ------------------------ */
 
 
@@ -572,6 +576,7 @@ input.create-another-survey {
 /* ---- VIDEO BACKGROUND-------- */
 
   .video-holder {
+    display: unset;
     position: absolute;
     overflow: hidden;
     z-index: -1;

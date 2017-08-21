@@ -60,6 +60,14 @@ function format(data){
 
 $("[data-target='add-question']").on('click', function(event){
     event.preventDefault();
+
+    // this adjusts the video background so that the video height adjusts to cover the background
+    // as the host adds more questions
+    $('.video-holder').height($('body').height() + 400);
+    if ($('body').height() - $('#video-background').height() > 0) {
+        $('.video-holder').height($('body').height() + 100);
+    }
+    console.log($('body').height());
     createTextBox();
 })
 
