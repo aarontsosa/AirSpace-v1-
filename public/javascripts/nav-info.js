@@ -1,3 +1,13 @@
+function toggle(elementID) {
+    var elementCSS = $(elementID).css('display');
+    console.log(elementCSS);
+    if (elementCSS == 'none') {
+        $(elementID).css('display', 'block')
+    } else {
+        $(elementID).css('display', 'none')
+    }
+}
+
 $(document).ready( () => {
     $('.about-button').click( () => {
         var about = `
@@ -7,7 +17,7 @@ $(document).ready( () => {
             or computer by entering their host's unique passport key.
             The host can then send surveys and view member responses in real time.
             `;
-
+        toggle('#about-box');
         // populates empty div with content in 'about'
         $('#about-box').html(about);
         $('#about-box').css({
@@ -25,7 +35,7 @@ $(document).ready( () => {
         });
 
         // adjust video background to size up-- no spillover to white space
-        $('.video-holder').css( "height", $('body').height() + 400);
+        // $('.video-holder').css( "height", $('body').height() + 400);
     });
 
     $('.how-button').click( () => {
@@ -59,6 +69,7 @@ $(document).ready( () => {
         work, play, and learning.
         `;
 
+        toggle('#how-box');
         // populates empty div with content in 'howItWorks'
         $('#how-box').html(howItWorks);
         $('#how-box').css({
@@ -75,14 +86,16 @@ $(document).ready( () => {
             margin: "0 0 .5rem 0"
         });
 
-        // adjust video background to size up-- no spillover to white space
-        $('.video-holder').css( "height", $('body').height() + 400);
+        // adjust video background to size up-- no spillover into white space
+        // $('.video-holder').css( "height", $('body').height() + 400);
     });
 
     $('.contact-button').click( () => {
         var contact = `
         Github
         `
+
+        toggle('#contact-box');
         // populates empty div with content in 'contact'
         $('#contact-box').html(contact);
         $('#contact-box').css({
@@ -100,6 +113,6 @@ $(document).ready( () => {
         });
 
         // adjust video background to size up-- no spillover to white space
-        $('.video-holder').css( "height", $('body').height() + 400);
+        // $('.video-holder').css( "height", $('body').height() + 400);
     });
 });
