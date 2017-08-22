@@ -1,12 +1,17 @@
-<form method="POST">
-    {{#each question}}
-        <h3>{{question}}: {{question_id}}</h3>
-        <br>
-        <br>
-        <input type="text" name="result">
-        <br>
-        <br>
-    {{/each}}
-    <input type="submit" value="Submit">
-<p>{{question_id}}</p>
-</form>
+<div class="main-container">
+    <form class="sent-survey" method="POST">
+        {{#each question}}
+            <h3>{{question}}: {{question_id}}</h3>
+            <br>
+            <br>
+            <input type="text" name="result">
+            <br>
+            <br>
+        {{/each}}
+        <input class="received-survey-submit" type="submit" value="Submit">
+    <p>{{question_id}}</p>
+    </form>
+    <div id="about-box"></div>
+    <div id="how-box"></div>
+    <div id="contact-box"></div>
+</div>

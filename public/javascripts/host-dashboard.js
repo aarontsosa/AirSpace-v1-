@@ -4,6 +4,13 @@ function sendToWebSocket(message){
     socket.send(JSON.stringify(message));
 }
 
+// $(window).load( () => {
+//     if ($('body').height() - $('.video-holder').height() > 0) {
+//         $('.video-holder').css( "height", $('body').height() + 300)
+//     }
+// }
+
+
 $("[data-target='activate-survey']").on('click', (event) =>{
     var urlPathParts = window.location.pathname.split("/");
     var uniqueID = urlPathParts[urlPathParts.length - 2];

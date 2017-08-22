@@ -1,17 +1,15 @@
-<div class="video-holder">
-    <video autoplay loop id="video-background" muted plays-inline>
-    <source src="/videos/clouds6.mp4" type="video/mp4">
-    </video>
-</div>
 <div class="main-container">
     <div class="welcome-container">
         <p class="welcome">Welcome!</p>
-        <p class="prompt">Please select your user type:</p>
+        <p class="prompt">Please select your user type</p>
         <div class="user-selection">
-            <div class="host-button"><a href='/host/{{uniqueID}}'>Teacher</a></div>
-            <div class="client-button"><a href="/client/">Student</a></div>
+            <div class="host-button"><a href='/host/{{uniqueID}}'>Host</a></div>
+            <div class="client-button"><a href="/client/">Guest</a></div>
         </div>
     </div>
+    <div id="about-box"></div>
+    <div id="how-box"></div>
+    <div id="contact-box"></div>
 </div>
 {{!-- <footer class="big-video">
     <video autoplay loop id=“video-background” muted plays-inline>

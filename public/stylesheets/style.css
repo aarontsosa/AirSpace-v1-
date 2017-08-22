@@ -12,7 +12,7 @@ html {
 }
 
 body {
-  font-family: "Open Sans", "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", "Lucida Grande", Helvetica, Arial, sans-serif; 
 }
 
 a {
@@ -112,6 +112,10 @@ a {
 #video-background {
   display: none;
 }
+
+.video-holder {
+  display: none;
+}
 /* ------------------------ */
 
 
@@ -181,10 +185,18 @@ h1.title {
   width: 5rem;
 }
 
+#about-box, #how-box,
+#contact-box {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem;
+  
+}
+
 /* ----------------------------------------*/
 
 
-/* HOST PAGE */
+/*-------HOST PAGE -----------*/
 .host-welcome p {
   color: black;
 }
@@ -228,7 +240,7 @@ h1.key {
   color: black;
 }
 
-/* ----------*/
+/* ----------------------------*/
 
 
 /* ------------ CREATE A SURVEY PAGE --------------- */
@@ -239,6 +251,7 @@ h1.key {
   align-items: center;
   justify-content: space-around;
   padding: 1.5rem;
+  margin-bottom: 2rem;
   background-color: white;
   border: 1px solid black;
   font-size: 1rem;    
@@ -313,8 +326,59 @@ button.add-question {
   padding: 5%;
 }
 
-/* ------------------------------------------------------*/
+/* ---------------------------------------------------------*/
+/*----------------HOST DASHBOARD ---------------------------*/
 
+.host-dash {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  border: 1px solid black;
+  font-size: 1rem;    
+  box-shadow: .5rem .5rem .2rem rgba(0,0,0,0.15);
+  height: 100%;
+}
+
+.host-dash h1 {
+  margin: 0;
+}
+
+
+input.create-another-survey {
+  width: 9.5rem;
+  margin: .5rem;
+  padding: 1rem;
+  border-radius: 3rem;
+  color: white;
+  font-size: .8rem;
+  background-color:#70a2fd;
+}
+
+.activate-survey {
+  /* background-color: #33A346; */
+  color: white;
+  font-size: .8rem;
+  border-radius: 1rem;
+  padding: 1rem; 
+}
+
+.activation-box {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  padding: 0 1rem;
+  /* border: 1px solid black; */
+  width: 100%;
+  /* background-color: rgba(0,0,0,.05); */
+  border-radius: 1rem;
+}
+
+
+/* ------------------------------------------------------*/
 /* ------------------ CLIENT PAGE -----------------------*/
 
 .client-welcome-container {
@@ -373,13 +437,54 @@ input {
 
 /* -------------------------------------------------*/
 
+/* -------- CLIENT IN SURVEY SESSION ---------------*/
+
+.sent-survey {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sent-survey h3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  font-weight: unset;
+}
+
+.sent-survey input {
+  padding: 1rem;
+}
+
+.received-survey-submit {
+  color: white;
+  margin: 1rem;
+  width: 5rem;
+  padding: .5rem;
+  background-color:#70a2fd;
+}
+
+.waiting {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.waiting h1 {
+  margin-top: 4rem;
+}
+
+/* -------------------------------------------------*/
+
 /* ============== PHONE PORTRAIT MEDIA QUERY ========================== */
 
 @media only screen and (min-width : 300px) {
 
   /*----FRONT PAGE----*/
   h1.title {
-    padding-top: 10%;
+    margin-top: 2rem;
   }
 
   .welcome-container {
@@ -456,6 +561,20 @@ input {
 
 /* ------------------------------ */
 
+/* ----------HOST DASHBOARD----------------- */
+
+.host-dash {
+  margin-top: 1rem;
+  border: unset;
+  box-shadow: unset;
+}
+
+input.create-another-survey {
+  padding: 1rem;
+}
+
+/* ----------------------------------------- */
+
 
 }
 
@@ -466,6 +585,7 @@ input {
 /* ---- VIDEO BACKGROUND-------- */
 
   .video-holder {
+    display: unset;
     position: absolute;
     overflow: hidden;
     z-index: -1;
@@ -483,10 +603,6 @@ input {
 
 /* ----------- FRONT PAGE ---------- */
 
-.welcome-container p {
-    text-shadow: 1px 1px 1px #1B3050;
-  }
-
   h1.title {
     position: absolute;
     top: 0;
@@ -502,13 +618,17 @@ input {
 
   .host-button,
   .client-button {
-    background-color: #5271FF;
+    /* background-color: #60c090; */
+    border: 2px solid white;
+    /* background-color: rgba(96,192,144,0.9); */
+    background-color: unset;
+    border-radius: unset;
   }
 
   .welcome-container {
-    font-size: 40px;
+    font-size: 1.5rem;
     color: white;
-    margin-top: 8rem;
+    margin-top: 13rem;
   }
 
   .user-selection {
@@ -521,13 +641,41 @@ input {
     margin: 0 2rem;
   }
 
+  #about-box, #how-box,
+  #contact-box {
+    color: white;
+    /* border: 1px solid white; */
+    background-color: rgba(0,0,0,.15);
+  }
+
 /* ----------------------------------------- */
 
 /* ----------HOST PAGE----------- */
 
 .host-welcome {
-  border: none;
+  border: 1px solid white;
+  color: white;
   box-shadow: unset;
+  margin-top: 12rem;
+  background-color: rgba(0,0,0,0.15);
+  /* border-radius: 2rem; */
+}
+
+h1.key {
+  color: white;
+  border: 1px solid white;
+}
+
+.host-welcome p {
+  color: white;
+}
+
+input.create-survey {
+  background-color: rgb(125, 178, 134);
+}
+
+p.prompt {
+  margin: 0;
 }
 
 /* ------------------------------ */
@@ -535,15 +683,41 @@ input {
 /* ----------CREATE A SURVEY PAGE----------- */
 
 .survey-welcome-container {
-  /* margin-top: 5%; */
-  border: 0;
+  margin-top: 11rem;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid white;
+  background-color: rgba(0,0,0,.15);
+  color: white;
   box-shadow: unset;
   /* align-items: flex-start; */
-  width: 100%;
-  padding-left: 3rem;
-  height: 100%;
-  flex-flow: column wrap;
+  /* width: 30%; */
+  /* padding-left: 3rem; */
+}
 
+.survey-header {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.survey-form {
+  /* display: flex;
+  height: 100%;
+  flex-flow: column wrap; */
+}
+
+.survey-key {
+  border: 1px solid white;
+  color: white;
+}
+
+.add-question {
+  color: white;
+  border-radius: 0;
+}
+
+.survey-submit {
+  background-color: rgb(125, 178, 134);
 }
 
 .survey-name {
@@ -559,15 +733,97 @@ input {
   flex-flow: column wrap;
 }
 
+.question-list input {
+  width: 6rem;
+}
+
+.video-holder {
+  height: 100%;
+}
+
+#video-background {
+  background-repeat: repeat-y;
+}
+
+/* ----------------------------------------- */
+
+/* ----------CREATE A SURVEY PAGE----------- */
+
+.host-dash {
+  margin-top: 12rem;
+  border: 1px solid white;
+  color: white;
+  background-color: rgba(0,0,0,.15);
+}
+
+input.create-another-survey {
+  background-color: rgb(125, 178, 134);
+}
+
+
+/* ----------------------------------------- */
+/* ----------CLIENT PAGE----------- */
+
+.client-welcome-container {
+  margin-top: 12rem;
+  background-color: rgba(0,0,0,0.15);
+  color: white;
+  /* border-radius: 2rem; */
+  border: 1px solid white;
+}
+
+.client-welcome-container input {
+  border-radius: 0;
+}
+
+input.client-submit {
+  background-color: rgb(125, 178, 134);
+  border-radius: 2rem;
+}
+
+/* --------------------------------- */
+
+/* ----------WAITING ROOM----------- */
+
+.waiting {
+  margin-top: 12rem;
+  color: white;
+}
+
+/* ----------------------------------------- */
+
+/* ----------CLIENT IN SURVEY SESSION----------- */
+
+.sent-survey {
+  border: 1px solid white;
+  padding: 2rem 2rem 0 2rem;
+  margin-top: 10rem;
+  color: white;
+}
+
+.sent-survey input {
+  border-radius: 0;
+}
+
+input.received-survey-submit {
+  background-color: rgb(125, 178, 134);
+  border-radius: 2rem;
+}
+
 /* ----------------------------------------- */
 
 /* ----- HAMBURGER MENU --------------------------------------- */
   .nav {
-    background-color: #5271FF;
+    position: absolute;
+    top: 0;
+    height: 0;
   }
 
 .nav__container {
     display: flex;
+    position: absolute;
+    top: 0;
+    height: 0;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
@@ -588,14 +844,15 @@ input {
 
   .nav__list {
     display: flex;
+    align-self: flex-start;
     /* width: auto; */
     width: 100%;
     height: auto;
     background-color: transparent;
     opacity: 1;
     /* font-size: 40px; */
-    font-size: 30px;
     padding-top: 1rem;
+    padding-left: 30rem;
     flex-direction: row;
     justify-content: flex-end;
   }
@@ -603,14 +860,13 @@ input {
   .nav__item {
     display: flex;
     align-items: center;
-      /* this may be the incorrect size*/
   }
 
   .nav__link {
     padding: 0 1rem;
     margin: 3rem 0;
     transition: color 150ms ease-out;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   
   }
 
@@ -635,7 +891,7 @@ input {
 
 /* =================== BIG DESKTOP ============================== */
 
-@media only screen and (min-width : 1500px) {
+@media only screen and (min-width : 1200px) {
 
 /* --- VIDEO BACKGROUND ---- */
   #video-background {

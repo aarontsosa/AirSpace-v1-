@@ -10,22 +10,28 @@
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
       crossorigin="anonymous"></script>
     <script src="/javascripts/burger.js"></script>
+    <script src="/javascripts/nav-info.js"></script>
   </head>
   <body>
+    <div class="video-holder">
+        <video autoplay loop id="video-background" muted plays-inline>
+        <source src="/videos/clouds7.mp4" type="video/mp4">
+        </video>
+    </div>
     <!-- Main Navigation -->
     <nav id="nav" class="nav" role="navigation">
     <div class="nav__container">
         
         <!-- Nav List -->
         <div class="nav__list" role="menubar">
-            <div class="nav__item">
-                <a href="#" class="nav__link">About</a>
+            <div class="nav__item nav__link">
+                <a href="#about-box" class="about-button">About</a>
             </div>
-            <div class="nav__item">
-                <a href="#" class="nav__link">How It Works</a>
+            <div class="nav__item nav__link">
+                <a href="#how-box" class="how-button">How It Works</a>
             </div>
-            <div class="nav__item">
-                <a href="#" class="nav__link">Contact</a>
+            <div class="nav__item nav__link">
+                <a href="#contact-box" class="contact-button">Contact</a>
             </div>
         </div>
         
@@ -35,7 +41,6 @@
     </div> <!-- __container -->
     </nav> <!-- .nav -->
     <h1 class="title">AirSpace</h1>
-
 
     {{{body}}}
      <script
