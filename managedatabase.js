@@ -55,6 +55,24 @@ function addClientName(object){
   })
 }
 
+function getClientResults(host_id, survey_id){
+  return db.query(`
+      SELECT c.client_name, r.result
+      FROM host_survey hs
+      INNER JOIN client_host ch
+      ON hs.host_id = ch.host_id
+      INNER JOIN clients c
+      ON ch.client_id = c.client_id
+      INNER JOIN results_clients rc
+      ON c.client_id = rc.client_id
+      INNER JOIN results_questions rq
+      ON rc.result_id = rq.result_id
+      INNER JOIN results r
+      ON rq.result_id = r.result_id
+      WHERE hs.host_id = 51 and hs.survey_id = 78;
+  `).catch(console.log)
+}
+
 function getQuestionAnswer(survey_id, host_id){
   console.log(survey_id)
   console.log(host_id)
