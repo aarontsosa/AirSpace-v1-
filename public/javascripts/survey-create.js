@@ -1,10 +1,10 @@
 let socket = new WebSocket('ws://localhost:3002');
 
-var counter = 0
+var counter = 1
 function createTextBox(){
     var location = $("[data-target='question-list']")
     counter ++;
-    var p = $("<p></p>");
+    var p = $("<p class='qa-row'></p>");
     var questionText= "Question " + (counter)+ ": "
     var answerText = " Answer " + (counter)+ ": "
     var question = $("<div>", {

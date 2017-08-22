@@ -696,14 +696,57 @@ p.prompt {
   background-color: rgba(0,0,0,.15);
   color: white;
   box-shadow: unset;
-  /* align-items: flex-start; */
-  /* width: 30%; */
-  /* padding-left: 3rem; */
+  width: 70%;
 }
 
 .survey-header {
   display: flex;
-  flex-flow: column wrap;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  margin-left: 3rem;
+}
+
+.survey-identifier {
+  margin: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.survey-identifier p,
+.survey-identifier div {
+  margin: 1rem;
+}
+
+input.survey-name {
+  border-radius: 0;
+}
+
+.qa-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.qa-row input {
+  border-radius: 0;
+  margin: 0 2rem;
+  height: .5rem;
+  width: 100%;
+  padding: 1rem;
+}
+
+.question-list input {
+  width: 30%;
+}
+
+.question-list {
+  width: 100%;
 }
 
 .survey-form {
@@ -739,10 +782,6 @@ p.prompt {
   flex-flow: column wrap;
 }
 
-.question-list input {
-  width: 6rem;
-}
-
 .video-holder {
   height: 100%;
 }
@@ -753,7 +792,7 @@ p.prompt {
 
 /* ----------------------------------------- */
 
-/* ----------CREATE A SURVEY PAGE----------- */
+/* ----------HOST DASHBOARD----------- */
 
 .host-dash {
   margin-top: 12rem;
