@@ -586,16 +586,21 @@ input.create-another-survey {
 
   .video-holder {
     display: unset;
-    position: absolute;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     overflow: hidden;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
+    z-index: -100;
   }
 
   #video-background {
     display: unset;
-    /* width: 100%; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
   }
 
@@ -888,6 +893,20 @@ input.received-survey-submit {
 /* ----- HAMBURGER MENU --------------------------------------- */
 
 }
+/* =================== VIDEO BACKGROUND ============================== */
+
+@media (min-aspect-ratio: 16/9) {
+  #video-background {
+    height: 300%;
+    top: -100%;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  #video-background {
+    width: 300%;
+    left: -100%;
+  }
 
 /* =================== BIG DESKTOP ============================== */
 

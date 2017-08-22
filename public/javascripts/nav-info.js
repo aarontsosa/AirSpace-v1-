@@ -75,7 +75,7 @@ $(document).ready( () => {
             margin: "0 0 .5rem 0"
         });
 
-        // adjust video background to size up-- no spillover to white space
+        // adjust video background to size up-- no spillover into white space
         $('.video-holder').css( "height", $('body').height() + 400);
     });
 
