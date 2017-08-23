@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/jquery.mb.YTPlayer.min.css' />
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <script
       src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -12,12 +13,15 @@
       crossorigin="anonymous"></script>
     <script src="/javascripts/burger.js"></script>
     <script src="/javascripts/nav-info.js"></script>
+
+    {{!-- video plug in  --}}
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="/javascripts/jquery.mb.YTPlayer.min.js"></script>
+
   </head>
   <body>
     <div class="video-holder">
-        <video autoplay loop id="video-background" muted plays-inline>
-        <source src="/videos/clouds7.mp4" type="video/mp4">
-        </video>
+        <div id="bgndVideo" class="player" data-property="{videoURL:'https://youtu.be/dcT3Cg4zykk',containment:'body',autoPlay:true, mute:true, startAt:0, opacity:1}">My video</div>
     </div>
     <!-- Main Navigation -->
     <nav id="nav" class="nav" role="navigation">
@@ -44,11 +48,7 @@
     <h1 class="title">AirSpace</h1>
 
     {{{body}}}
-     <script
-      src="https://code.jquery.com/jquery-3.2.1.min.js"
-      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-      crossorigin="anonymous"></script>
-    {{!-- <script src="../../javascripts/burger.js"></script> --}}
+    <script src="/javascripts/background-video.js"></script>
   </body>
 </html>
 
