@@ -805,18 +805,28 @@ input.survey-name {
 
 .host-dash {
   margin-top: 12rem;
+  margin-bottom: 6rem;
   border: 1px solid white;
   color: white;
   background-color: rgba(0,0,0,.15);
-  /* padding-bottom: 4rem; */
   padding: 1rem 1rem 4rem 1rem;
-  width: 70%;
 }
 
 input.create-another-survey {
-  background-color: rgb(125, 178, 134);
+  background-color: #B3B3B3;
+  border-radius: 0;
 }
 
+button.activate-survey {
+  border-radius: 0;
+}
+
+button, input.create-another-survey,
+button:hover, button:active,
+button:focus {
+  border: none;
+  color: white;
+  }
 
 .inner-box {
   display: flex;
@@ -827,26 +837,38 @@ input.create-another-survey {
 }
 
 .split-left {
-  /* margin-left: 10%; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.split-middle {
+  margin: 1rem;
 }
 
 .split-right {
-  width: 50%;
   display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .activation-box {
-  border: 1px solid white;
+  background-color: white;
+  color: rgba(0,0,0,.5);
   border-radius: 0;
-  margin-bottom: 3rem;
-  padding: 2rem 1rem 0 1rem;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
 }
 
-.active-wrapper {
-  /* margin-right: 10%; */
-  width: 50%;
+.results-wrapper {
+  padding: 2rem;
+}
+
+.results-wrapper h3 {
+  margin-top: 0;
 }
 
 .active-wrapper h3 {
@@ -854,17 +876,34 @@ input.create-another-survey {
 }
 
 .active-users {
-  border: 1px solid white;
   padding: 1rem;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   width: 100%;
-  background-color: rgba(0,0,0,.4);
+  background-color: white;
+  color: black;
+}
+
+.results-table  {
+  color: rgba(0,0,0,.5);
+}
+
+.results-table {
+  border: 1px solid white;
+  padding: 1rem;
+  background-color: rgba(255,255,255,0.9);
 }
 
 .active-users p {
   background-color: none;
+}
+
+.survey-wrapper button {
+  width: unset;
+  padding: .6rem;
+  height: unset;
+  font-size: 1rem;
 }
 
 /* ----------------------------------------- */

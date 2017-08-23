@@ -2,22 +2,32 @@
     {{!-- <h1 class="title">Airspace</h1> --}}
     <div class="host-dash">
         <h1>Host Dashboard</h1>
-        <p>Your unique Host ID:</p>
+        <p>Your unique Host ID</p>
         <h1 class="key">{{uniqueid}}</h1>
         <div class="inner-box">
             <div class="split-left">
                 <h3>Surveys</h3>
                 <div class="activation-box">
                     {{#each result}}
-                        <button type="button" data-target="activate-survey" data-survey-id='{{survey_id}}' class="activate-survey">{{survey_name}}</button>
-                        <button type="button" data-target="results" data-survey-id="{{survey_id}}">Results for {{survey_name}}</button>
+                        <div class="survey-wrapper">
+                            <p>{{survey_name}}</p>
+                            <div class="button-holder">
+                                <button type="button" data-target="activate-survey" data-survey-id='{{survey_id}}' class="activate-survey">Activate</button>
+                                <button type="button" data-target="results" data-survey-id="{{survey_id}}">Results</button>
+                            </div> {{!-- ends button holder --}}
+                        </div> {{!-- ends survey wrapper --}}
                         <br>
                         <br>
                     {{/each}}
+                    <input type="button" value="Create New Survey" onclick="location.replace('http://localhost:3001/host/{{uniqueid}}/{{id}}/newsurvey')" class="create-another-survey">
                 </div>
-                <input type="button" value="Create Survey" onclick="location.replace('http://localhost:3001/host/{{uniqueid}}/{{id}}/newsurvey')" class="create-another-survey">
             </div>
-            <div class="split-middle"></div>
+            {{!-- <div class="split-middle"> --}}
+                    {{!-- <div class="results-wrapper"> --}}
+                        {{!-- <h3>Feedback</h3> --}}
+                        <div class='results-table' data-target='results-table'>
+                    {{!-- </div> --}}
+            {{!-- </div> --}}
             <div class="split-right">
                 <div class="active-wrapper">
                     <h3>Active Users</h3>
@@ -30,7 +40,6 @@
             </div>
         </div>
     </div>
-    <div data-target='results-table'>
         
     </div>
     <div id="about-box"></div>
