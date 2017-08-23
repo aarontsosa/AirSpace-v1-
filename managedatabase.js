@@ -173,7 +173,7 @@ function addQuestionsAnswersSurveyToDB(data, surveyID){
 
 function addResults(array, name, survey){
   if(typeof(array)==="string"){
-    db.one(`
+   db.one(`
     INSERT INTO results(result)
     VALUES('${array}')
     RETURNING result_id;

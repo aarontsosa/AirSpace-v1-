@@ -23,6 +23,7 @@ function init(callback) {
     socket.on('message', (event)=>{
       console.log('we got a message');
       var receivedData = JSON.parse(event);
+      console.log(receivedData.type)
       
       if(receivedData.type === "survey request"){
         console.log("hello2")
@@ -36,9 +37,7 @@ function init(callback) {
         })
       }
       if(receivedData.type === "client-connection"){
-        console.log('clientconnection here!')
         return manageDB.getName(receivedData['uniqueID']['nameID'], receivedData['uniqueID']['ID']).then(result =>{
-          console.log('were in the first level')
           return name = {
             type: "client-connection",
             'uniqueID': {
@@ -48,7 +47,6 @@ function init(callback) {
             }
           }
         }).then(result2=>{
-          console.log('were in the second level')
           broadcast(JSON.stringify(result2));
         });
       }
