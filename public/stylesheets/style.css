@@ -20,6 +20,12 @@ a {
   color: white;
 }
 
+ input{
+  margin: 0;
+  font: inherit;
+  color: black;
+ }
+
 /* ----- HAMBURGER MENU --------------------------------------- */
 
 .nav {
@@ -353,7 +359,7 @@ input.create-another-survey {
   margin: .5rem;
   padding: 1rem;
   border-radius: 3rem;
-  color: white;
+  color: #FFFFFF;
   font-size: .8rem;
   background-color:#70a2fd;
 }

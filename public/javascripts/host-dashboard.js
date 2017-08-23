@@ -13,14 +13,11 @@ function addHeaderContent(header, num, array){
     }
     return header
 }
-var test = [{name:"Aaron", result1:"I am okay", result2:"She is good"}, {name:"Tim", result1:"You do you", result2:"Could be better"}, {name:"Nat", result1:"Understand", result2:"Whod o you think?"}]
+
 function addRow(array){
-    console.log("hello")
-    console.log(array)
     var tr = $('<tr>')
     $(tr).append($("<td>", {text: array.name}))
     for(x=0; x<=2; x++){
-        console.log(array[0])
         $(tr).append($("<td>", {text:array.result[x]}))
     };
     return tr
@@ -37,9 +34,8 @@ function createResultTable(data) {
     var thead = $("<thead>")
     var header = $("<tr>")
     var tbody = $("<tbody>")
-    var test = [{name:"Aaron", question:{0:"How is She?", 1:"How are you?"}, result:{0:"I am okay", 1:"She is good"}}, {name:"Tim", question:{0:"How is She?", 1:"How are you?"}, result:{0:"You Do you", 1:"Could be better"}}, {name:"Tim", question:{0:"How is She?", 1:"How are you?"}, result:{0:"Who do you Think?", 1:"Understand"}}]
-    addHeaderContent(header, 2, data)
-    addTableRow(tbody, 3, data)
+    addHeaderContent(header, Object.keys(data[0].question).length, data)
+    addTableRow(tbody, data.length, data)
     $(thead).append(header)
     $(table).append(thead)
     $(table).append(tbody)
@@ -84,11 +80,15 @@ socket.onmessage = function (event) {
     
     var nameID = urlPathParts[urlPathParts.length - 1];
     var theData = JSON.parse(event.data);
+    console.log(theData)
     console.log('we made it');
     // console.log('DID WE MAKE IT?' + theData['type'] === 'client-connection')
     if(theData['type'] === 'client-connection'){
         $("<p>").append(theData[uniqueID]);
         console.log('yes we made it')
+    }
+    if(theData.type === "fullfilledResult"){
+        createResultTable(theData.fullfilledResult)
     }
 }
 

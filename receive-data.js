@@ -23,14 +23,16 @@ function init(callback) {
     socket.on('message', (event)=>{
       console.log('we got a message');
       var receivedData = JSON.parse(event);
-
+      
       if(receivedData.type === "survey request"){
+        console.log("hello2")
         manageDB.getClientResults(receivedData.request['ID'], receivedData.request['survey_id']).then(result => {
           fullfilledResult = []
           manageDB.formatNamesResults(result)
           manageDB.formatQuestionResults(fullfilledResult, result)
-          console.log(fullfilledResult)
-          broadcast(JSON.stringify(fullfilledResult));
+          sendoff = {type: "fullfilledResult", fullfilledResult}
+          console.log(sendoff)
+          broadcast(JSON.stringify(sendoff));
         })
       }
       broadcast(JSON.stringify(receivedData));
