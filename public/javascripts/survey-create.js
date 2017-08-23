@@ -13,7 +13,7 @@ function createTextBox(){
     });
     var questionInput = $("<input>", {
         'type': 'text',
-        'name':  'question'+ "[" + counter + "]" + "["+ 'text'+ "]"
+        'name':  'question'+ "[" + counter + "]" + "["+ 'text' + counter + "]"
     }) 
     // var answer = $("<div>", {
     //     'class': 'answer',
@@ -40,23 +40,23 @@ function createTextBox(){
     $(location).append(p);
     
 }
-function format(data){
-    var dataObject = {};
-    var urlPathParts = window.location.pathname.split("/");
-    var uniqueID = urlPathParts[urlPathParts.length - 1];
-    console.log(uniqueID);
-    dataObject['type'] = "submit-survey";
-    dataObject['question'] = {}
-    var counter = 1;
-    dataObject['question'][counter] = {}
-    data.serializeArray().forEach(function(key){
-        console.log(key)
-        // dataObject['question'][counter] = {}
-        // dataObject['question'][counter][text]
-        // // dataObject[questions][counter]['text'] =  
-    })
-    return dataObject;
-}
+// function format(data){
+//     var dataObject = {};
+//     var urlPathParts = window.location.pathname.split("/");
+//     var uniqueID = urlPathParts[urlPathParts.length - 1];
+//     console.log(uniqueID);
+//     dataObject['type'] = "submit-survey";
+//     dataObject['question'] = {}
+//     var counter = 1;
+//     dataObject['question'][counter] = {}
+//     data.serializeArray().forEach(function(key){
+//         console.log(key)
+//         // dataObject['question'][counter] = {}
+//         // dataObject['question'][counter][text]
+//         // // dataObject[questions][counter]['text'] =  
+//     })
+//     return dataObject;
+// }
 
 $("[data-target='add-question']").on('click', function(event){
     event.preventDefault();
@@ -64,17 +64,16 @@ $("[data-target='add-question']").on('click', function(event){
     // this adjusts the video background so that the video height adjusts to cover the background
     // as the host adds more questions
     $('.video-holder').css( "height", $('body').height() + 300);
-    console.log($('body').height());
     createTextBox();
 })
 
-$("[data-target='submit']").on('click', function(event){
-    console.log("hello")
-    // event.preventDefault();
-    var finishedQuestions = format($("[data-target='form']"))
-    console.log(finishedQuestions);
-    // sendToWebSocket(finishedQuestions);
-})
+// $("[data-target='submit']").on('click', function(event){
+//     console.log("hello")
+//     // event.preventDefault();
+//     var finishedQuestions = format($("[data-target='form']"))
+//     console.log(finishedQuestions);
+//     // sendToWebSocket(finishedQuestions);
+// })
 
 
 function sendToWebSocket(message){
