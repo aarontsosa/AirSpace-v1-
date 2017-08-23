@@ -190,7 +190,7 @@ h1.title {
   display: flex;
   flex-direction: column;
   margin: 2rem;
-  
+  display: none;
 }
 
 /* ----------------------------------------*/
@@ -372,11 +372,14 @@ input.create-another-survey {
   align-items: center;
   padding: 0 1rem;
   /* border: 1px solid black; */
-  width: 100%;
+  /* width: 100%; */
   /* background-color: rgba(0,0,0,.05); */
   border-radius: 1rem;
 }
 
+#active-users {
+  /* display: none; */
+}
 
 /* ------------------------------------------------------*/
 /* ------------------ CLIENT PAGE -----------------------*/
@@ -586,16 +589,21 @@ input.create-another-survey {
 
   .video-holder {
     display: unset;
-    position: absolute;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     overflow: hidden;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
+    z-index: -100;
   }
 
   #video-background {
     display: unset;
-    /* width: 100%; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
   }
 
@@ -646,6 +654,7 @@ input.create-another-survey {
     color: white;
     /* border: 1px solid white; */
     background-color: rgba(0,0,0,.15);
+    display: none;
   }
 
 /* ----------------------------------------- */
@@ -690,14 +699,57 @@ p.prompt {
   background-color: rgba(0,0,0,.15);
   color: white;
   box-shadow: unset;
-  /* align-items: flex-start; */
-  /* width: 30%; */
-  /* padding-left: 3rem; */
+  width: 80%;
 }
 
 .survey-header {
   display: flex;
-  flex-flow: column wrap;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  margin-left: 3rem;
+}
+
+.survey-identifier {
+  margin: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.survey-identifier p,
+.survey-identifier div {
+  margin: 1rem;
+}
+
+input.survey-name {
+  border-radius: 0;
+}
+
+.qa-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.qa-row input {
+  border-radius: 0;
+  margin: 0 2rem;
+  height: .5rem;
+  width: 100%;
+  padding: 1rem;
+}
+
+.question-list input {
+  width: 30%;
+}
+
+.question-list {
+  width: 100%;
 }
 
 .survey-form {
@@ -733,10 +785,6 @@ p.prompt {
   flex-flow: column wrap;
 }
 
-.question-list input {
-  width: 6rem;
-}
-
 .video-holder {
   height: 100%;
 }
@@ -747,19 +795,71 @@ p.prompt {
 
 /* ----------------------------------------- */
 
-/* ----------CREATE A SURVEY PAGE----------- */
+/* ----------HOST DASHBOARD----------- */
 
 .host-dash {
   margin-top: 12rem;
   border: 1px solid white;
   color: white;
   background-color: rgba(0,0,0,.15);
+  /* padding-bottom: 4rem; */
+  padding: 1rem 1rem 4rem 1rem;
+  width: 70%;
 }
 
 input.create-another-survey {
   background-color: rgb(125, 178, 134);
 }
 
+
+.inner-box {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.split-left {
+  /* margin-left: 10%; */
+}
+
+.split-right {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.activation-box {
+  border: 1px solid white;
+  border-radius: 0;
+  margin-bottom: 3rem;
+  padding: 2rem 1rem 0 1rem;
+}
+
+.active-wrapper {
+  /* margin-right: 10%; */
+  width: 50%;
+}
+
+.active-wrapper h3 {
+  margin-top: 0;
+}
+
+.active-users {
+  border: 1px solid white;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  background-color: rgba(0,0,0,.4);
+}
+
+.active-users p {
+  background-color: none;
+}
 
 /* ----------------------------------------- */
 /* ----------CLIENT PAGE----------- */
@@ -888,6 +988,20 @@ input.received-survey-submit {
 /* ----- HAMBURGER MENU --------------------------------------- */
 
 }
+/* =================== VIDEO BACKGROUND ============================== */
+
+@media (min-aspect-ratio: 16/9) {
+  #video-background {
+    height: 300%;
+    top: -100%;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  #video-background {
+    width: 300%;
+    left: -100%;
+  }
 
 /* =================== BIG DESKTOP ============================== */
 

@@ -23,6 +23,7 @@ function init(callback) {
     socket.on('message', (event)=>{
       console.log('we got a message');
       var receivedData = JSON.parse(event);
+
       if(receivedData.type === "survey request"){
         manageDB.getClientResults(receivedData.request['ID'], receivedData.request['survey_id']).then(result => {
           fullfilledResult = []
@@ -33,6 +34,10 @@ function init(callback) {
         })
       }
       broadcast(JSON.stringify(receivedData));
+    })
+  })
+}
+      
       
     // if(receivedData.type === 'submit-survey'){
     //   console.log('it sent');
@@ -43,15 +48,17 @@ function init(callback) {
     // if (receivedData.type === "client join"){
     //   manageDB.addClientName(receivedData.client_name)
     // } 
-    })
-  })
+    // })
+  // })
   // wsServer.on('message', (socket)=>{
   //     console.log('received message')
   //     console.log(socket);
   // })
   
 
-}
+
+
+
 
 
 

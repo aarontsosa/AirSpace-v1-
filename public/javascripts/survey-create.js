@@ -1,10 +1,10 @@
 let socket = new WebSocket('ws://localhost:3002');
 
-var counter = 0
+var counter = 1
 function createTextBox(){
     var location = $("[data-target='question-list']")
     counter ++;
-    var p = $("<p></p>");
+    var p = $("<p class='qa-row'></p>");
     var questionText= "Question " + (counter)+ ": "
     var answerText = " Answer " + (counter)+ ": "
     var question = $("<div>", {
@@ -15,28 +15,28 @@ function createTextBox(){
         'type': 'text',
         'name':  'question'+ "[" + counter + "]" + "["+ 'text'+ "]"
     }) 
-    var answer = $("<div>", {
-        'class': 'answer',
-        'data-target': 'answer' + counter,
-        'name': 'answer' + counter
-    });
-    var answerInput = $("<input>", {
-        'type': 'text',
-        'name':  'question' + "[" + counter + "]" + "["+ 'answer' + "]"
-    }) 
-    var answer = $("<div>", {
-        'class': 'answer',
-        'data-target': 'answer' + counter,
-        'name': 'answer' + counter
-    });
-    var answerInput = $("<input>", {
-        'type': 'text',
-        'name':  'question' + "[" + counter + "]" + "["+ 'answer' + "]"
-    }) 
+    // var answer = $("<div>", {
+    //     'class': 'answer',
+    //     'data-target': 'answer' + counter,
+    //     'name': 'answer' + counter
+    // });
+    // var answerInput = $("<input>", {
+    //     'type': 'text',
+    //     'name':  'question' + "[" + counter + "]" + "["+ 'answer' + "]"
+    // }) 
+    // var answer = $("<div>", {
+    //     'class': 'answer',
+    //     'data-target': 'answer' + counter,
+    //     'name': 'answer' + counter
+    // });
+    // var answerInput = $("<input>", {
+    //     'type': 'text',
+    //     'name':  'question' + "[" + counter + "]" + "["+ 'answer' + "]"
+    // }) 
     $(p).append(questionText);
     $(p).append(questionInput);
-    $(p).append(answerText);
-    $(p).append(answerInput);
+    // $(p).append(answerText);
+    // $(p).append(answerInput);
     $(location).append(p);
     
 }
