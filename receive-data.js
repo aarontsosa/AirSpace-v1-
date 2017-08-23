@@ -23,7 +23,15 @@ function init(callback) {
     socket.on('message', (event)=>{
       console.log('we got a message');
       var receivedData = JSON.parse(event);
-      console.log(Object.keys(receivedData) + 'this is recieved data');
+      if(receivedData.type === "survey request"){
+        manageDB.getClientResults(receivedData.request['ID'], receivedData.request['survey_id']).then(result => {
+          fullfilledResult = []
+          manageDB.formatNamesResults(result)
+          manageDB.formatQuestionResults(fullfilledResult, result)
+          console.log(fullfilledResult)
+          broadcast(JSON.stringify(fullfilledResult));
+        })
+      }
       broadcast(JSON.stringify(receivedData));
       
     // if(receivedData.type === 'submit-survey'){

@@ -37,18 +37,33 @@ function addTableRow(tbody, num, array){
     }
 }
 
-$("[data-target='results']").on('click', (event) => {
+function createResultTable(data) {
     var table = $("<table>", {class:"table table-striped"})
     var thead = $("<thead>")
     var header = $("<tr>")
     var tbody = $("<tbody>")
     var test = [{name:"Aaron", question:{0:"How is She?", 1:"How are you?"}, result:{0:"I am okay", 1:"She is good"}}, {name:"Tim", question:{0:"How is She?", 1:"How are you?"}, result:{0:"You Do you", 1:"Could be better"}}, {name:"Tim", question:{0:"How is She?", 1:"How are you?"}, result:{0:"Who do you Think?", 1:"Understand"}}]
-    addHeaderContent(header, 2, test)
-    addTableRow(tbody, 3, test)
+    addHeaderContent(header, 2, data)
+    addTableRow(tbody, 3, data)
     $(thead).append(header)
     $(table).append(thead)
     $(table).append(tbody)
     $("[data-target='results-table']").append(table)
+}
+
+$("[data-target='results']").on('click', (event) => {
+    var urlPathParts = window.location.pathname.split("/");
+    var uniqueID = urlPathParts[urlPathParts.length - 2];
+    var surveyID = event.target.attributes[2].value
+    var resultRequest = {
+        type: "survey request",
+        request: {
+            'ID': uniqueID,
+            'survey_id': surveyID 
+        }
+    }
+    // resultRequest = JSON.stringify(resultRequest)
+    sendToWebSocket(resultRequest)
 })
 
 $("[data-target='activate-survey']").on('click', (event) =>{
@@ -62,6 +77,10 @@ $("[data-target='activate-survey']").on('click', (event) =>{
         }
     }
     sendToWebSocket(sendToServer);
+
+socket.onmessage((event) => {
+    console.log(event)
+})
 
 // $("#createsurvey").on('click', (event) => {
 //     location.replace(http://localhost:3001/host/{{uniqueid}}/{{id}}/surveynew)
