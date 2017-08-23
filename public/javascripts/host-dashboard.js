@@ -85,8 +85,11 @@ socket.onmessage = function (event) {
             $(`.users`).append(`<p>`+ theData['uniqueID']['name']['client_name'] +`</p>`)
         }     
     }
-    if(theData.type === "fullfilledResult" && theData.id === uniqueID){
-        createResultTable(theData.fullfilledResult)
+    if(theData.type === "fullfilledResult"){
+        if(theData.id === uniqueID){
+            createResultTable(theData.fullfilledResult);
+        }
+        
     }
 
 }
