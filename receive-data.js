@@ -26,12 +26,11 @@ function init(callback) {
       console.log(receivedData.type)
       
       if(receivedData.type === "survey request"){
-        console.log("hello2")
         manageDB.getClientResults(receivedData.request['ID'], receivedData.request['survey_id']).then(result => {
           fullfilledResult = []
           manageDB.formatNamesResults(result)
           manageDB.formatQuestionResults(fullfilledResult, result)
-          sendoff = {type: "fullfilledResult", fullfilledResult}
+          sendoff = {type: "fullfilledResult", id: receivedData.request['ID'], fullfilledResult}
           console.log(sendoff)
           broadcast(JSON.stringify(sendoff));
         })

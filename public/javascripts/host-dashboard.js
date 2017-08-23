@@ -39,6 +39,7 @@ function createResultTable(data) {
     $(thead).append(header)
     $(table).append(thead)
     $(table).append(tbody)
+    $("[data-target='results-table']").empty()
     $("[data-target='results-table']").append(table)
 }
 
@@ -87,7 +88,7 @@ socket.onmessage = function (event) {
         $(`.users`).append(`<p>`+ theData['uniqueID']['name']['client_name'] +`</p>`)
         
     }
-    if(theData.type === "fullfilledResult"){
+    if(theData.type === "fullfilledResult" && theData.id === uniqueID){
         createResultTable(theData.fullfilledResult)
     }
 
