@@ -5,6 +5,10 @@ var db = require('../db');
 const ws = require('ws');
 var socket = new ws("ws://localhost:3002")
 
+function sendToWebSocket(message){
+        socket.send(JSON.stringify(message));
+    }
+
 router.get('/', function(req, res, next) {
     res.render('client', { title: 'Express' });
   });
@@ -16,7 +20,16 @@ router.post('/', function(req, res, next) {
         client_name: name_id,
         host_id: host_id
     }
+    
     manageDB.addClientName(client).then(result =>{ 
+        var sendToServer = {
+            type: 'client-connection',
+            'uniqueID': {
+                'ID': result.host_id,
+                'nameID': result.client_id,
+            }
+        }
+        sendToWebSocket(sendToServer);
         res.redirect('/client/' + result.host_id + '/' + result.client_id);
     })
 });

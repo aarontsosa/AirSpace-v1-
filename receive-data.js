@@ -37,10 +37,11 @@ function init(callback) {
       }
       if(receivedData.type === "client-connection"){
         return manageDB.getName(receivedData['uniqueID']['nameID'], receivedData['uniqueID']['ID']).then(result =>{
+          console.log(receivedData['uniqueID']['ID'])
           return name = {
             type: "client-connection",
             'uniqueID': {
-              'ID': receivedData['uniqueID']['nameID'],
+              'ID': receivedData['uniqueID']['ID'],
               'nameID': receivedData['uniqueID']['nameID'],
               'name': result,
             }

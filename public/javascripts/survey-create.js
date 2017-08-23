@@ -13,7 +13,7 @@ function createTextBox(){
     });
     var questionInput = $("<input>", {
         'type': 'text',
-        'name':  'question'+ "[" + counter + "]" + "["+ 'text' + counter + "]"
+        'name':  'question'+ "[" + counter + "]" + "["+ 'text' + "]"
     }) 
     // var answer = $("<div>", {
     //     'class': 'answer',
@@ -63,7 +63,7 @@ $("[data-target='add-question']").on('click', function(event){
 
     // this adjusts the video background so that the video height adjusts to cover the background
     // as the host adds more questions
-    $('.video-holder').css( "height", $('body').height() + 300);
+    // $('.video-holder').css( "height", $('body').height() + 300);
     createTextBox();
 })
 

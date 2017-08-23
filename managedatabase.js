@@ -106,10 +106,8 @@ function getQuestions(survey_id, host_id){
     FROM host_survey hs
     INNER JOIN survey_questions sq
     ON hs.survey_id = sq.survey_id
-    INNER JOIN questions_answers qa
-    ON sq.question_id = qa.question_id
     INNER JOIN questions q
-    ON qa.question_id = q.question_id
+    ON sq.question_id = q.question_id
     WHERE hs.survey_id = ${survey_id} and hs.host_id = ${host_id};
   `)
 }
@@ -136,11 +134,11 @@ function getAnswers(answer_id){
 }
 
 function addQuestionsAnswersSurveyToDB(data, surveyID){
-  if (Object.keys(data).length < 2){
-    // console.log(surveyID);
-    // return surveyID;
-    return;
-  }
+  // if (Object.keys(data).length < 2){
+  //   // console.log(surveyID);
+  //   // return surveyID;
+  //   return;
+  // }
   Object.keys(data.question).forEach((qAndA)=>{
     
     questionID = db.one(`
@@ -151,13 +149,15 @@ function addQuestionsAnswersSurveyToDB(data, surveyID){
         db.one(`insert into survey_questions(question_id, survey_id)
         values (${result.question_id}, ${surveyID})
         returning question_id
-        `).then(result=>{
+        `)
+        .then(result=>{
           var theQuestionId = result.question_id
           db.one(`
             insert into answers(answer)
               values('${data.question[qAndA]['answer']}')
               returning answer_id
-          `).then(result=>{
+          `)
+          .then(result=>{
             db.one(`
             insert into questions_answers(question_id, answer_id)
               values(${theQuestionId}, ${result.answer_id})
