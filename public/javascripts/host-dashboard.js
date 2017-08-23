@@ -4,12 +4,6 @@ function sendToWebSocket(message){
     socket.send(JSON.stringify(message));
 }
 
-// $(window).load( () => {
-//     if ($('body').height() - $('.video-holder').height() > 0) {
-//         $('.video-holder').css( "height", $('body').height() + 300)
-//     }
-// }
-
 
 $("[data-target='activate-survey']").on('click', (event) =>{
     var urlPathParts = window.location.pathname.split("/");
@@ -39,14 +33,5 @@ socket.onmessage = function (event) {
         console.log('yes we made it')
     }
 }
-
-
-// $("#createsurvey").on('click', (event) => {
-//     location.replace(http://localhost:3001/host/{{uniqueid}}/{{id}}/surveynew)
-// })
-    // message = {
-    //     'derp': window.location
-    // }
-    // console.log(message);
 
 
