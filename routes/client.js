@@ -3,7 +3,7 @@ var router = express.Router();
 var manageDB = require("../managedatabase");
 var db = require('../db');
 const ws = require('ws');
-var socket = new ws('ws://ec2-18-220-45-149.us-east-2.compute.amazonaws.com:3002');
+
 
 function sendToWebSocket(message){
         socket.send(JSON.stringify(message));
@@ -22,7 +22,7 @@ router.post('/', function(req, res, next) {
     }
     
     manageDB.addClientName(client).then(result =>{ 
-        
+        var socket = new ws('ws://ec2-18-220-45-149.us-east-2.compute.amazonaws.com:3002');
         console.log(result);
         console.log('chris it is srunning')
         var sendToServer = {
@@ -34,7 +34,7 @@ router.post('/', function(req, res, next) {
         }
         socket.send(JSON.stringify(sendToServer));
         res.redirect('/client/' + result.host_id + '/' + result.client_id);
-        
+        socket.close();
         
     }).catch(console.log)
 });
