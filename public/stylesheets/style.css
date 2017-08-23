@@ -372,11 +372,14 @@ input.create-another-survey {
   align-items: center;
   padding: 0 1rem;
   /* border: 1px solid black; */
-  width: 100%;
+  /* width: 100%; */
   /* background-color: rgba(0,0,0,.05); */
   border-radius: 1rem;
 }
 
+#active-users {
+  /* display: none; */
+}
 
 /* ------------------------------------------------------*/
 /* ------------------ CLIENT PAGE -----------------------*/
@@ -799,12 +802,64 @@ input.survey-name {
   border: 1px solid white;
   color: white;
   background-color: rgba(0,0,0,.15);
+  /* padding-bottom: 4rem; */
+  padding: 1rem 1rem 4rem 1rem;
+  width: 70%;
 }
 
 input.create-another-survey {
   background-color: rgb(125, 178, 134);
 }
 
+
+.inner-box {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.split-left {
+  /* margin-left: 10%; */
+}
+
+.split-right {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.activation-box {
+  border: 1px solid white;
+  border-radius: 0;
+  margin-bottom: 3rem;
+  padding: 2rem 1rem 0 1rem;
+}
+
+.active-wrapper {
+  /* margin-right: 10%; */
+  width: 50%;
+}
+
+.active-wrapper h3 {
+  margin-top: 0;
+}
+
+.active-users {
+  border: 1px solid white;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  background-color: rgba(0,0,0,.4);
+}
+
+.active-users p {
+  background-color: none;
+}
 
 /* ----------------------------------------- */
 /* ----------CLIENT PAGE----------- */

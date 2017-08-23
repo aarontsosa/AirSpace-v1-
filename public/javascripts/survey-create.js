@@ -15,28 +15,28 @@ function createTextBox(){
         'type': 'text',
         'name':  'question'+ "[" + counter + "]" + "["+ 'text'+ "]"
     }) 
-    var answer = $("<div>", {
-        'class': 'answer',
-        'data-target': 'answer' + counter,
-        'name': 'answer' + counter
-    });
-    var answerInput = $("<input>", {
-        'type': 'text',
-        'name':  'question' + "[" + counter + "]" + "["+ 'answer' + "]"
-    }) 
-    var answer = $("<div>", {
-        'class': 'answer',
-        'data-target': 'answer' + counter,
-        'name': 'answer' + counter
-    });
-    var answerInput = $("<input>", {
-        'type': 'text',
-        'name':  'question' + "[" + counter + "]" + "["+ 'answer' + "]"
-    }) 
+    // var answer = $("<div>", {
+    //     'class': 'answer',
+    //     'data-target': 'answer' + counter,
+    //     'name': 'answer' + counter
+    // });
+    // var answerInput = $("<input>", {
+    //     'type': 'text',
+    //     'name':  'question' + "[" + counter + "]" + "["+ 'answer' + "]"
+    // }) 
+    // var answer = $("<div>", {
+    //     'class': 'answer',
+    //     'data-target': 'answer' + counter,
+    //     'name': 'answer' + counter
+    // });
+    // var answerInput = $("<input>", {
+    //     'type': 'text',
+    //     'name':  'question' + "[" + counter + "]" + "["+ 'answer' + "]"
+    // }) 
     $(p).append(questionText);
     $(p).append(questionInput);
-    $(p).append(answerText);
-    $(p).append(answerInput);
+    // $(p).append(answerText);
+    // $(p).append(answerInput);
     $(location).append(p);
     
 }
