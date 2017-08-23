@@ -22,7 +22,7 @@ router.post('/', function(req, res, next) {
     }
     
     manageDB.addClientName(client).then(result =>{ 
-        res.redirect('/client/' + result.host_id + '/' + result.client_id);
+        
         console.log(result);
         var sendToServer = {
             type: 'client-connection',
@@ -32,7 +32,8 @@ router.post('/', function(req, res, next) {
             }
         }
         socket.send(JSON.stringify(sendToServer));
-        socket.close();
+        res.redirect('/client/' + result.host_id + '/' + result.client_id);
+        
         
         
         
