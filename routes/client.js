@@ -22,15 +22,15 @@ router.post('/', function(req, res, next) {
     }
     
     manageDB.addClientName(client).then(result =>{ 
-        console.log(result);
-        var sendToServer = {
-            type: 'client-connection',
-            'uniqueID': {
-                'ID': result.host_id,
-                'nameID': result.client_id,
-            }
-        }
-        sendToWebSocket(sendToServer);
+        // console.log(result);
+        // var sendToServer = {
+        //     type: 'client-connection',
+        //     'uniqueID': {
+        //         'ID': result.host_id,
+        //         'nameID': result.client_id,
+        //     }
+        // }
+        // sendToWebSocket(sendToServer);
         res.redirect('/client/' + result.host_id + '/' + result.client_id);
     })
 });
