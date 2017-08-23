@@ -29,18 +29,23 @@ function sendToWebSocket(message){
 
 
 socket.onmessage = function (event) {
-    var urlPathParts = window.location.pathname.split("/");
-    var uniqueID = urlPathParts[urlPathParts.length - 2];
-    var nameID = urlPathParts[urlPathParts.length - 1];
     var theData = JSON.parse(event.data);
-    var firstElement = theData[Object.keys(theData)[0]];
-    var surveyID = theData[parseInt(Object.keys(theData)[0])]['survey_id']
-    console.log(surveyID)
-    if(Object.keys(theData)[0] === uniqueID){
-        console.log('were in it')
-        window.location.replace("http://localhost:3001/client/" + uniqueID + "/" + nameID + "/" + surveyID);
-        // socket.close();
+    if(theData.type === "active-survey"){
+        var urlPathParts = window.location.pathname.split("/");
+        var uniqueID = urlPathParts[urlPathParts.length - 2];
+        var nameID = urlPathParts[urlPathParts.length - 1];
+        
+        var firstElement = theData[Object.keys(theData)[0]];
+        // console.log(theData);
+        var surveyID = theData[parseInt(Object.keys(theData)[0])]['survey_id']
+        console.log(surveyID)
+        if(Object.keys(theData)[0] === uniqueID){
+            console.log('were in it')
+            window.location.replace("http://localhost:3001/client/" + uniqueID + "/" + nameID + "/" + surveyID);
+            // socket.close();
+        }
     }
+    
   }
 
 //http://localhost:3001/client/" + uniqueID + "/" + nameID + "/" + surveyID
