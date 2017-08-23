@@ -39,6 +39,7 @@ function createResultTable(data) {
     $(thead).append(header)
     $(table).append(thead)
     $(table).append(tbody)
+    $("[data-target='results-table']").empty()
     $("[data-target='results-table']").append(table)
 }
 
@@ -80,14 +81,12 @@ socket.onmessage = function (event) {
     
     var nameID = urlPathParts[urlPathParts.length - 1];
     var theData = JSON.parse(event.data)
-    console.log(theData)
-    console.log('we made it');
-    // console.log('DID WE MAKE IT?' + theData['type'] === 'client-connection')
     if(theData['type'] === 'client-connection'){
-        $(`.users`).append(`<p>`+ theData['uniqueID']['name']['client_name'] +`</p>`)
-        
+        if(theData['uniqueID']['ID'].toString() === uniqueID){
+            $(`.users`).append(`<p>`+ theData['uniqueID']['name']['client_name'] +`</p>`)
+        }     
     }
-    if(theData.type === "fullfilledResult"){
+    if(theData.type === "fullfilledResult" && theData.id === uniqueID){
         createResultTable(theData.fullfilledResult)
     }
 

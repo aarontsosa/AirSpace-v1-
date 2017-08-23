@@ -56,6 +56,8 @@ router.get('/:uniqueid/:id/newsurvey', function(req, res, next){
 // })
 router.post('/:uniqueid/:id/newsurvey', function(req, res, next){
     // res.redirect(`${req.params.id}/new`);
+    // console.log(req.body)
+    console.log(req.body)
     manageDB.sendFormDataToDB(req.body, req.params.id)
         .then(() => {
             res.redirect(`/host/${req.params.uniqueid}/${req.params.id}/dashboard`)

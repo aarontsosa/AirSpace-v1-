@@ -3,7 +3,11 @@ var router = express.Router();
 var manageDB = require("../managedatabase");
 var db = require('../db');
 const ws = require('ws');
-const rd = require('../receive-data')
+var socket = new ws("ws://localhost:3002")
+
+function sendToWebSocket(message){
+        socket.send(JSON.stringify(message));
+    }
 
 router.get('/', function(req, res, next) {
     res.render('client', { title: 'Express' });
@@ -16,7 +20,16 @@ router.post('/', function(req, res, next) {
         client_name: name_id,
         host_id: host_id
     }
+    
     manageDB.addClientName(client).then(result =>{ 
+        var sendToServer = {
+            type: 'client-connection',
+            'uniqueID': {
+                'ID': result.host_id,
+                'nameID': result.client_id,
+            }
+        }
+        sendToWebSocket(sendToServer);
         res.redirect('/client/' + result.host_id + '/' + result.client_id);
     })
 });
@@ -39,17 +52,18 @@ router.get('/:hostid/:name/:survey', function(req, res, next){
 
 router.post('/:hostid/:name/:survey', function (req, res, next){
     manageDB.addResults(req.body['result'], req.params.name, req.params.survey)
-    // .then(() => {
-    //     var resultRequest = {
-    //     type: "survey request",
-    //     request: {
-    //         'ID': req.params.hostid,
-    //         'survey_id': req.params.survey 
-    //     }
-    // }
-    // console.log(resultRequest)
-    // rd.broadcast(JSON.stringify(resultRequest));
-    // })
+    .then((result) => {
+    var resultRequest = {
+        type: "survey request",
+        request: {
+            'ID': req.params.hostid,
+            'survey_id': req.params.survey 
+        }
+    }
+    console.log(resultRequest)
+    socket.send(JSON.stringify(resultRequest));
+    })
+
     
     res.redirect('/client/' + req.params.hostid + "/" + req.params.name)
     })

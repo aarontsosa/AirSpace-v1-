@@ -23,32 +23,30 @@ function init(callback) {
     socket.on('message', (event)=>{
       console.log('we got a message');
       var receivedData = JSON.parse(event);
+      console.log(receivedData.type)
       
       if(receivedData.type === "survey request"){
-        console.log("hello2")
         manageDB.getClientResults(receivedData.request['ID'], receivedData.request['survey_id']).then(result => {
           fullfilledResult = []
           manageDB.formatNamesResults(result)
           manageDB.formatQuestionResults(fullfilledResult, result)
-          sendoff = {type: "fullfilledResult", fullfilledResult}
+          sendoff = {type: "fullfilledResult", id: receivedData.request['ID'], fullfilledResult}
           console.log(sendoff)
           broadcast(JSON.stringify(sendoff));
         })
       }
       if(receivedData.type === "client-connection"){
-        console.log('clientconnection here!')
         return manageDB.getName(receivedData['uniqueID']['nameID'], receivedData['uniqueID']['ID']).then(result =>{
-          console.log('were in the first level')
+          console.log(receivedData['uniqueID']['ID'])
           return name = {
             type: "client-connection",
             'uniqueID': {
-              'ID': receivedData['uniqueID']['nameID'],
+              'ID': receivedData['uniqueID']['ID'],
               'nameID': receivedData['uniqueID']['nameID'],
               'name': result,
             }
           }
         }).then(result2=>{
-          console.log('were in the second level')
           broadcast(JSON.stringify(result2));
           socket.close();
         });
