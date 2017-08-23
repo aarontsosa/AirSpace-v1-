@@ -38,17 +38,18 @@ router.get('/:hostid/:name/:survey', function(req, res, next){
 })
 
 router.post('/:hostid/:name/:survey', function (req, res, next){
-    manageDB.addResults(req.body['result'], req.params.name, req.params.survey).then(() => {
-        var resultRequest = {
-        type: "survey request",
-        request: {
-            'ID': req.params.hostid,
-            'survey_id': req.params.survey 
-        }
-    }
-    console.log(resultRequest)
-    rd.broadcast(JSON.stringify(resultRequest));
-    })
+    manageDB.addResults(req.body['result'], req.params.name, req.params.survey)
+    // .then(() => {
+    //     var resultRequest = {
+    //     type: "survey request",
+    //     request: {
+    //         'ID': req.params.hostid,
+    //         'survey_id': req.params.survey 
+    //     }
+    // }
+    // console.log(resultRequest)
+    // rd.broadcast(JSON.stringify(resultRequest));
+    // })
     
     res.redirect('/client/' + req.params.hostid + "/" + req.params.name)
     })
