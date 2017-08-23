@@ -55,6 +55,28 @@ function addClientName(object){
   })
 }
 
+function getClientResults(host_id, survey_id){
+  return db.query(`
+      SELECT c.client_name, q.question, r.result
+      FROM host_survey hs
+      INNER JOIN client_host ch
+      ON hs.host_id = ch.host_id
+      INNER JOIN clients c
+      ON ch.client_id = c.client_id
+      INNER JOIN results_clients rc
+      ON c.client_id = rc.client_id
+      INNER JOIN results_questions rq
+      ON rc.result_id = rq.result_id
+      INNER JOIN results r
+      ON rq.result_id = r.result_id
+      INNER JOIN results_questions qr
+      ON r.result_id = qr.result_id
+      INNER JOIN questions q
+      ON qr.question_id = q.question_id
+      WHERE hs.host_id = ${host_id} and hs.survey_id = ${survey_id};
+  `).catch(console.log)
+}
+
 function getQuestionAnswer(survey_id, host_id){
   console.log(survey_id)
   console.log(host_id)
@@ -218,6 +240,40 @@ function sendFormDataToDB(dataFromForm, uniqueid){
       .catch(console.log);   
 }
 
+function formatNamesResults(result){
+    result.forEach((object) => {
+      duplicate = false
+      let Name = {}
+      Name.name = object.client_name
+      fullfilledResult.forEach((Name) => {
+        if(Name.name === object.client_name){
+          duplicate = true
+        }
+      })
+      if (duplicate === false){
+        fullfilledResult.push(Name)
+      }
+    })
+    return fullfilledResult 
+}
+
+function formatQuestionResults(fullfilledResult, result){
+  for(i=0;i<fullfilledResult.length;i++){
+    counter = 0
+    let question = {}
+    let Result = {}
+    for(x=0;x<result.length;x++) {
+      if(fullfilledResult[i].name === result[x].client_name){
+        question[counter] = result[x].question
+        Result[counter] = result[x].result
+        fullfilledResult[i].question = question
+        fullfilledResult[i].result = Result
+        counter += 1
+      }
+    }
+  }
+  return fullfilledResult
+}
 
 module.exports = {
     sendFormDataToDB: sendFormDataToDB,
@@ -228,6 +284,9 @@ module.exports = {
     getQuestions: getQuestions,
     getAnswers: getAnswers,
     getSurveys: getSurveys,
-    addResults: addResults
+    addResults: addResults,
+    getClientResults: getClientResults,
+    formatNamesResults: formatNamesResults,
+    formatQuestionResults: formatQuestionResults
   };
 

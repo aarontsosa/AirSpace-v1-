@@ -10,6 +10,7 @@
                 <div class="activation-box">
                     {{#each result}}
                         <button type="button" data-target="activate-survey" data-survey-id='{{survey_id}}' class="activate-survey">{{survey_name}}</button>
+                        <button type="button" data-target="results" data-survey-id="{{survey_id}}">Results for {{survey_name}}</button>
                         <br>
                         <br>
                     {{/each}}
@@ -41,6 +42,9 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div data-target='results-table'>
+        
     </div>
     <div id="about-box"></div>
     <div id="how-box"></div>

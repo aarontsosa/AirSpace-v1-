@@ -23,15 +23,16 @@ function init(callback) {
     socket.on('message', (event)=>{
       console.log('we got a message');
       var receivedData = JSON.parse(event);
-      console.log(Object.keys(receivedData));
-      console.log(receivedData['type']);
-      // if(receivedData['type'] === "client-connection"){
-      //   broadcast(JSON.stringify(recievedData))
-      // }
-      // if(receivedData['type'] === "active-survey"){
-      //   console.log('derp')
-      //   broadcast(JSON.stringify(receivedData));
-      // }
+
+      if(receivedData.type === "survey request"){
+        manageDB.getClientResults(receivedData.request['ID'], receivedData.request['survey_id']).then(result => {
+          fullfilledResult = []
+          manageDB.formatNamesResults(result)
+          manageDB.formatQuestionResults(fullfilledResult, result)
+          console.log(fullfilledResult)
+          broadcast(JSON.stringify(fullfilledResult));
+        })
+      }
       broadcast(JSON.stringify(receivedData));
     })
   })
