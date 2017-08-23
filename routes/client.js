@@ -31,8 +31,10 @@ router.post('/', function(req, res, next) {
                 'nameID': result.client_id,
             }
         }
-        
         socket.send(JSON.stringify(sendToServer));
+        socket.close();
+        
+        
         
     })
 });
