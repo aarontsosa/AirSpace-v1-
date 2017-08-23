@@ -50,6 +50,7 @@ function init(callback) {
         }).then(result2=>{
           console.log('were in the second level')
           broadcast(JSON.stringify(result2));
+          socket.close();
         });
       }
       else{
