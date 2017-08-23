@@ -84,12 +84,18 @@ socket.onmessage = function (event) {
     
     var nameID = urlPathParts[urlPathParts.length - 1];
     var theData = JSON.parse(event.data);
-    console.log('we made it');
+    console.log(Object.keys(theData));
+    console.log(theData);
+    // console.log(Object.keys(theData[uniqueID]));
     // console.log('DID WE MAKE IT?' + theData['type'] === 'client-connection')
     if(theData['type'] === 'client-connection'){
-        $("<p>").append(theData[uniqueID]);
-        console.log('yes we made it')
+        $(`.users`).append(`<p>`+ theData['uniqueID']['name']['client_name'] +`</p>`)
+        
     }
+    
 }
+
+
+
 
 

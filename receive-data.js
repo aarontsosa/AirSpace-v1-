@@ -33,7 +33,26 @@ function init(callback) {
           broadcast(JSON.stringify(fullfilledResult));
         })
       }
-      broadcast(JSON.stringify(receivedData));
+      if(receivedData.type === "client-connection"){
+        console.log('clientconnection here!')
+        return manageDB.getName(receivedData['uniqueID']['nameID'], receivedData['uniqueID']['ID']).then(result =>{
+          console.log('were in the first level')
+          return name = {
+            type: "client-connection",
+            'uniqueID': {
+              'ID': receivedData['uniqueID']['nameID'],
+              'nameID': receivedData['uniqueID']['nameID'],
+              'name': result,
+            }
+          }
+        }).then(result2=>{
+          console.log('were in the second level')
+          broadcast(JSON.stringify(result2));
+        });
+      }
+      else{
+        broadcast(JSON.stringify(receivedData));
+      }
     })
   })
 }

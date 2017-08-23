@@ -12,6 +12,15 @@ function addHostToDatabase(uniqueID){
   });
 }
 
+function getName(nameID, hostID){
+  return db.one(`
+  select c.client_name
+	from client_host ch
+	inner join clients c
+	on ch.client_id = c.client_id
+	where ch.client_id = ${nameID} and ch.host_id = ${hostID}`)
+}
+
 function addSurveyToDatabase(survey_name){
   return survey_id = db.one(`
   insert into surveys(survey_name)
@@ -287,6 +296,7 @@ module.exports = {
     addResults: addResults,
     getClientResults: getClientResults,
     formatNamesResults: formatNamesResults,
-    formatQuestionResults: formatQuestionResults
+    formatQuestionResults: formatQuestionResults,
+    getName: getName
   };
 
