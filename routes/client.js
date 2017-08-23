@@ -32,8 +32,12 @@ router.post('/', function(req, res, next) {
                 'nameID': result.client_id,
             }
         }
-        socket.send(JSON.stringify(sendToServer));
-        res.redirect('/client/' + result.host_id + '/' + result.client_id);
+        socket.on('open', function(){
+            socket.send(JSON.stringify(sendToServer));
+            res.redirect('/client/' + result.host_id + '/' + result.client_id);
+        });
+        
+        
        
         
     }).catch(console.log)
