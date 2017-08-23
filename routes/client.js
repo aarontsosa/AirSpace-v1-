@@ -36,7 +36,7 @@ router.post('/', function(req, res, next) {
         res.redirect('/client/' + result.host_id + '/' + result.client_id);
         
         
-    })
+    }).catch(console.log)
 });
 
 router.get('/:hostid/:name', function(req, res, next){
