@@ -34,7 +34,7 @@ router.post('/', function(req, res, next) {
         }
         socket.send(JSON.stringify(sendToServer));
         res.redirect('/client/' + result.host_id + '/' + result.client_id);
-        socket.close();
+       
         
     }).catch(console.log)
 });
