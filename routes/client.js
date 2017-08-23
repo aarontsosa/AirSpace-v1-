@@ -24,6 +24,7 @@ router.post('/', function(req, res, next) {
     manageDB.addClientName(client).then(result =>{ 
         
         console.log(result);
+        console.log('chris it is srunning')
         var sendToServer = {
             type: 'client-connection',
             'uniqueID': {
@@ -33,8 +34,6 @@ router.post('/', function(req, res, next) {
         }
         socket.send(JSON.stringify(sendToServer));
         res.redirect('/client/' + result.host_id + '/' + result.client_id);
-        
-        
         
         
     })
