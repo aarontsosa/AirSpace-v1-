@@ -23,8 +23,20 @@ function init(callback) {
     socket.on('message', (event)=>{
       console.log('we got a message');
       var receivedData = JSON.parse(event);
-      console.log(Object.keys(receivedData) + 'this is recieved data');
+      console.log(Object.keys(receivedData));
+      console.log(receivedData['type']);
+      // if(receivedData['type'] === "client-connection"){
+      //   broadcast(JSON.stringify(recievedData))
+      // }
+      // if(receivedData['type'] === "active-survey"){
+      //   console.log('derp')
+      //   broadcast(JSON.stringify(receivedData));
+      // }
       broadcast(JSON.stringify(receivedData));
+    })
+  })
+}
+      
       
     // if(receivedData.type === 'submit-survey'){
     //   console.log('it sent');
@@ -35,15 +47,17 @@ function init(callback) {
     // if (receivedData.type === "client join"){
     //   manageDB.addClientName(receivedData.client_name)
     // } 
-    })
-  })
+    // })
+  // })
   // wsServer.on('message', (socket)=>{
   //     console.log('received message')
   //     console.log(socket);
   // })
   
 
-}
+
+
+
 
 
 

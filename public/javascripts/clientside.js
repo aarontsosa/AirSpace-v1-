@@ -39,7 +39,12 @@ socket.onmessage = function (event) {
     if(Object.keys(theData)[0] === uniqueID){
         console.log('were in it')
         window.location.replace("http://localhost:3001/client/" + uniqueID + "/" + nameID + "/" + surveyID);
+        // socket.close();
     }
   }
 
 //http://localhost:3001/client/" + uniqueID + "/" + nameID + "/" + surveyID
+//
+
+//websocket when they get to this address, it does on connection and sends an object 
+//with the hostid then each time it gets the request it loads it in
