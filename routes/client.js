@@ -63,6 +63,7 @@ router.post('/:hostid/:name/:survey', function (req, res, next){
     console.log(resultRequest)
     socket.send(JSON.stringify(resultRequest));
     })
+
     
     res.redirect('/client/' + req.params.hostid + "/" + req.params.name)
     })

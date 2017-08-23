@@ -48,6 +48,7 @@ function init(callback) {
           }
         }).then(result2=>{
           broadcast(JSON.stringify(result2));
+          socket.close();
         });
       }
       else{
