@@ -60,6 +60,7 @@ router.get('/:hostid/:name/:survey', function(req, res, next){
 })
 
 router.post('/:hostid/:name/:survey', function (req, res, next){
+    var socket = new ws('ws://ec2-18-220-45-149.us-east-2.compute.amazonaws.com:3002');
     manageDB.addResults(req.body['result'], req.params.name, req.params.survey)
     .then((result) => {
     var resultRequest = {
@@ -70,7 +71,10 @@ router.post('/:hostid/:name/:survey', function (req, res, next){
         }
     }
     console.log(resultRequest)
-    socket.send(JSON.stringify(resultRequest));
+    socket.on('open', function(){
+        socket.send(JSON.stringify(resultRequest));
+    })
+    
     })
 
     
