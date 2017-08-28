@@ -86,7 +86,9 @@ socket.onmessage = function (event) {
         }     
     }
     if(theData.type === "fullfilledResult"){
+        console.log(theData);
         if(theData.id.toString() === uniqueID.toString()){
+            
             createResultTable(theData.fullfilledResult);
         }
         
