@@ -66,23 +66,24 @@ function addClientName(object){
 
 function getClientResults(host_id, survey_id){
   return db.query(`
-      SELECT c.client_name, q.question, r.result
-      FROM host_survey hs
-      INNER JOIN client_host ch
-      ON hs.host_id = ch.host_id
-      INNER JOIN clients c
-      ON ch.client_id = c.client_id
-      INNER JOIN results_clients rc
-      ON c.client_id = rc.client_id
-      INNER JOIN results_questions rq
-      ON rc.result_id = rq.result_id
-      INNER JOIN results r
-      ON rq.result_id = r.result_id
-      INNER JOIN results_questions qr
-      ON r.result_id = qr.result_id
-      INNER JOIN questions q
-      ON qr.question_id = q.question_id
-      WHERE hs.host_id = ${host_id} and hs.survey_id = ${survey_id};
+  SELECT c.client_name, q.question, r.result
+  From clients c 
+  inner join results_clients rc
+  on c.client_id = rc.client_id
+  
+  inner join results r
+  on rc.result_id = r.result_id
+  
+  inner join results_questions rq
+  on rc.result_id = rq.result_id
+  
+  inner join survey_questions sq
+  on rq.question_id = sq.question_id
+  
+  inner join questions q
+  on sq.question_id = q.question_id
+    
+    WHERE sq.survey_id = ${survey_id};
   `).catch(console.log)
 }
 
@@ -201,24 +202,24 @@ function addResults(array, name, survey){
   }
   else{
     for(let i=0; i < array.length; i++){
-    return db.one(`
+    db.one(`
         INSERT INTO results(result)
         VALUES('${array[i]}')
         RETURNING result_id;
     `).then(result_id => {
-        return db.query(`
+        db.query(`
             SELECT sq.question_id
             FROM host_survey hs
             INNER JOIN survey_questions sq
             ON hs.survey_id = sq.survey_id
             WHERE hs.survey_id = ${survey};
           `).then(question_ids => {
-            return db.one(`
+            db.one(`
                 INSERT INTO results_questions(result_id, question_id)
                 VALUES(${result_id.result_id}, ${question_ids[i].question_id})
                 RETURNING question_id;
             `).then(question_id => {
-              return db.one(`
+              db.one(`
                     INSERT INTO results_clients(result_id, client_id)
                     VALUES(${result_id.result_id}, ${name})
                     RETURNING client_id;

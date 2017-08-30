@@ -30,7 +30,7 @@ function addTableRow(tbody, num, array){
 }
 
 function createResultTable(data) {
-    var table = $("<table>", {class:"table table-striped"})
+    var table = $("<table>", {class:"table"})
     var thead = $("<thead>")
     var header = $("<tr>")
     var tbody = $("<tbody>")
@@ -87,6 +87,7 @@ socket.onmessage = function (event) {
         }     
     }
     if(theData.type === "fullfilledResult" && theData.id === uniqueID){
+        console.log(theData)
         createResultTable(theData.fullfilledResult)
     }
 

@@ -26,6 +26,12 @@ a {
   color: black;
  }
 
+ a.btn.btn-primary.btn-lg {
+  margin: 35px;
+  width: 152px;
+  font-size: 37px;
+}
+
 /* ----- HAMBURGER MENU --------------------------------------- */
 
 .nav {
@@ -370,6 +376,11 @@ input.create-another-survey {
   font-size: .8rem;
   border-radius: 1rem;
   padding: 1rem; 
+}
+
+.table-results {
+  border: 1px solid white;
+  padding: 8px;
 }
 
 .activation-box {

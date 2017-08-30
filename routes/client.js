@@ -51,20 +51,11 @@ router.get('/:hostid/:name/:survey', function(req, res, next){
 })
 
 router.post('/:hostid/:name/:survey', function (req, res, next){
+    console.log(req.body['result'])
+    console.log(req.params.survey)
+    console.log(req.params.name)
     manageDB.addResults(req.body['result'], req.params.name, req.params.survey)
-    .then((result) => {
-    var resultRequest = {
-        type: "survey request",
-        request: {
-            'ID': req.params.hostid,
-            'survey_id': req.params.survey 
-        }
-    }
-    console.log(resultRequest)
-    socket.send(JSON.stringify(resultRequest));
-    })
 
-    
     res.redirect('/client/' + req.params.hostid + "/" + req.params.name)
     })
     
