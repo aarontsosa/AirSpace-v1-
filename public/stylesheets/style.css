@@ -26,6 +26,12 @@ a {
   color: black;
  }
 
+ a.btn.btn-primary.btn-lg {
+  margin: 35px;
+  width: 152px;
+  font-size: 37px;
+}
+
 /* ----- HAMBURGER MENU --------------------------------------- */
 
 .nav {
