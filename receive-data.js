@@ -26,6 +26,8 @@ function init(callback) {
       console.log(receivedData.type)
       
       if(receivedData.type === "survey request"){
+        console.log(receivedData.request['ID'])
+        console.log(receivedData.request['survey_id'])
         manageDB.getClientResults(receivedData.request['ID'], receivedData.request['survey_id']).then(result => {
           fullfilledResult = []
           manageDB.formatNamesResults(result)
