@@ -1,4 +1,5 @@
-let socket = new WebSocket('ws://'+ window.location.hostname + ':3002');
+// let socket = new WebSocket('ws://'+ window.location.hostname + ':3002');
+var socket = new ws('ws://ec2-18-220-45-149.us-east-2.compute.amazonaws.com:3002');
 
 function sendToWebSocket(message){
     socket.send(JSON.stringify(message));

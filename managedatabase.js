@@ -60,7 +60,7 @@ function addClientName(object){
           VALUES(${[client_id][0].client_id}, ${host_id[0].host_id}) 
           RETURNING client_id, host_id
   `)
-  })
+  }).catch(console.log(err))
   })
 }
 
