@@ -1,4 +1,4 @@
-let socket = new WebSocket('ws://ec2-18-220-45-149.us-east-2.compute.amazonaws.com:3002');
+let socket = new WebSocket('ws://'+ window.location.hostname + ':3002');
 
 console.log("hello")
 function format(data){
@@ -41,7 +41,7 @@ socket.onmessage = function (event) {
         console.log(surveyID)
         if(Object.keys(theData)[0] === uniqueID){
             console.log('were in it')
-            window.location.replace("ws://ec2-18-220-45-149.us-east-2.compute.amazonaws.com" + uniqueID + "/" + nameID + "/" + surveyID);
+            window.location.replace("http://ec2-18-220-45-149.us-east-2.compute.amazonaws.com/" + uniqueID + "/" + nameID + "/" + surveyID);
             // socket.close();
         }
     }
