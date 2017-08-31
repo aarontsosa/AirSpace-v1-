@@ -23,7 +23,7 @@ router.post('/', function(req, res, next) {
     }
     
     manageDB.addClientName(client).then(result =>{ 
-        var socket = new ws('ws://ec2-18-220-45-149.us-east-2.compute.amazonaws.com:3002');
+        
         var sendToServer = {
             type: 'client-connection',
             'uniqueID': {
@@ -31,6 +31,7 @@ router.post('/', function(req, res, next) {
                 'nameID': result.client_id,
             }
         }
+        var socket = new ws('ws://ec2-18-220-45-149.us-east-2.compute.amazonaws.com:3002');
         sendToWebSocket(sendToServer);
         res.redirect('/client/' + result.host_id + '/' + result.client_id);
     })
