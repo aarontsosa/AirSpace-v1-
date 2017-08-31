@@ -3,10 +3,9 @@ var router = express.Router();
 var manageDB = require("../managedatabase");
 var db = require('../db');
 const ws = require('ws');
-var socket = new ws('ws://ec2-18-220-45-149.us-east-2.compute.amazonaws.com:3002');
+
 
 function sendToWebSocket(message){
-    var socket = new ws('ws://ec2-18-220-45-149.us-east-2.compute.amazonaws.com:3002');
         socket.send(JSON.stringify(message));
     }
 
