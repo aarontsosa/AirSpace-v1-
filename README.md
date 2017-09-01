@@ -66,15 +66,15 @@ work, play, and learning.
 * [1. Concept]
 * [2. Initial Planning]
 * [3. Database Architecture]
-* [4. Structuring User Interface]
-* [5. Challenges and Successes]
+* [4. Challenges and Successes]
+* [5. Future Planning for AirSpace v.2 with React.js]
 
 ### 1. Concept
 
 We developed AirSpace with the intention of creating a multipurpose space where host users could poll other users and send information
 back and forth instantly.
 
-We'd seen digital audience response systems like this in videogames (like popular party quiz games) and lecture halls (using "clickers"), but not in the form of a portable app that could be easily accessed on mobile, without requiring any kind of extra hardware or software.
+We'd seen digital audience response systems like this in videogames (like popular party quiz games) and lecture halls (using "clickers"), but not in the form of a portable app that could be easily accessed on mobile, without requiring any kind of extra hardware or software installation.
 
 ### 2. Initial Planning
 
@@ -91,11 +91,23 @@ We decided to begin working on a structure with two servers exchanging messages 
 
 ### 3. Database Architecture
 
-The "Question Handler" file that we'd anticipated in our initial plans later became our `managedatabase.js` file.
+[9-1-17]
 
-### 4. Structuring User Interface
+As our four bullet points might have betrayed, our initial planning had an overly simplistic view of how databases work. We were thinking in terms of one big table, like a glorified Excel sheet.
+We soon realized that to be more efficient, we would have to break our data into smaller categories.
 
-### 5. Challenges and Successes
+This was our ultimate table structure (image via Postico):
+
+![postico screenshot](readme-materials/tables.png)
+
+Primary tables: hosts, clients, surveys, answers, questions scores, and results.
+Linking tables: client_host, host_survey, survey_questions, questions_answers, results_clients, and results_questions.
+
+This structure allows us to create more straightforward database queries.
+
+### 4. Challenges and Successes
+
+### 5. Future Planning for AirSpace v.2 with React.js
 
 ## Closing Thoughts
 
