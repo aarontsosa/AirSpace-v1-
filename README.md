@@ -21,11 +21,9 @@ entering their host's unique passport key. The host can then send surveys and vi
 * jQuery 3.2.1
 * HTML5/CSS3
 
-## Installation Requirements
-
 ## Walkthrough
 
-When a user visits [41r5p4c3.com or whatever domain we can get our hands on], they will be prompted to select their user type: Host or Guest.
+When a user visits AirSpace, they will be prompted to select their user type: Host or Guest.
 
 ![demonstrative picture of front page](readme-materials/host-guest.png)
 
