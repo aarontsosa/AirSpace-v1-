@@ -161,9 +161,11 @@ Setting up and learning how to use PostgreSQL and Postico constituted the first 
 
 We want our `managedatabase.js` file to be more modular, and to turn our functions into class methods. Right now, some of the functions in `managedatabase.js` become somewhat verbose in their usage of Promise chains, so we want to break our functions down to be more "simple" and single-minded-- as we did with the design of our database architecture.
 
-We would also like to add an encrypted log-in feature for host users and store their serial-numerical GUIDs in the database.
+* An encrypted log-in feature for host users and store their serial-numerical GUIDs in the database
+* Improved accuracy of our current Active Guest Users display and functionality on the Host Dashboard
+* Ability for guest users to ping the host user for assistance
+* Implementing a multiple choice survey type
 
-We would also like to improve the accuracy of our current Active Guest Users display and functionality on the Host Dashboard.
 
 ## License 
 Copyright <2017> <Aaron Sosa, Tim Brady, Nat Ventura>
