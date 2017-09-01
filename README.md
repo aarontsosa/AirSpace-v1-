@@ -41,22 +41,28 @@ In other words, if you want someone to take your quiz or join your party game, y
 ![picture of guest page](readme-materials/guestpage.png)
 
 Once a Guest enters the Host's passport key on the Guest Page, they will either be directed to the Host's active survey, or to the
-Waiting Room. If the Host has not activated a survey, their Guests will remain in the Waiting Room until the Host activates a survey.
+Waiting Area. If the Host has not activated a survey, their Guests will remain in the Waiting Room until the Host activates a survey.
 Hosts can also activate already-existing surveys previously created under their unique passport key.
 
 Once Guests are brought to a survey page, they can fill out their answers and submit the survey to the Host in real time.
-The Host will be able to view Guest submissions on their Host Dashboard as they come in.
-
-The rest is up to the Host!
-
-**//Give further explanation of what will happen if it's a quiz, or a party game.**
+The Host will be able to view Guest submissions on their Host Dashboard as they come in. The rest is up to the Host!
 
 Our hope is that AirSpace will facilitate group communication in all kinds of different contexts--
 work, play, and learning.
 
 ### Host Instructions
 
+On the AirSpace front page, select "Host." You will be brought to the Host Page, which will display your unique passport key in a white box. We recommend writing down this passport key or saving it somewhere so that you can share it with your guest users. You will then be prompted to create a survey.
+
+![picture of create a survey form](readme-materials/create-survey.png)
+
+After clicking submit, you will then have the option to activate your survey on the Host Dashboard. Once your survey is activated and your Guest users have joined your session, the activated survey will display on your Guest users' screens.
+
 ### Guest Instructions
+
+A Host user should provide you with their unique passport key, which you will be prompted to input on the Student Page along with your name. After you click submit, you will be moved to the Waiting Area until your Host activates a survey. Once the survey is activated, it will automatically display on your screen.
+
+Once you have filled out your answers, you can click submit at the bottom of your survey, and your results will be instantly sent to your Host's Dashboard.
 
 ## Development Process
 * [1. Concept]
