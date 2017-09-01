@@ -93,6 +93,10 @@ We decided to begin working on a structure with two servers exchanging messages 
 
 [9-1-17]
 
+All of our pages are dynamically rendered from the server using Handlebars.js. We used helper files such as `managedatabase.js` to send data to the front end using WebSockets, POST and GET requests.
+
+Our `managedatabase.js` file accesses the database with query functions like `addHostToDatabase`, `addSurveyToDatabase`, `getClientResults`, `getQuestions`, etc. We then send the output of these functions to `receive-data.js`, and files such as `clientside.js`, `hostdashboard.js`, and `survey-create.js`, which sends and receives WebSocket information from the front-end.
+
 As our four bullet points in the last section might have revealed, our initial planning had an overly simplistic view of how databases work. We were thinking in terms of one big table, like a glorified Excel sheet.
 We soon realized that to be more efficient, we would have to break our data into smaller categories.
 
