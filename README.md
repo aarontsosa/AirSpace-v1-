@@ -38,7 +38,7 @@ After creating a survey, Hosts should then share their unique passport key with 
 
 In other words, if you want someone to take your quiz or join your party game, you have to let them know what your unique passport key is, so that they can enter it on the Guest Page.
 
-![picture of guest page](readme-materials/guestpage.png)
+![picture of guest page](readme-materials/guestpage.png | width=100)
 
 Once a Guest enters the Host's passport key on the Guest Page, they will either be directed to the Host's active survey, or to the
 Waiting Room. If the Host has not activated a survey, their Guests will remain in the Waiting Room until the Host activates a survey.
