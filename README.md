@@ -1,5 +1,7 @@
 # AirSpace
 
+![screenshot of desktop display](readme-materials/frontpage-desktop.png)
+
 AirSpace is a group response platform that allows group members to provide feedback and answer a host user's questions.
 Group members can initiate or join existing sessions via phone, tablet, or computer by going to the AirSpace website and
 entering their host's unique passport key. The host can then send surveys and view member responses in real time.
@@ -24,17 +26,21 @@ entering their host's unique passport key. The host can then send surveys and vi
 ## Walkthrough
 
 When a user visits [41r5p4c3.com or whatever domain we can get our hands on], they will be prompted to select their user type: Host or Guest.
-[**insert demonstrative picture of front page here**]
+
+![demonstrative picture of front page](readme-materials/host-guest.png)
+
 A Host can be a teacher, team leader, presenter, or just the guy at the kickback who loves a good party game.
 A Guest can be a student, team member, an audience member, or a skeptical party guest along for the ride.
 
 A Host will be assigned a unique passport key after selecting "Host" on the front page. They will then have the option to create a survey.
-[**insert picture of "Create Survey" prompt**]
+
+![picture of "create a survey" prompt on host page](readme-materials/hostpage.png)
 
 After creating a survey, Hosts should then share their unique passport key with their intended Guests.
-[**insert picture of passport key**]
+
 In other words, if you want someone to take your quiz or join your party game, you have to let them know what your unique passport key is, so that they can enter it on the Guest Page.
-[**insert picture of guest page**]
+
+![picture of guest page](readme-materials/guestpage.png)
 
 Once a Guest enters the Host's passport key on the Guest Page, they will either be directed to the Host's active survey, or to the
 Waiting Room. If the Host has not activated a survey, their Guests will remain in the Waiting Room until the Host activates a survey.
