@@ -1,6 +1,6 @@
 # AirSpace
 
-![screenshot of desktop display](readme-materials/frontpage-desktop.png)
+![screenshot of desktop display](readme-materials/frontpage.png)
 
 AirSpace is a group response platform that allows group members to provide feedback and answer a host user's questions.
 Group members can initiate or join existing sessions via phone, tablet, or computer by going to the AirSpace website and
