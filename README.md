@@ -42,12 +42,10 @@ In other words, if you want someone to take your quiz or join your party game, y
 
 Once a Guest enters the Host's passport key on the Guest Page, they will either be directed to the Host's active survey, or to the
 Waiting Room. If the Host has not activated a survey, their Guests will remain in the Waiting Room until the Host activates a survey.
-[**insert picture of survey activation toggle**]
 Hosts can also activate already-existing surveys previously created under their unique passport key.
 
 Once Guests are brought to a survey page, they can fill out their answers and submit the survey to the Host in real time.
 The Host will be able to view Guest submissions on their Host Dashboard as they come in.
-[**insert picture of Host Dashboard page**]
 
 The rest is up to the Host!
 
