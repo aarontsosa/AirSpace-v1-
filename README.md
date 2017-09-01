@@ -93,10 +93,6 @@ We decided to begin working on a structure with two servers exchanging messages 
 
 [9-1-17]
 
-All of our pages are dynamically rendered from the server using Handlebars.js. We used helper files such as `managedatabase.js` to send data to the front end using WebSockets, POST and GET requests.
-
-Our `managedatabase.js` file accesses the database with query functions like `addHostToDatabase`, `addSurveyToDatabase`, `getClientResults`, `getQuestions`, etc. We then send the output of these functions to `receive-data.js`, and files such as `clientside.js`, `hostdashboard.js`, and `survey-create.js`, which sends and receives WebSocket information from the front-end.
-
 As our four bullet points in the last section might have revealed, our initial planning had an overly simplistic view of how databases work. We were thinking in terms of one big table, like a glorified Excel sheet.
 We soon realized that to be more efficient, we would have to break our data into smaller categories.
 
@@ -145,11 +141,29 @@ function getClientResults(host_id, survey_id){
 
 The `inner join` allows us to create a new results table by referring to different table columns using their IDs.
 
+We used Node.js as our backend server to output results that we get from the database and add necessary dependencies such as pg-promise and WebSockets. We initialized our app using Express and set up `dotenv` for database security.
+
+The live site of our first version runs on Amazon Web Services EC2. We set up a pm2 environment to auto-run the environment on the EC2.
+
+All of our pages are dynamically rendered from the server using Handlebars.js. We used helper files such as `managedatabase.js` to send data to the front end using WebSockets, POST and GET requests.
+
+Our `managedatabase.js` file accesses the database with query functions such as `addHostToDatabase`, `addSurveyToDatabase`, `getClientResults`, `getQuestions`, etc. The `receive-data.js` file handles received websocket information from the front-end.
+
+To send websocket information back and forth, we created a series of objects with key-value pairs which notify the front and back-end how to handle the received data.
+
+Currently, we're using jQuery to run React-like updating, but in AirSpace v.2, we will "Reactify" major places of jQuery manipulation (such as `hostdashboard.js`).
+
 ### 4. Challenges and Successes
+
+Setting up and learning how to use PostgreSQL and Postico constituted the first biggest hurdles of this project. Connecting the back-end to the front-end also presented a later challenge. We didn't realize we would have to add types to the data sent through websocket.
 
 ### 5. Future Planning for AirSpace v.2 with React.js
 
-## Closing Thoughts
+We want our `managedatabase.js` file to be more modular, and to turn our functions into class methods. Right now, some of the functions in `managedatabase.js` become somewhat verbose in their usage of Promise chains, so we want to break our functions down to be more "simple" and single-minded-- as we did with the design of our database architecture.
+
+We would also like to add an encrypted log-in feature for host users and store their serial-numerical GUIDs in the database.
+
+We would also like to improve the accuracy of our current Active Guest Users display and functionality on the Host Dashboard.
 
 ## License 
 Copyright <2017> <Aaron Sosa, Tim Brady, Nat Ventura>
