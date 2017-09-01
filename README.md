@@ -93,7 +93,7 @@ We decided to begin working on a structure with two servers exchanging messages 
 
 [9-1-17]
 
-As our four bullet points might have betrayed, our initial planning had an overly simplistic view of how databases work. We were thinking in terms of one big table, like a glorified Excel sheet.
+As our four bullet points in the last section might have revealed, our initial planning had an overly simplistic view of how databases work. We were thinking in terms of one big table, like a glorified Excel sheet.
 We soon realized that to be more efficient, we would have to break our data into smaller categories.
 
 This was our ultimate table structure (image via Postico):
@@ -101,9 +101,45 @@ This was our ultimate table structure (image via Postico):
 ![postico screenshot](readme-materials/tables.png)
 
 Primary tables: hosts, clients, surveys, answers, questions scores, and results.
+
 Linking tables: client_host, host_survey, survey_questions, questions_answers, results_clients, and results_questions.
 
-This structure allows us to create more straightforward database queries.
+Each primary table holds two columns: the content and content ID. For example:
+
+![results table screenshot](readme-materials/results.png)
+![host table screenshot](readme-materials/host-id.png)
+![client table screenshot](readme-materials/clients.png)
+
+With this structure, we are able to access information with more straightforward SQL queries. For example, when we use the `getClientResults` function in `managedatabase.js`, we select three different items from multiple tables:
+
+```
+
+function getClientResults(host_id, survey_id){
+  return db.query(`
+  SELECT c.client_name, q.question, r.result
+  From clients c 
+  inner join results_clients rc
+  on c.client_id = rc.client_id
+  
+  inner join results r
+  on rc.result_id = r.result_id
+  
+  inner join results_questions rq
+  on rc.result_id = rq.result_id
+  
+  inner join survey_questions sq
+  on rq.question_id = sq.question_id
+  
+  inner join questions q
+  on sq.question_id = q.question_id
+    
+    WHERE sq.survey_id = ${survey_id};
+  `).catch(console.log)
+}
+
+```
+
+The `inner join` allows us to create a new results table by referring to different table columns using their IDs.
 
 ### 4. Challenges and Successes
 
