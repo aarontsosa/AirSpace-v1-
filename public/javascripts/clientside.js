@@ -42,7 +42,7 @@ socket.onmessage = function (event) {
         console.log(surveyID)
         if(Object.keys(theData)[0] === uniqueID){
             console.log('were in it')
-            window.location.replace("http://ec2-18-220-45-149.us-east-2.compute.amazonaws.com/" + uniqueID + "/" + nameID + "/" + surveyID);
+            window.location.replace("http://ec2-18-220-45-149.us-east-2.compute.amazonaws.com/client/" + uniqueID + "/" + nameID + "/" + surveyID);
             // socket.close();
         }
     }

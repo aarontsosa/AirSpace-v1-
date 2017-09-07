@@ -38,6 +38,8 @@ function init(callback) {
         })
       }
       if(receivedData.type === "client-connection"){
+        console.log(receivedData);
+        console.log("receive data above");
         return manageDB.getName(receivedData['uniqueID']['nameID'], receivedData['uniqueID']['ID']).then(result =>{
           console.log(receivedData['uniqueID']['ID'])
           return name = {

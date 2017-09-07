@@ -14,6 +14,7 @@ router.get('/', function(req, res, next) {
   });
 
 router.post('/', function(req, res, next) {
+    
     host_id = req.body['host-id']
     name_id = req.body['client-name']
     client = {
@@ -32,15 +33,17 @@ router.post('/', function(req, res, next) {
                 'nameID': result.client_id,
             }
         }
-        socket.on('open', function(){
+        
+        socket.on('open', () =>{
+            console.log("the socket is open TIMMY HERE")
             socket.send(JSON.stringify(sendToServer));
             res.redirect('/client/' + result.host_id + '/' + result.client_id);
         });
         
-        
        
         
     }).catch(console.log)
+    
 });
 
 router.get('/:hostid/:name', function(req, res, next){
@@ -60,6 +63,7 @@ router.get('/:hostid/:name/:survey', function(req, res, next){
 })
 
 router.post('/:hostid/:name/:survey', function (req, res, next){
+
     console.log(req.body['result'])
     console.log(req.params.survey)
     console.log(req.params.name)

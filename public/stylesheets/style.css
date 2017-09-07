@@ -371,7 +371,7 @@ input.create-another-survey {
 }
 
 .activate-survey {
-  /* background-color: #33A346; */
+  background-color: rgb(125, 178, 134);
   color: white;
   font-size: .8rem;
   border-radius: 1rem;
