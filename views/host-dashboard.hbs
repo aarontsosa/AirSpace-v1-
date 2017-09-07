@@ -9,10 +9,10 @@
                 <h3>Surveys</h3>
                 <div class="activation-box">
                     {{#each result}}
-                        <div>
+                        
                         <button type="button" data-target="activate-survey" data-survey-id='{{survey_id}}' class="activate-survey">Activate: {{survey_name}}</button>
-                        <button type="button" data-target="results" class="activate-survey" data-survey-id="{{survey_id}}">Results for: {{survey_name}}</button>
-                        </div>
+                        <button type="button" data-target="results" data-survey-id="{{survey_id}}">Results for: {{survey_name}}</button>
+                        
                         <br>
                         <br>
                     {{/each}}

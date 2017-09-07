@@ -378,6 +378,14 @@ input.create-another-survey {
   padding: 1rem; 
 }
 
+#survey-results{
+  background-color: rgb(125, 178, 134);
+  color: white;
+  font-size: .8rem;
+  border-radius: 1rem;
+  padding: 1rem; 
+}
+
 .table-results {
   border: 1px solid white;
   padding: 8px;
