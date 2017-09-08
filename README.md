@@ -1,5 +1,7 @@
 # AirSpace
 
+![screenshot of desktop display](readme-materials/frontpage.png)
+
 AirSpace is a group response platform that allows group members to provide feedback and answer a host user's questions.
 Group members can initiate or join existing sessions via phone, tablet, or computer by going to the AirSpace website and
 entering their host's unique passport key. The host can then send surveys and view member responses in real time.
@@ -19,56 +21,62 @@ entering their host's unique passport key. The host can then send surveys and vi
 * jQuery 3.2.1
 * HTML5/CSS3
 
-## Installation Requirements
-
 ## Walkthrough
 
-When a user visits [41r5p4c3.com or whatever domain we can get our hands on], they will be prompted to select their user type: Host or Guest.
-[**insert demonstrative picture of front page here**]
+When a user visits AirSpace, they will be prompted to select their user type: Host or Guest.
+
+![demonstrative picture of front page](readme-materials/host-guest.png)
+
 A Host can be a teacher, team leader, presenter, or just the guy at the kickback who loves a good party game.
 A Guest can be a student, team member, an audience member, or a skeptical party guest along for the ride.
 
 A Host will be assigned a unique passport key after selecting "Host" on the front page. They will then have the option to create a survey.
-[**insert picture of "Create Survey" prompt**]
+
+![picture of "create a survey" prompt on host page](readme-materials/hostpage.png)
 
 After creating a survey, Hosts should then share their unique passport key with their intended Guests.
-[**insert picture of passport key**]
+
 In other words, if you want someone to take your quiz or join your party game, you have to let them know what your unique passport key is, so that they can enter it on the Guest Page.
-[**insert picture of guest page**]
+
+![picture of guest page](readme-materials/guestpage.png)
 
 Once a Guest enters the Host's passport key on the Guest Page, they will either be directed to the Host's active survey, or to the
-Waiting Room. If the Host has not activated a survey, their Guests will remain in the Waiting Room until the Host activates a survey.
-[**insert picture of survey activation toggle**]
+Waiting Area. If the Host has not activated a survey, their Guests will remain in the Waiting Room until the Host activates a survey.
 Hosts can also activate already-existing surveys previously created under their unique passport key.
 
 Once Guests are brought to a survey page, they can fill out their answers and submit the survey to the Host in real time.
-The Host will be able to view Guest submissions on their Host Dashboard as they come in.
-[**insert picture of Host Dashboard page**]
-
-The rest is up to the Host!
-
-**//Give further explanation of what will happen if it's a quiz, or a party game.**
+The Host will be able to view Guest submissions on their Host Dashboard as they come in. The rest is up to the Host!
 
 Our hope is that AirSpace will facilitate group communication in all kinds of different contexts--
 work, play, and learning.
 
 ### Host Instructions
 
+On the AirSpace front page, select "Host." You will be brought to the Host Page, which will display your unique passport key in a white box. We recommend writing down this passport key or saving it somewhere so that you can share it with your guest users. You will then be prompted to create a survey.
+
+![picture of create a survey form](readme-materials/create-survey.png)
+
+After clicking submit, you will then have the option to activate your survey on the Host Dashboard. Once your survey is activated and your Guest users have joined your session, the activated survey will display on your Guest users' screens.
+
 ### Guest Instructions
+
+A Host user should provide you with their unique passport key, which you will be prompted to input on the Student Page along with your name. After you click submit, you will be moved to the Waiting Area until your Host activates a survey. Once the survey is activated, it will automatically display on your screen.
+
+Once you have filled out your answers, you can click submit at the bottom of your survey, and your results will be instantly sent to your Host's Dashboard.
 
 ## Development Process
 * [1. Concept]
 * [2. Initial Planning]
 * [3. Database Architecture]
-* [4. Structuring User Interface]
-* [5. Challenges and Successes]
+* [4. Challenges and Successes]
+* [5. Future Planning for AirSpace v.2 with React.js]
 
 ### 1. Concept
 
 We developed AirSpace with the intention of creating a multipurpose space where host users could poll other users and send information
 back and forth instantly.
 
-We'd seen digital audience response systems like this in videogames (like popular party quiz games) and lecture halls (using "clickers"), but not in the form of a portable app that could be easily accessed on mobile, without requiring any kind of extra hardware or software.
+We'd seen digital audience response systems like this in videogames (like popular party quiz games) and lecture halls (using "clickers"), but not in the form of a portable app that could be easily accessed on mobile, without requiring any kind of extra hardware or software installation.
 
 ### 2. Initial Planning
 
@@ -85,13 +93,81 @@ We decided to begin working on a structure with two servers exchanging messages 
 
 ### 3. Database Architecture
 
-The "Question Handler" file that we'd anticipated in our initial plans later became our `managedatabase.js` file.
+[9-1-17]
 
-### 4. Structuring User Interface
+As our four bullet points in the last section might have revealed, our initial planning had an overly simplistic view of how databases work. We were thinking in terms of one big table, like a glorified Excel sheet.
+We soon realized that to be more efficient, we would have to break our data into smaller categories.
 
-### 5. Challenges and Successes
+This was our ultimate table structure (image via Postico):
 
-## Closing Thoughts
+![postico screenshot](readme-materials/tables.png)
+
+Primary tables: hosts, clients, surveys, answers, questions scores, and results.
+
+Linking tables: client_host, host_survey, survey_questions, questions_answers, results_clients, and results_questions.
+
+Each primary table holds two columns: the content and content ID. For example:
+
+![results table screenshot](readme-materials/results.png)
+![host table screenshot](readme-materials/host-id.png)
+![client table screenshot](readme-materials/clients.png)
+
+With this structure, we are able to access information with more straightforward SQL queries. For example, when we use the `getClientResults` function in `managedatabase.js`, we select three different items from multiple tables:
+
+```
+
+function getClientResults(host_id, survey_id){
+  return db.query(`
+  SELECT c.client_name, q.question, r.result
+  From clients c 
+  inner join results_clients rc
+  on c.client_id = rc.client_id
+  
+  inner join results r
+  on rc.result_id = r.result_id
+  
+  inner join results_questions rq
+  on rc.result_id = rq.result_id
+  
+  inner join survey_questions sq
+  on rq.question_id = sq.question_id
+  
+  inner join questions q
+  on sq.question_id = q.question_id
+    
+    WHERE sq.survey_id = ${survey_id};
+  `).catch(console.log)
+}
+
+```
+
+The `inner join` allows us to create a new results table by referring to different table columns using their IDs.
+
+We used Node.js as our backend server to output results that we get from the database and add necessary dependencies such as pg-promise and WebSockets. We initialized our app using Express and set up `dotenv` for database security.
+
+The live site of our first version runs on Amazon Web Services EC2. We set up a pm2 environment to auto-run the environment on the EC2.
+
+All of our pages are dynamically rendered from the server using Handlebars.js. We used helper files such as `managedatabase.js` to send data to the front end using WebSockets, POST and GET requests.
+
+Our `managedatabase.js` file accesses the database with query functions such as `addHostToDatabase`, `addSurveyToDatabase`, `getClientResults`, `getQuestions`, etc. The `receive-data.js` file handles received websocket information from the front-end.
+
+To send websocket information back and forth, we created a series of objects with key-value pairs which notify the front and back-end how to handle the received data.
+
+Currently, we're using jQuery to run React-like updating, but in AirSpace v.2, we will "Reactify" major places of jQuery manipulation (such as `hostdashboard.js`).
+
+### 4. Challenges and Successes
+
+Setting up and learning how to use PostgreSQL and Postico constituted the first biggest hurdles of this project. Connecting the back-end to the front-end also presented a later challenge. We didn't realize we would have to add types to the data sent through websocket.
+
+### 5. Future Planning for AirSpace v.2 with React.js
+
+We want our `managedatabase.js` file to be more modular, and to turn our functions into class methods. Right now, some of the functions in `managedatabase.js` become somewhat verbose in their usage of Promise chains, so we want to break our functions down to be more "simple" and single-minded-- as we did with the design of our database architecture.
+
+* An encrypted log-in feature for host users and store their serial-numerical GUIDs in the database
+* Improved accuracy of our current Active Guest Users display and functionality on the Host Dashboard
+* Ability for guest users to ping the host user for assistance
+* Implementing a multiple choice survey type
+
 
 ## License 
 Copyright <2017> <Aaron Sosa, Tim Brady, Nat Ventura>
