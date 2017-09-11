@@ -1,4 +1,5 @@
 let socket = new WebSocket('ws://'+ window.location.hostname + ':3002');
+// let socket = new WebSocket('ws://airspace.world:3002');
 
 var counter = 1
 function createTextBox(){
