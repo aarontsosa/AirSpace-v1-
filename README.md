@@ -114,7 +114,7 @@ Each primary table holds two columns: the content and content ID. For example:
 
 With this structure, we are able to access information with more straightforward SQL queries. For example, when we use the `getClientResults` function in `managedatabase.js`, we select three different items from multiple tables:
 
-```
+``` javascript
 
 function getClientResults(host_id, survey_id){
   return db.query(`
